@@ -24,10 +24,13 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 10px;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .container {
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -59,12 +62,16 @@
             grid-template-columns: 1fr;
             gap: 15px;
             padding: 15px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .calculator-section, .diagram-section {
             background: #f8f9fa;
             padding: 20px 15px;
             border-radius: 15px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         h2 {
