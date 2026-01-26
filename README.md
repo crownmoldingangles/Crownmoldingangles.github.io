@@ -458,7 +458,6 @@
                         <strong>Bevel Angle:</strong> The angle you tilt your saw blade (vertical tilt).
                         
                         <strong>Laying Flat:</strong> Crown molding lies flat on the saw table. Requires both miter and bevel angles.
-                        <strong> [How to Cut Crown Molding: A Beginner's Guide](howto.md)
                         
                         <strong>Nested:</strong> Crown molding positioned against fence at spring angle. Only miter angle needed.
                     </p>
