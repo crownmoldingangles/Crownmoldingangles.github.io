@@ -10,7 +10,7 @@
   gtag('config', 'G-XTNZ9QLRTG');
 </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport"="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Crown Molding Angle Calculator</title>
     <style>
         * {
@@ -362,6 +362,7 @@
         <div class="header">
             <h1>🔨 Crown Molding Angle Calculator</h1>
             <p>Professional-grade calculations for perfect miter and bevel cuts</p>
+            <p><a href="howto.md"> How to Cut Crown Molding: A Beginner's Guide </a></p>
         </div>
 
         <div class="content">
