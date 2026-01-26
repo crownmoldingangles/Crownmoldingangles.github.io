@@ -1,885 +1,242 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XTNZ9QLRTG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XTNZ9QLRTG');
-</script>
+    <script async src="https://www.googletagmanager.com"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XTNZ9QLRTG');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Crown Molding Angle Calculator</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 10px;
-            overflow-x: hidden;
-            width: 100%;
         }
-
         .container {
             max-width: 1200px;
-            width: 100%;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
         }
-
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px 15px;
+            padding: 30px;
             text-align: center;
         }
-
-        .header h1 {
-            font-size: clamp(1.3em, 5vw, 2.5em);
-            margin-bottom: 8px;
-            line-height: 1.2;
-        }
-
-        .header p {
-            font-size: clamp(0.8em, 3vw, 1.1em);
-            opacity: 0.95;
-            line-height: 1.4;
-        }
-
         .content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
-            padding: 15px;
-            width: 100%;
-            box-sizing: border-box;
+            gap: 20px;
+            padding: 20px;
         }
-
+        @media (min-width: 900px) { .content { grid-template-columns: 1fr 1fr; } }
+        
         .calculator-section, .diagram-section {
             background: #f8f9fa;
-            padding: 20px 15px;
+            padding: 25px;
             border-radius: 15px;
+        }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        input, select {
             width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        h2 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: clamp(1.2em, 4vw, 1.8em);
-        }
-
-        h3 {
-            font-size: clamp(0.95em, 3vw, 1.2em);
-        }
-
-        .input-group {
-            margin-bottom: 18px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
-            font-size: clamp(0.9em, 2.5vw, 1em);
-            line-height: 1.3;
-        }
-
-        input[type="number"], select {
-            width: 100%;
-            max-width: 100%;
-            padding: 14px 12px;
+            padding: 12px;
             border: 2px solid #ddd;
             border-radius: 8px;
             font-size: 16px;
-            transition: border-color 0.3s;
-            -webkit-appearance: none;
-            appearance: none;
-            box-sizing: border-box;
         }
-
-        select {
-            background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") no-repeat right 12px center;
-            padding-right: 35px;
-        }
-
-        input[type="number"]:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        small {
-            font-size: clamp(0.75em, 2vw, 0.85em);
-            line-height: 1.4;
-            display: block;
-            margin-top: 4px;
-        }
-
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .radio-group label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: normal;
-            padding: 12px;
+        .radio-group { display: flex; gap: 15px; margin-bottom: 20px; }
+        .radio-option {
+            flex: 1;
+            padding: 10px;
             background: white;
-            border-radius: 8px;
             border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
             cursor: pointer;
-            transition: all 0.2s;
-            margin-bottom: 0;
-            min-height: 48px;
         }
-
-        .radio-group label:has(input:checked) {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
-
-        input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
+        .radio-option input { width: auto; margin-right: 5px; }
+        
         button {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #764ba2;
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: clamp(1em, 3vw, 1.125em);
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            -webkit-tap-highlight-color: transparent;
-            min-height: 48px;
-        }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
-        button:hover {
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            font-size: 1.1em;
         }
 
         .results {
             margin-top: 20px;
-            padding: 18px 15px;
+            padding: 15px;
+            background: #eef2ff;
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
+        }
+        .result-value { font-size: 2em; color: #764ba2; font-weight: bold; }
+
+        /* Visualizer Styles */
+        .visual-box {
             background: white;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            border-left: 4px solid #667eea;
+            padding: 15px;
+            text-align: center;
         }
-
-        .result-item {
-            margin-bottom: 15px;
+        #sawBlade {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
         }
-
-        .result-label {
-            font-weight: 600;
-            color: #555;
-            font-size: clamp(0.8em, 2.5vw, 0.875em);
-            margin-bottom: 4px;
+        .cut-comparison {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
         }
-
-        .result-value {
-            font-size: clamp(1.8em, 6vw, 2em);
-            color: #667eea;
+        .wood-preview {
+            width: 120px;
+            height: 40px;
+            background: #d2b48c;
+            border: 1px solid #a68a64;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
             font-weight: bold;
-            line-height: 1.2;
-        }
-
-        #sawPosition {
-            font-size: clamp(0.9em, 2.5vw, 1em);
-            line-height: 1.5;
-        }
-
-        .diagram-canvas {
-            width: 100%;
-            height: auto;
-            background: white;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-            touch-action: pan-y pinch-zoom;
-            display: block;
-        }
-
-        .instructions {
-            margin-top: 20px;
-            padding: 15px;
-            background: #fff3cd;
-            border-radius: 10px;
-            border-left: 4px solid #ffc107;
-        }
-
-        .instructions h3 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-
-        .instructions ol {
-            margin-left: 18px;
-            color: #856404;
-            padding-left: 0;
-        }
-
-        .instructions li {
-            margin-bottom: 8px;
-            font-size: clamp(0.85em, 2.5vw, 0.95em);
-            line-height: 1.6;
-            padding-left: 4px;
-        }
-
-        .info-box {
-            margin-top: 20px;
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
-        }
-
-        .info-box p {
-            color: #555;
-            line-height: 1.7;
-            font-size: clamp(0.85em, 2.5vw, 0.95em);
-        }
-
-        .info-box strong {
-            display: block;
-            margin-bottom: 5px;
-            margin-top: 10px;
-            color: #667eea;
-        }
-
-        .info-box strong:first-child {
-            margin-top: 0;
-        }
-
-        @media (min-width: 768px) {
-            body {
-                padding: 20px;
-            }
-
-            .content {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-                padding: 30px;
-            }
-
-            .calculator-section, .diagram-section {
-                padding: 25px;
-            }
-
-            .header {
-                padding: 30px;
-            }
-
-            .radio-group {
-                flex-direction: row;
-                gap: 15px;
-            }
-
-            .radio-group label {
-                flex: 1;
-            }
-
-            .diagram-canvas {
-                min-height: 450px;
-                max-height: 600px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 8px;
-            }
-
-            .content {
-                padding: 12px;
-                gap: 12px;
-            }
-
-            .calculator-section, .diagram-section {
-                padding: 15px 12px;
-            }
-
-            .header {
-                padding: 15px 12px;
-            }
-
-            .input-group {
-                margin-bottom: 16px;
-            }
-
-            .results {
-                padding: 15px 12px;
-            }
-
-            .instructions, .info-box {
-                padding: 12px;
-            }
-
-            .diagram-canvas {
-                min-height: 300px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .header h1 {
-                font-size: 1.2em;
-            }
-
-            .diagram-canvas {
-                min-height: 280px;
-            }
+            transition: clip-path 0.5s;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🔨 Crown Molding Angle Calculator</h1>
-            <p>Professional-grade calculations for perfect miter and bevel cuts</p>
-        </div>
 
-        <div class="content">
-            <div class="calculator-section">
-                <h2>Input Parameters</h2>
-                
-                <div class="input-group">
-                    <label for="cornerAngle">Corner Angle (degrees)</label>
-                    <input type="number" id="cornerAngle" value="90" min="1" max="180" step="0.1" inputmode="decimal">
-                    <small style="color: #666;">Most corners are 90°, but measure if unsure</small>
-                </div>
+<div class="container">
+    <div class="header">
+        <h1>Crown Molding Calculator</h1>
+        <p>Precise Miter & Bevel Angles for Perfect Corners</p>
+    </div>
 
-                <div class="input-group">
-                    <label for="springAngle">Crown Molding Spring Angle</label>
-                    <select id="springAngle">
-                        <option value="38">38° (52/38 - Most Common)</option>
-                        <option value="45">45° (45/45 - Standard)</option>
-                        <option value="52">52° (38/52)</option>
-                        <option value="custom">Custom Angle</option>
-                    </select>
-                </div>
-
-                <div class="input-group" id="customAngleGroup" style="display: none;">
-                    <label for="customSpringAngle">Custom Spring Angle (degrees)</label>
-                    <input type="number" id="customSpringAngle" value="38" min="1" max="89" step="0.1" inputmode="decimal">
-                </div>
-
-                <div class="input-group">
-                    <label>Corner Type</label>
-                    <div class="radio-group">
-                        <label>
-                            <input type="radio" name="cornerType" value="inside" checked>
-                            <span>Inside Corner</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="cornerType" value="outside">
-                            <span>Outside Corner</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>Cutting Position</label>
-                    <div class="radio-group">
-                        <label>
-                            <input type="radio" name="cuttingPosition" value="flat" checked>
-                            <span>Laying Flat</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="cuttingPosition" value="nested">
-                            <span>Nested (Upright)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <button onclick="calculate()">Calculate Angles</button>
-
-                <div class="results" id="results" style="display: none;">
-                    <div class="result-item">
-                        <div class="result-label">MITER ANGLE</div>
-                        <div class="result-value" id="miterAngle">--</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-label">BEVEL ANGLE</div>
-                        <div class="result-value" id="bevelAngle">--</div>
-                    </div>
-                    <div class="result-item" id="sawPositionInfo">
-                        <div class="result-label">SAW POSITION</div>
-                        <div style="color: #333; margin-top: 5px;" id="sawPosition">--</div>
-                    </div>
-                </div>
-
-                <div class="instructions">
-                    <h3>Quick Guide:</h3>
-                    <ol>
-                        <li>Measure your corner angle (usually 90°)</li>
-                        <li>Check your crown molding spring angle (usually 38° or 45°)</li>
-                        <li>Select inside or outside corner</li>
-                        <li>Choose how you'll cut (flat or nested)</li>
-                        <li>Set your saw to the calculated angles</li>
-                    </ol>
-                </div>
+    <div class="content">
+        <!-- Input Section -->
+        <div class="calculator-section">
+            <div class="input-group">
+                <label>Wall Angle (Degrees)</label>
+                <input type="number" id="wallAngle" value="90" step="0.1">
+                <small>Standard corner is 90°</small>
             </div>
 
-            <div class="diagram-section">
-                <h2>Visual Cutting Guide</h2>
-                <canvas id="diagramCanvas" class="diagram-canvas"></canvas>
-                
-                <div class="info-box">
-                    <h3 style="color: #667eea; margin-bottom: 10px;">Understanding the Cuts:</h3>
-                    <p>
-                        <strong>Miter Angle:</strong> The angle you set on your miter saw's turntable (horizontal rotation).
-                        
-                        <strong>Bevel Angle:</strong> The angle you tilt your saw blade (vertical tilt).
-                        
-                        <strong>Laying Flat:</strong> Crown molding lies flat on the saw table. Requires both miter and bevel angles.
-                        
-                        <strong>Nested:</strong> Crown molding positioned against fence at spring angle. Only miter angle needed.
-                    </p>
+            <div class="input-group">
+                <label>Spring Angle (Molding Type)</label>
+                <select id="springAngle">
+                    <option value="38">38° (Standard/Most Common)</option>
+                    <option value="45">45°</option>
+                    <option value="52">52°</option>
+                </select>
+            </div>
+
+            <label>Corner Type</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="cornerType" value="inside" checked> Inside
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="cornerType" value="outside"> Outside
+                </label>
+            </div>
+
+            <button onclick="calculate()">Calculate Settings</button>
+
+            <div class="results" id="resultArea">
+                <div>Miter Angle: <span id="miterOut" class="result-value">0.00°</span></div>
+                <div>Bevel Angle: <span id="bevelOut" class="result-value">0.00°</span></div>
+            </div>
+        </div>
+
+        <!-- Visual Section -->
+        <div class="diagram-section">
+            <h2 style="color:#764ba2; margin-bottom:15px;">Miter Saw Setup</h2>
+            <div class="visual-box">
+                <svg viewBox="0 0 200 120" width="100%">
+                    <!-- Saw Table Top Down View -->
+                    <rect x="20" y="80" width="160" height="30" fill="#e0e0e0" />
+                    <rect x="20" y="40" width="160" height="10" fill="#999" /> <!-- Fence -->
+                    
+                    <!-- Wood Stock -->
+                    <rect x="50" y="50" width="100" height="30" fill="#d2b48c" fill-opacity="0.6" />
+                    
+                    <!-- Blade Line -->
+                    <line id="sawBlade" x1="100" y1="30" x2="100" y2="100" stroke="#ff4444" stroke-width="4" />
+                </svg>
+                <p id="instructionText" style="font-size: 0.9em; margin-top: 10px; color: #555;">
+                    Adjust the saw to the angles shown.
+                </p>
+            </div>
+
+            <div class="cut-comparison">
+                <div>
+                    <p><small>Stock Piece</small></p>
+                    <div class="wood-preview">BEFORE</div>
+                </div>
+                <div>
+                    <p><small>Calculated Cut</small></p>
+                    <div id="afterPreview" class="wood-preview" style="background: #c19a6b;">AFTER</div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        const canvas = document.getElementById('diagramCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        function resizeCanvas() {
-            const container = canvas.parentElement;
-            const rect = container.getBoundingClientRect();
-            const dpr = window.devicePixelRatio || 1;
-            
-            const width = rect.width;
-            const height = width * 1.3; // Maintain aspect ratio
-            
-            canvas.width = width * dpr;
-            canvas.height = height * dpr;
-            canvas.style.width = width + 'px';
-            canvas.style.height = height + 'px';
-            
-            ctx.scale(dpr, dpr);
-            
-            if (document.getElementById('results').style.display !== 'none') {
-                calculate();
-            }
-        }
+<script>
+function calculate() {
+    const angle = parseFloat(document.getElementById('wallAngle').value);
+    const spring = parseFloat(document.getElementById('springAngle').value);
+    const type = document.querySelector('input[name="cornerType"]:checked').value;
 
-        window.addEventListener('resize', resizeCanvas);
-        window.addEventListener('orientationchange', () => {
-            setTimeout(resizeCanvas, 100);
-        });
-        resizeCanvas();
+    // Convert to radians for Math functions
+    const radWall = (angle / 2) * (Math.PI / 180);
+    const radSpring = spring * (Math.PI / 180);
 
-        document.getElementById('springAngle').addEventListener('change', function() {
-            const customGroup = document.getElementById('customAngleGroup');
-            customGroup.style.display = this.value === 'custom' ? 'block' : 'none';
-        });
+    // Standard Compound Miter Formulas
+    let miter = Math.atan(Math.sin(radSpring) / Math.tan(radWall)) * (180 / Math.PI);
+    let bevel = Math.asin(Math.cos(radSpring) * Math.cos(radWall)) * (180 / Math.PI);
 
-        function calculate() {
-            const cornerAngle = parseFloat(document.getElementById('cornerAngle').value);
-            const springAngleSelect = document.getElementById('springAngle').value;
-            const springAngle = springAngleSelect === 'custom' 
-                ? parseFloat(document.getElementById('customSpringAngle').value)
-                : parseFloat(springAngleSelect);
-            
-            const cornerType = document.querySelector('input[name="cornerType"]:checked').value;
-            const cuttingPosition = document.querySelector('input[name="cuttingPosition"]:checked').value;
+    // Display Data
+    document.getElementById('miterOut').innerText = miter.toFixed(2) + "°";
+    document.getElementById('bevelOut').innerText = bevel.toFixed(2) + "°";
 
-            let miterAngle, bevelAngle, sawPosition;
+    // Update Visuals
+    const blade = document.getElementById('sawBlade');
+    const afterPreview = document.getElementById('afterPreview');
+    const instruction = document.getElementById('instructionText');
 
-            if (cuttingPosition === 'nested') {
-                miterAngle = cornerAngle / 2;
-                bevelAngle = 0;
-                sawPosition = cornerType === 'inside' 
-                    ? 'Position crown upside down against fence at spring angle'
-                    : 'Position crown right-side up against fence at spring angle';
-            } else {
-                const cornerRad = cornerAngle * Math.PI / 180;
-                const springRad = springAngle * Math.PI / 180;
-                
-                miterAngle = Math.atan(Math.cos(springRad) * Math.tan(cornerRad / 2)) * 180 / Math.PI;
-                bevelAngle = Math.asin(Math.sin(springRad) * Math.sin(cornerRad / 2)) * 180 / Math.PI;
-                
-                if (cornerType === 'inside') {
-                    sawPosition = 'Place crown flat, bottom edge against fence, top edge on table';
-                } else {
-                    sawPosition = 'Place crown flat, top edge against fence, bottom edge on table';
-                }
-            }
+    // Visual rotation logic
+    let visualRotation = type === 'inside' ? -miter : miter;
+    blade.style.transform = `rotate(${visualRotation}deg)`;
 
-            document.getElementById('miterAngle').textContent = miterAngle.toFixed(2) + '°';
-            document.getElementById('bevelAngle').textContent = bevelAngle.toFixed(2) + '°';
-            document.getElementById('sawPosition').textContent = sawPosition;
-            document.getElementById('results').style.display = 'block';
+    if (type === 'inside') {
+        afterPreview.style.clipPath = "polygon(0 0, 100% 0, 75% 100%, 0% 100%)";
+        instruction.innerHTML = "<strong>Inside Corner:</strong> Swing saw <strong>Left</strong>. Crown flat on table, top against fence.";
+    } else {
+        afterPreview.style.clipPath = "polygon(0 0, 75% 0, 100% 100%, 0% 100%)";
+        instruction.innerHTML = "<strong>Outside Corner:</strong> Swing saw <strong>Right</strong>. Crown flat on table, top against fence.";
+    }
+}
 
-            drawDiagram(miterAngle, bevelAngle, cornerType, cuttingPosition, springAngle);
-        }
+// Run once on load
+calculate();
+</script>
 
-        function drawDiagram(miterAngle, bevelAngle, cornerType, cuttingPosition, springAngle) {
-            const dpr = window.devicePixelRatio || 1;
-            const w = canvas.width / dpr;
-            const h = canvas.height / dpr;
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            const isMobile = w < 500;
-            const isVerySmall = w < 360;
-            
-            // Animation state
-            if (!canvas.animationPhase) canvas.animationPhase = 0;
-            if (!canvas.animating) {
-                canvas.animating = true;
-                animateCut();
-            }
-            
-            function animateCut() {
-                canvas.animationPhase = (canvas.animationPhase + 0.02) % 2;
-                drawFrame();
-                requestAnimationFrame(animateCut);
-            }
-            
-            function drawFrame() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                const phase = canvas.animationPhase;
-                const showCut = phase > 1; // Show cut piece in second half of animation
-                
-                // Title
-                ctx.fillStyle = '#333';
-                ctx.font = `bold ${isVerySmall ? 13 : 16}px Arial`;
-                ctx.textAlign = 'center';
-                ctx.fillText(showCut ? 'AFTER CUT' : 'BEFORE CUT', w/2, 25);
-                
-                // Draw miter saw
-                const sawBaseY = h * 0.65;
-                const sawCenterX = w / 2;
-                
-                // Base/Table
-                ctx.fillStyle = '#555';
-                ctx.fillRect(sawCenterX - 120, sawBaseY, 240, 20);
-                ctx.strokeStyle = '#000';
-                ctx.lineWidth = 2;
-                ctx.strokeRect(sawCenterX - 120, sawBaseY, 240, 20);
-                
-                // Fence
-                ctx.fillStyle = '#654321';
-                ctx.fillRect(sawCenterX - 120, sawBaseY - 25, 240, 25);
-                ctx.strokeStyle = '#000';
-                ctx.lineWidth = 2;
-                ctx.strokeRect(sawCenterX - 120, sawBaseY - 25, 240, 25);
-                
-                ctx.fillStyle = '#fff';
-                ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
-                ctx.fillText('FENCE', sawCenterX, sawBaseY - 10);
-                
-                // Turntable (rotates for miter)
-                ctx.save();
-                ctx.translate(sawCenterX, sawBaseY);
-                ctx.rotate(-miterAngle * Math.PI / 180);
-                
-                // Rotating table surface
-                ctx.fillStyle = '#888';
-                ctx.beginPath();
-                ctx.arc(0, 0, 80, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.strokeStyle = '#333';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                
-                // Saw arm pivot
-                ctx.fillStyle = '#444';
-                ctx.beginPath();
-                ctx.arc(0, -60, 15, 0, Math.PI * 2);
-                ctx.fill();
-                
-                // Saw arm
-                ctx.fillStyle = '#666';
-                ctx.fillRect(-10, -120, 20, 60);
-                ctx.strokeStyle = '#000';
-                ctx.lineWidth = 2;
-                ctx.strokeRect(-10, -120, 20, 60);
-                
-                // Saw motor housing with bevel indicator
-                ctx.save();
-                ctx.translate(0, -120);
-                ctx.rotate(-bevelAngle * Math.PI / 180);
-                
-                // Motor housing
-                ctx.fillStyle = '#2E7D32';
-                ctx.fillRect(-30, -40, 60, 40);
-                ctx.strokeStyle = '#000';
-                ctx.lineWidth = 2;
-                ctx.strokeRect(-30, -40, 60, 40);
-                
-                // Blade
-                ctx.fillStyle = '#C0C0C0';
-                ctx.beginPath();
-                ctx.arc(0, 0, 35, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.strokeStyle = '#333';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                
-                // Blade teeth
-                ctx.strokeStyle = '#666';
-                ctx.lineWidth = 2;
-                for (let i = 0; i < 12; i++) {
-                    const angle = (i * 30) * Math.PI / 180;
-                    ctx.beginPath();
-                    ctx.moveTo(Math.cos(angle) * 30, Math.sin(angle) * 30);
-                    ctx.lineTo(Math.cos(angle) * 38, Math.sin(angle) * 38);
-                    ctx.stroke();
-                }
-                
-                ctx.restore();
-                ctx.restore();
-                
-                // Miter adjustment knob (left side of base)
-                ctx.fillStyle = '#FFD700';
-                ctx.beginPath();
-                ctx.arc(sawCenterX - 100, sawBaseY + 30, 12, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.strokeStyle = '#000';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                
-                // Knob details
-                for (let i = 0; i < 6; i++) {
-                    const angle = (i * 60) * Math.PI / 180;
-                    ctx.beginPath();
-                    ctx.moveTo(sawCenterX - 100 + Math.cos(angle) * 8, sawBaseY + 30 + Math.sin(angle) * 8);
-                    ctx.lineTo(sawCenterX - 100 + Math.cos(angle) * 12, sawBaseY + 30 + Math.sin(angle) * 12);
-                    ctx.stroke();
-                }
-                
-                ctx.fillStyle = '#333';
-                ctx.font = `bold ${isVerySmall ? 8 : 10}px Arial`;
-                ctx.textAlign = 'center';
-                ctx.fillText('MITER', sawCenterX - 100, sawBaseY + 50);
-                ctx.fillText(miterAngle.toFixed(1) + '°', sawCenterX - 100, sawBaseY + 62);
-                
-                // Bevel adjustment knob (right side)
-                ctx.fillStyle = '#FFD700';
-                ctx.beginPath();
-                ctx.arc(sawCenterX + 100, sawBaseY + 30, 12, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.strokeStyle = '#000';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                
-                // Knob details
-                for (let i = 0; i < 6; i++) {
-                    const angle = (i * 60) * Math.PI / 180;
-                    ctx.beginPath();
-                    ctx.moveTo(sawCenterX + 100 + Math.cos(angle) * 8, sawBaseY + 30 + Math.sin(angle) * 8);
-                    ctx.lineTo(sawCenterX + 100 + Math.cos(angle) * 12, sawBaseY + 30 + Math.sin(angle) * 12);
-                    ctx.stroke();
-                }
-                
-                ctx.fillStyle = '#333';
-                ctx.font = `bold ${isVerySmall ? 8 : 10}px Arial`;
-                ctx.textAlign = 'center';
-                ctx.fillText('BEVEL', sawCenterX + 100, sawBaseY + 50);
-                ctx.fillText(bevelAngle.toFixed(1) + '°', sawCenterX + 100, sawBaseY + 62);
-                
-                // Crown molding
-                const moldingY = sawBaseY - 40;
-                
-                if (cuttingPosition === 'flat') {
-                    // Draw molding laying flat
-                    ctx.save();
-                    ctx.translate(sawCenterX, moldingY);
-                    ctx.rotate(-miterAngle * Math.PI / 180);
-                    
-                    if (showCut) {
-                        // Show cut piece
-                        ctx.fillStyle = '#DEB887';
-                        ctx.beginPath();
-                        ctx.moveTo(-60, -15);
-                        ctx.lineTo(0, -15);
-                        ctx.lineTo(10, 0);
-                        ctx.lineTo(0, 15);
-                        ctx.lineTo(-60, 15);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.strokeStyle = '#000';
-                        ctx.lineWidth = 2;
-                        ctx.stroke();
-                        
-                        // Show the angled cut edge
-                        ctx.strokeStyle = '#FF0000';
-                        ctx.lineWidth = 3;
-                        ctx.beginPath();
-                        ctx.moveTo(0, -15);
-                        ctx.lineTo(10, 0);
-                        ctx.lineTo(0, 15);
-                        ctx.stroke();
-                    } else {
-                        // Show full piece before cut
-                        ctx.fillStyle = '#DEB887';
-                        ctx.fillRect(-80, -15, 160, 30);
-                        ctx.strokeStyle = '#000';
-                        ctx.lineWidth = 2;
-                        ctx.strokeRect(-80, -15, 160, 30);
-                        
-                        // Show cut line
-                        ctx.strokeStyle = '#FF0000';
-                        ctx.lineWidth = 2;
-                        ctx.setLineDash([5, 5]);
-                        ctx.beginPath();
-                        ctx.moveTo(0, -20);
-                        ctx.lineTo(0, 20);
-                        ctx.stroke();
-                        ctx.setLineDash([]);
-                    }
-                    
-                    ctx.restore();
-                    
-                    // Labels
-                    ctx.fillStyle = '#0066FF';
-                    ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
-                    ctx.textAlign = 'left';
-                    if (cornerType === 'inside') {
-                        ctx.fillText('BOTTOM edge → fence', sawCenterX - 115, moldingY - 25);
-                        ctx.fillText('TOP edge → table', sawCenterX - 115, moldingY + 35);
-                    } else {
-                        ctx.fillText('TOP edge → fence', sawCenterX - 115, moldingY - 25);
-                        ctx.fillText('BOTTOM edge → table', sawCenterX - 115, moldingY + 35);
-                    }
-                    
-                } else {
-                    // Draw nested molding (upright against fence)
-                    ctx.save();
-                    ctx.translate(sawCenterX, sawBaseY);
-                    ctx.rotate(-miterAngle * Math.PI / 180);
-                    
-                    const springRad = springAngle * Math.PI / 180;
-                    ctx.rotate(-springRad);
-                    
-                    if (showCut) {
-                        // Show cut piece
-                        ctx.fillStyle = '#DEB887';
-                        ctx.beginPath();
-                        ctx.moveTo(-12, -5);
-                        ctx.lineTo(-12, -70);
-                        ctx.lineTo(12, -70);
-                        ctx.lineTo(12, -5);
-                        ctx.lineTo(8, 0);
-                        ctx.lineTo(-8, 0);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.strokeStyle = '#000';
-                        ctx.lineWidth = 2;
-                        ctx.stroke();
-                        
-                        // Show cut edge
-                        ctx.strokeStyle = '#FF0000';
-                        ctx.lineWidth = 3;
-                        ctx.beginPath();
-                        ctx.moveTo(-8, 0);
-                        ctx.lineTo(0, -5);
-                        ctx.lineTo(8, 0);
-                        ctx.stroke();
-                    } else {
-                        // Show full piece
-                        ctx.fillStyle = '#DEB887';
-                        ctx.fillRect(-12, -80, 24, 80);
-                        ctx.strokeStyle = '#000';
-                        ctx.lineWidth = 2;
-                        ctx.strokeRect(-12, -80, 24, 80);
-                        
-                        // Show cut line
-                        ctx.strokeStyle = '#FF0000';
-                        ctx.lineWidth = 2;
-                        ctx.setLineDash([5, 5]);
-                        ctx.beginPath();
-                        ctx.moveTo(-15, 0);
-                        ctx.lineTo(15, 0);
-                        ctx.stroke();
-                        ctx.setLineDash([]);
-                    }
-                    
-                    ctx.restore();
-                    
-                    // Spring angle indicator
-                    ctx.strokeStyle = '#00AA00';
-                    ctx.lineWidth = 3;
-                    ctx.beginPath();
-                    ctx.save();
-                    ctx.translate(sawCenterX, sawBaseY);
-                    ctx.rotate(-miterAngle * Math.PI / 180);
-                    ctx.arc(0, 0, 40, -Math.PI/2, -Math.PI/2 - springRad, true);
-                    ctx.stroke();
-                    ctx.restore();
-                    
-                    ctx.fillStyle = '#00AA00';
-                    ctx.font = `bold ${isVerySmall ? 10 : 12}px Arial`;
-                    ctx.textAlign = 'left';
-                    ctx.fillText(springAngle + '° spring', sawCenterX + 50, sawBaseY - 30);
-                    
-                    // Orientation label
-                    ctx.fillStyle = '#0066FF';
-                    ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
-                    if (cornerType === 'inside') {
-                        ctx.fillText('Position UPSIDE DOWN', sawCenterX - 115, sawBaseY - 100);
-                    } else {
-                        ctx.fillText('Position RIGHT-SIDE UP', sawCenterX - 115, sawBaseY - 100);
-                    }
-                }
-                
-                // Setup instructions at top
-                const instructY = 50;
-                ctx.fillStyle = '#fff';
-                ctx.fillRect(10, instructY, w - 20, isVerySmall ? 60 : 70);
-                ctx.strokeStyle = '#2196F3';
-                ctx.lineWidth = 3;
-                ctx.strokeRect(10, instructY, w - 20, isVerySmall ? 60 : 70);
-                
-                ctx.fillStyle = '#1976D2';
-                ctx.font = `bold ${isVerySmall ? 10 : 12}px Arial`;
-                ctx.textAlign = 'left';
-                ctx.fillText('SAW SETTINGS:', 20, instructY + 18);
-                
-                ctx.fillStyle = '#333';
-                ctx.font = `${isVerySmall ? 9 : 11}px Arial`;
-                ctx.fillText('1. Set MITER knob to ' + miterAngle.toFixed(1) + '°', 20, instructY + 35);
-                ctx.fillText('2. Set BEVEL knob to ' + bevelAngle.toFixed(1) + '°', 20, instructY + 50);
-                if (isVerySmall) {
-                    ctx.fillText('3. Position & cut', 20, instructY + 65);
-                } else {
-                    ctx.fillText('3. Position molding and make cut', 20, instructY + 65);
-                }
-            }
-        }
-
-        // Initial calculation and diagram
-        calculate();
-    </script>
 </body>
 </html>
