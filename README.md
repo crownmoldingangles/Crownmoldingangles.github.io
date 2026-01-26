@@ -10,7 +10,7 @@
   gtag('config', 'G-XTNZ9QLRTG');
 </script>
     <meta charset="UTF-8">
-    <meta name="viewport"="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Crown Molding Angle Calculator</title>
     <style>
         * {
@@ -55,6 +55,11 @@
             font-size: clamp(0.8em, 3vw, 1.1em);
             opacity: 0.95;
             line-height: 1.4;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: underline;
         }
 
         .content {
@@ -277,6 +282,37 @@
             margin-top: 0;
         }
 
+        .faq-section {
+            background: #f8f9fa;
+            padding: 20px 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+
+        .faq-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: clamp(1.2em, 4vw, 1.8em);
+        }
+
+        .faq-section h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: clamp(0.95em, 3vw, 1.2em);
+        }
+
+        .faq-section h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .faq-section p {
+            color: #555;
+            line-height: 1.7;
+            font-size: clamp(0.85em, 2.5vw, 0.95em);
+            margin-bottom: 15px;
+        }
+
         @media (min-width: 768px) {
             body {
                 padding: 20px;
@@ -308,6 +344,10 @@
             .diagram-canvas {
                 min-height: 450px;
                 max-height: 600px;
+            }
+
+            .faq-section {
+                padding: 25px 30px;
             }
         }
 
@@ -343,6 +383,10 @@
 
             .diagram-canvas {
                 min-height: 300px;
+            }
+
+            .faq-section {
+                padding: 15px 12px;
             }
         }
 
@@ -465,11 +509,35 @@
                 </div>
             </div>
         </div>
+
+        <div class="faq-section" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
+            <h2>Frequently Asked Questions</h2>
+            <h3>What miter angle do I use for crown molding?</h3>
+            <p>
+                The miter angle depends on the spring angle and corner type.
+                For standard 38° or 45° crown molding, this calculator gives
+                the exact miter and bevel angles automatically.
+            </p>
+            <h3>Do inside and outside corners use the same angles?</h3>
+            <p>
+                No. Inside and outside corners require mirrored miter settings.
+                This calculator adjusts automatically based on corner type.
+            </p>
+        </div>
     </div>
 
     <script>
         const canvas = document.getElementById('diagramCanvas');
         const ctx = canvas.getContext('2d');
+        let animationFrame = null;
+        let currentAngles = {
+            miter: 45,
+            bevel: 33.9,
+            spring: 38,
+            cornerType: 'inside',
+            cuttingPosition: 'flat',
+            cornerAngle: 90
+        };
         
         function resizeCanvas() {
             const container = canvas.parentElement;
@@ -477,7 +545,7 @@
             const dpr = window.devicePixelRatio || 1;
             
             const width = rect.width;
-            const height = width * 1.3; // Maintain aspect ratio
+            const height = width * 1.3;
             
             canvas.width = width * dpr;
             canvas.height = height * dpr;
@@ -487,7 +555,8 @@
             ctx.scale(dpr, dpr);
             
             if (document.getElementById('results').style.display !== 'none') {
-                calculate();
+                drawDiagram(currentAngles.miter, currentAngles.bevel, currentAngles.cornerType, 
+                           currentAngles.cuttingPosition, currentAngles.spring, currentAngles.cornerAngle);
             }
         }
 
@@ -539,10 +608,19 @@
             document.getElementById('sawPosition').textContent = sawPosition;
             document.getElementById('results').style.display = 'block';
 
-            drawDiagram(miterAngle, bevelAngle, cornerType, cuttingPosition, springAngle);
+            currentAngles = {
+                miter: miterAngle,
+                bevel: bevelAngle,
+                spring: springAngle,
+                cornerType: cornerType,
+                cuttingPosition: cuttingPosition,
+                cornerAngle: cornerAngle
+            };
+
+            drawDiagram(miterAngle, bevelAngle, cornerType, cuttingPosition, springAngle, cornerAngle);
         }
 
-        function drawDiagram(miterAngle, bevelAngle, cornerType, cuttingPosition, springAngle) {
+        function drawDiagram(miterAngle, bevelAngle, cornerType, cuttingPosition, springAngle, cornerAngle) {
             const dpr = window.devicePixelRatio || 1;
             const w = canvas.width / dpr;
             const h = canvas.height / dpr;
@@ -552,30 +630,35 @@
             const isMobile = w < 500;
             const isVerySmall = w < 360;
             
-            // Animation state
-            if (!canvas.animationPhase) canvas.animationPhase = 0;
-            if (!canvas.animating) {
-                canvas.animating = true;
-                animateCut();
+            // Stop any existing animation
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
             }
+            
+            let animationPhase = 0;
             
             function animateCut() {
-                canvas.animationPhase = (canvas.animationPhase + 0.02) % 2;
-                drawFrame();
-                requestAnimationFrame(animateCut);
+                animationPhase = (animationPhase + 0.015) % 2;
+                drawFrame(animationPhase);
+                animationFrame = requestAnimationFrame(animateCut);
             }
             
-            function drawFrame() {
+            function drawFrame(phase) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                const phase = canvas.animationPhase;
-                const showCut = phase > 1; // Show cut piece in second half of animation
+                const showCut = phase > 1;
                 
-                // Title
+                // Title with angle info
                 ctx.fillStyle = '#333';
-                ctx.font = `bold ${isVerySmall ? 13 : 16}px Arial`;
+                ctx.font = `bold ${isVerySmall ? 14 : 18}px Arial`;
                 ctx.textAlign = 'center';
-                ctx.fillText(showCut ? 'AFTER CUT' : 'BEFORE CUT', w/2, 25);
+                const titleText = showCut ? 'AFTER CUT' : 'BEFORE CUT';
+                ctx.fillText(titleText, w/2, 25);
+                
+                // Subtitle showing the corner angle
+                ctx.font = `${isVerySmall ? 10 : 12}px Arial`;
+                ctx.fillStyle = '#666';
+                ctx.fillText(`${cornerAngle.toFixed(1)}° ${cornerType} corner`, w/2, 42);
                 
                 // Draw miter saw
                 const sawBaseY = h * 0.65;
@@ -599,7 +682,7 @@
                 ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
                 ctx.fillText('FENCE', sawCenterX, sawBaseY - 10);
                 
-                // Turntable (rotates for miter)
+                // Turntable with dynamic miter rotation
                 ctx.save();
                 ctx.translate(sawCenterX, sawBaseY);
                 ctx.rotate(-miterAngle * Math.PI / 180);
@@ -611,6 +694,21 @@
                 ctx.fill();
                 ctx.strokeStyle = '#333';
                 ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Miter angle indicator lines
+                ctx.strokeStyle = '#FFD700';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(0, -75);
+                ctx.stroke();
+                
+                // Draw miter arc
+                ctx.strokeStyle = '#FFD700';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(0, 0, 50, -Math.PI/2, -Math.PI/2 - (miterAngle * Math.PI / 180), true);
                 ctx.stroke();
                 
                 // Saw arm pivot
@@ -626,7 +724,7 @@
                 ctx.lineWidth = 2;
                 ctx.strokeRect(-10, -120, 20, 60);
                 
-                // Saw motor housing with bevel indicator
+                // Saw motor housing with dynamic bevel tilt
                 ctx.save();
                 ctx.translate(0, -120);
                 ctx.rotate(-bevelAngle * Math.PI / 180);
@@ -637,6 +735,15 @@
                 ctx.strokeStyle = '#000';
                 ctx.lineWidth = 2;
                 ctx.strokeRect(-30, -40, 60, 40);
+                
+                // Bevel angle indicator (if bevel is not 0)
+                if (Math.abs(bevelAngle) > 0.5) {
+                    ctx.strokeStyle = '#FFA500';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 25, -Math.PI/2, -Math.PI/2 - (bevelAngle * Math.PI / 180), true);
+                    ctx.stroke();
+                }
                 
                 // Blade
                 ctx.fillStyle = '#C0C0C0';
@@ -661,7 +768,7 @@
                 ctx.restore();
                 ctx.restore();
                 
-                // Miter adjustment knob (left side of base)
+                // Miter adjustment knob with angle display
                 ctx.fillStyle = '#FFD700';
                 ctx.beginPath();
                 ctx.arc(sawCenterX - 100, sawBaseY + 30, 12, 0, Math.PI * 2);
@@ -670,9 +777,8 @@
                 ctx.lineWidth = 2;
                 ctx.stroke();
                 
-                // Knob details
                 for (let i = 0; i < 6; i++) {
-                    const angle = (i * 60) * Math.PI / 180;
+                    const angle = (i * 60 - miterAngle * 3) * Math.PI / 180;
                     ctx.beginPath();
                     ctx.moveTo(sawCenterX - 100 + Math.cos(angle) * 8, sawBaseY + 30 + Math.sin(angle) * 8);
                     ctx.lineTo(sawCenterX - 100 + Math.cos(angle) * 12, sawBaseY + 30 + Math.sin(angle) * 12);
@@ -685,7 +791,7 @@
                 ctx.fillText('MITER', sawCenterX - 100, sawBaseY + 50);
                 ctx.fillText(miterAngle.toFixed(1) + '°', sawCenterX - 100, sawBaseY + 62);
                 
-                // Bevel adjustment knob (right side)
+                // Bevel adjustment knob with angle display
                 ctx.fillStyle = '#FFD700';
                 ctx.beginPath();
                 ctx.arc(sawCenterX + 100, sawBaseY + 30, 12, 0, Math.PI * 2);
@@ -694,9 +800,8 @@
                 ctx.lineWidth = 2;
                 ctx.stroke();
                 
-                // Knob details
                 for (let i = 0; i < 6; i++) {
-                    const angle = (i * 60) * Math.PI / 180;
+                    const angle = (i * 60 - bevelAngle * 3) * Math.PI / 180;
                     ctx.beginPath();
                     ctx.moveTo(sawCenterX + 100 + Math.cos(angle) * 8, sawBaseY + 30 + Math.sin(angle) * 8);
                     ctx.lineTo(sawCenterX + 100 + Math.cos(angle) * 12, sawBaseY + 30 + Math.sin(angle) * 12);
@@ -709,22 +814,24 @@
                 ctx.fillText('BEVEL', sawCenterX + 100, sawBaseY + 50);
                 ctx.fillText(bevelAngle.toFixed(1) + '°', sawCenterX + 100, sawBaseY + 62);
                 
-                // Crown molding
+                // Crown molding with dynamic angles
                 const moldingY = sawBaseY - 40;
                 
                 if (cuttingPosition === 'flat') {
-                    // Draw molding laying flat
+                    // Draw molding laying flat with accurate cut angle
                     ctx.save();
                     ctx.translate(sawCenterX, moldingY);
                     ctx.rotate(-miterAngle * Math.PI / 180);
                     
                     if (showCut) {
-                        // Show cut piece
+                        // Show cut piece with accurate angle
+                        const cutDepth = 15 * Math.tan(bevelAngle * Math.PI / 180);
+                        
                         ctx.fillStyle = '#DEB887';
                         ctx.beginPath();
                         ctx.moveTo(-60, -15);
                         ctx.lineTo(0, -15);
-                        ctx.lineTo(10, 0);
+                        ctx.lineTo(cutDepth + 10, 0);
                         ctx.lineTo(0, 15);
                         ctx.lineTo(-60, 15);
                         ctx.closePath();
@@ -733,14 +840,27 @@
                         ctx.lineWidth = 2;
                         ctx.stroke();
                         
-                        // Show the angled cut edge
+                        // Highlight the angled cut edge
                         ctx.strokeStyle = '#FF0000';
                         ctx.lineWidth = 3;
                         ctx.beginPath();
                         ctx.moveTo(0, -15);
-                        ctx.lineTo(10, 0);
+                        ctx.lineTo(cutDepth + 10, 0);
                         ctx.lineTo(0, 15);
                         ctx.stroke();
+                        
+                        // Show the other piece moved away
+                        ctx.globalAlpha = 0.5;
+                        ctx.fillStyle = '#DEB887';
+                        ctx.beginPath();
+                        ctx.moveTo(cutDepth + 20, 0);
+                        ctx.lineTo(cutDepth + 10, -15);
+                        ctx.lineTo(80, -15);
+                        ctx.lineTo(80, 15);
+                        ctx.lineTo(cutDepth + 10, 15);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.globalAlpha = 1;
                     } else {
                         // Show full piece before cut
                         ctx.fillStyle = '#DEB887';
@@ -749,7 +869,7 @@
                         ctx.lineWidth = 2;
                         ctx.strokeRect(-80, -15, 160, 30);
                         
-                        // Show cut line
+                        // Show cut line at angle
                         ctx.strokeStyle = '#FF0000';
                         ctx.lineWidth = 2;
                         ctx.setLineDash([5, 5]);
@@ -775,7 +895,7 @@
                     }
                     
                 } else {
-                    // Draw nested molding (upright against fence)
+                    // Draw nested molding with accurate spring angle
                     ctx.save();
                     ctx.translate(sawCenterX, sawBaseY);
                     ctx.rotate(-miterAngle * Math.PI / 180);
@@ -807,6 +927,20 @@
                         ctx.lineTo(0, -5);
                         ctx.lineTo(8, 0);
                         ctx.stroke();
+                        
+                        // Show other piece
+                        ctx.globalAlpha = 0.5;
+                        ctx.fillStyle = '#DEB887';
+                        ctx.beginPath();
+                        ctx.moveTo(-8, 10);
+                        ctx.lineTo(-12, 15);
+                        ctx.lineTo(-12, 80);
+                        ctx.lineTo(12, 80);
+                        ctx.lineTo(12, 15);
+                        ctx.lineTo(8, 10);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.globalAlpha = 1;
                     } else {
                         // Show full piece
                         ctx.fillStyle = '#DEB887';
@@ -828,7 +962,7 @@
                     
                     ctx.restore();
                     
-                    // Spring angle indicator
+                    // Spring angle indicator with actual angle
                     ctx.strokeStyle = '#00AA00';
                     ctx.lineWidth = 3;
                     ctx.beginPath();
@@ -842,7 +976,7 @@
                     ctx.fillStyle = '#00AA00';
                     ctx.font = `bold ${isVerySmall ? 10 : 12}px Arial`;
                     ctx.textAlign = 'left';
-                    ctx.fillText(springAngle + '° spring', sawCenterX + 50, sawBaseY - 30);
+                    ctx.fillText(springAngle.toFixed(1) + '° spring', sawCenterX + 50, sawBaseY - 30);
                     
                     // Orientation label
                     ctx.fillStyle = '#0066FF';
@@ -854,13 +988,14 @@
                     }
                 }
                 
-                // Setup instructions at top
-                const instructY = 50;
+                // Setup instructions box
+                const instructY = 60;
+                const boxHeight = isVerySmall ? 65 : 75;
                 ctx.fillStyle = '#fff';
-                ctx.fillRect(10, instructY, w - 20, isVerySmall ? 60 : 70);
+                ctx.fillRect(10, instructY, w - 20, boxHeight);
                 ctx.strokeStyle = '#2196F3';
                 ctx.lineWidth = 3;
-                ctx.strokeRect(10, instructY, w - 20, isVerySmall ? 60 : 70);
+                ctx.strokeRect(10, instructY, w - 20, boxHeight);
                 
                 ctx.fillStyle = '#1976D2';
                 ctx.font = `bold ${isVerySmall ? 10 : 12}px Arial`;
@@ -869,17 +1004,19 @@
                 
                 ctx.fillStyle = '#333';
                 ctx.font = `${isVerySmall ? 9 : 11}px Arial`;
-                ctx.fillText('1. Set MITER knob to ' + miterAngle.toFixed(1) + '°', 20, instructY + 35);
-                ctx.fillText('2. Set BEVEL knob to ' + bevelAngle.toFixed(1) + '°', 20, instructY + 50);
+                ctx.fillText('1. Set MITER to ' + miterAngle.toFixed(1) + '°', 20, instructY + 35);
+                ctx.fillText('2. Set BEVEL to ' + bevelAngle.toFixed(1) + '°', 20, instructY + 50);
                 if (isVerySmall) {
-                    ctx.fillText('3. Position & cut', 20, instructY + 65);
+                    ctx.fillText('3. Position molding & cut', 20, instructY + 65);
                 } else {
-                    ctx.fillText('3. Position molding and make cut', 20, instructY + 65);
+                    ctx.fillText('3. Position molding as shown and cut', 20, instructY + 65);
                 }
             }
+            
+            animateCut();
         }
 
-        // Initial calculation and diagram
+        // Initial calculation with default values
         calculate();
     </script>
 </body>
