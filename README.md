@@ -71,7 +71,9 @@
             padding: 20px 15px;
             border-radius: 15px;
             width: 100%;
+            max-width: 100%;
             box-sizing: border-box;
+            overflow: hidden;
         }
 
         h2 {
@@ -99,6 +101,7 @@
 
         input[type="number"], select {
             width: 100%;
+            max-width: 100%;
             padding: 14px 12px;
             border: 2px solid #ddd;
             border-radius: 8px;
@@ -106,6 +109,7 @@
             transition: border-color 0.3s;
             -webkit-appearance: none;
             appearance: none;
+            box-sizing: border-box;
         }
 
         select {
@@ -546,332 +550,331 @@
 
             const isMobile = w < 500;
             const isVerySmall = w < 360;
-            const fontSize = isVerySmall ? 9 : (isMobile ? 10 : 13);
-            const titleSize = isVerySmall ? 11 : (isMobile ? 12 : 16);
-            const labelSize = isVerySmall ? 8 : (isMobile ? 9 : 12);
-
-            ctx.fillStyle = '#333';
-            ctx.font = `bold ${titleSize}px Arial`;
-            ctx.textAlign = 'center';
-            const title = cornerType.toUpperCase() + ' - ' + (cuttingPosition === 'flat' ? 'FLAT' : 'NESTED');
-            ctx.fillText(title, w/2, 18);
-            ctx.textAlign = 'left';
-
-            const centerX = w/2;
-            const centerY = h/2 + (isVerySmall ? 10 : (isMobile ? 15 : 30));
-            const tableRadius = isVerySmall ? 50 : (isMobile ? 60 : 90);
             
-            // Saw table/base (showing top-down view)
-            ctx.fillStyle = '#666';
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, tableRadius + 25, 0, Math.PI * 2);
-            ctx.fill();
-            
-            ctx.fillStyle = '#888';
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, tableRadius + 15, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Turntable (rotates for miter)
-            ctx.save();
-            ctx.translate(centerX, centerY);
-            ctx.rotate(-miterAngle * Math.PI / 180);
-            
-            // Table surface
-            ctx.fillStyle = '#999';
-            ctx.beginPath();
-            ctx.arc(0, 0, tableRadius, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = '#333';
-            ctx.lineWidth = 3;
-            ctx.stroke();
-            
-            // Degree markings
-            ctx.strokeStyle = '#fff';
-            ctx.lineWidth = 1;
-            for (let i = 0; i < 360; i += 10) {
-                const angle = i * Math.PI / 180;
-                const r1 = tableRadius - 8;
-                const r2 = tableRadius - (i % 30 === 0 ? 15 : 12);
-                ctx.beginPath();
-                ctx.moveTo(Math.cos(angle) * r1, Math.sin(angle) * r1);
-                ctx.lineTo(Math.cos(angle) * r2, Math.sin(angle) * r2);
-                ctx.stroke();
+            // Animation state
+            if (!canvas.animationPhase) canvas.animationPhase = 0;
+            if (!canvas.animating) {
+                canvas.animating = true;
+                animateCut();
             }
             
-            // Fence (back of saw table)
-            const fenceHeight = 20;
-            ctx.fillStyle = '#654321';
-            ctx.fillRect(-tableRadius + 15, -tableRadius - fenceHeight, tableRadius * 2 - 30, fenceHeight);
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 2;
-            ctx.strokeRect(-tableRadius + 15, -tableRadius - fenceHeight, tableRadius * 2 - 30, fenceHeight);
+            function animateCut() {
+                canvas.animationPhase = (canvas.animationPhase + 0.02) % 2;
+                drawFrame();
+                requestAnimationFrame(animateCut);
+            }
             
-            // Fence label
-            ctx.fillStyle = '#fff';
-            ctx.font = `bold ${labelSize}px Arial`;
-            ctx.textAlign = 'center';
-            ctx.fillText('FENCE', 0, -tableRadius - 4);
-            
-            // Crown molding placement
-            const moldingWidth = isVerySmall ? 35 : (isMobile ? 40 : 60);
-            const moldingLength = isVerySmall ? 80 : (isMobile ? 90 : 130);
-            
-            if (cuttingPosition === 'flat') {
-                // Molding laying flat on table
-                ctx.fillStyle = '#DEB887';
-                ctx.fillRect(-moldingLength/2, -tableRadius + 5, moldingLength, moldingWidth);
+            function drawFrame() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                // Add texture/grain to molding
-                ctx.strokeStyle = '#C19A6B';
-                ctx.lineWidth = 1;
-                for (let i = 0; i < 5; i++) {
-                    const y = -tableRadius + 15 + i * 12;
-                    ctx.beginPath();
-                    ctx.moveTo(-moldingLength/2 + 5, y);
-                    ctx.lineTo(moldingLength/2 - 5, y);
-                    ctx.stroke();
-                }
+                const phase = canvas.animationPhase;
+                const showCut = phase > 1; // Show cut piece in second half of animation
                 
-                ctx.strokeStyle = '#000';
-                ctx.lineWidth = 3;
-                ctx.strokeRect(-moldingLength/2, -tableRadius + 5, moldingLength, moldingWidth);
-                
-                // Labels for orientation
-                ctx.fillStyle = '#fff';
-                ctx.font = `bold ${labelSize}px Arial`;
+                // Title
+                ctx.fillStyle = '#333';
+                ctx.font = `bold ${isVerySmall ? 13 : 16}px Arial`;
                 ctx.textAlign = 'center';
+                ctx.fillText(showCut ? 'AFTER CUT' : 'BEFORE CUT', w/2, 25);
                 
-                if (cornerType === 'inside') {
-                    // Arrow pointing to bottom edge
-                    ctx.fillStyle = '#FF4444';
-                    ctx.beginPath();
-                    ctx.moveTo(-moldingLength/2 - 8, -tableRadius + 5);
-                    ctx.lineTo(-moldingLength/2 - 15, -tableRadius - 3);
-                    ctx.lineTo(-moldingLength/2 - 15, -tableRadius + 13);
-                    ctx.fill();
-                    
-                    ctx.font = `bold ${labelSize}px Arial`;
-                    ctx.fillText('BOT', -moldingLength/2 - 25, -tableRadius + 3);
-                    ctx.font = `${labelSize - 1}px Arial`;
-                    ctx.fillText('fence', -moldingLength/2 - 25, -tableRadius + 12);
-                    
-                    // Label for top
-                    ctx.fillStyle = '#4444FF';
-                    ctx.font = `${labelSize}px Arial`;
-                    ctx.fillText('TOP on table', 0, -tableRadius + moldingWidth + 14);
-                } else {
-                    // Arrow pointing to top edge
-                    ctx.fillStyle = '#FF4444';
-                    ctx.beginPath();
-                    ctx.moveTo(-moldingLength/2 - 8, -tableRadius + 5);
-                    ctx.lineTo(-moldingLength/2 - 15, -tableRadius - 3);
-                    ctx.lineTo(-moldingLength/2 - 15, -tableRadius + 13);
-                    ctx.fill();
-                    
-                    ctx.font = `bold ${labelSize}px Arial`;
-                    ctx.fillText('TOP', -moldingLength/2 - 25, -tableRadius + 3);
-                    ctx.font = `${labelSize - 1}px Arial`;
-                    ctx.fillText('fence', -moldingLength/2 - 25, -tableRadius + 12);
-                    
-                    // Label for bottom
-                    ctx.fillStyle = '#4444FF';
-                    ctx.font = `${labelSize}px Arial`;
-                    ctx.fillText('BOT on table', 0, -tableRadius + moldingWidth + 14);
-                }
+                // Draw miter saw
+                const sawBaseY = h * 0.65;
+                const sawCenterX = w / 2;
                 
-                // Cut line indication
-                ctx.strokeStyle = '#FF0000';
-                ctx.lineWidth = 2;
-                ctx.setLineDash([5, 5]);
-                ctx.beginPath();
-                ctx.moveTo(0, -tableRadius + 5);
-                ctx.lineTo(0, -tableRadius + moldingWidth + 5);
-                ctx.stroke();
-                ctx.setLineDash([]);
-                
-            } else {
-                // Nested position - molding against fence
-                const springRad = springAngle * Math.PI / 180;
-                const moldingHeight = isVerySmall ? 65 : (isMobile ? 75 : 100);
-                const moldingThickness = isVerySmall ? 18 : (isMobile ? 20 : 25);
-                
-                ctx.save();
-                ctx.translate(0, -tableRadius + 2);
-                
-                // Draw molding at spring angle
-                ctx.rotate(springRad);
-                
-                ctx.fillStyle = '#DEB887';
-                ctx.fillRect(-moldingThickness/2, -moldingHeight, moldingThickness, moldingHeight);
-                
-                // Add texture
-                ctx.strokeStyle = '#C19A6B';
-                ctx.lineWidth = 1;
-                for (let i = 0; i < 5; i++) {
-                    const y = -moldingHeight + i * (moldingHeight/5);
-                    ctx.beginPath();
-                    ctx.moveTo(-moldingThickness/2 + 2, y);
-                    ctx.lineTo(moldingThickness/2 - 2, y);
-                    ctx.stroke();
-                }
-                
+                // Base/Table
+                ctx.fillStyle = '#555';
+                ctx.fillRect(sawCenterX - 120, sawBaseY, 240, 20);
                 ctx.strokeStyle = '#000';
                 ctx.lineWidth = 2;
-                ctx.strokeRect(-moldingThickness/2, -moldingHeight, moldingThickness, moldingHeight);
+                ctx.strokeRect(sawCenterX - 120, sawBaseY, 240, 20);
                 
-                // Cut line
-                ctx.strokeStyle = '#FF0000';
+                // Fence
+                ctx.fillStyle = '#654321';
+                ctx.fillRect(sawCenterX - 120, sawBaseY - 25, 240, 25);
+                ctx.strokeStyle = '#000';
                 ctx.lineWidth = 2;
-                ctx.setLineDash([4, 4]);
+                ctx.strokeRect(sawCenterX - 120, sawBaseY - 25, 240, 25);
+                
+                ctx.fillStyle = '#fff';
+                ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
+                ctx.fillText('FENCE', sawCenterX, sawBaseY - 10);
+                
+                // Turntable (rotates for miter)
+                ctx.save();
+                ctx.translate(sawCenterX, sawBaseY);
+                ctx.rotate(-miterAngle * Math.PI / 180);
+                
+                // Rotating table surface
+                ctx.fillStyle = '#888';
                 ctx.beginPath();
-                ctx.moveTo(-moldingThickness/2 - 5, 0);
-                ctx.lineTo(moldingThickness/2 + 5, 0);
+                ctx.arc(0, 0, 80, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 2;
                 ctx.stroke();
-                ctx.setLineDash([]);
+                
+                // Saw arm pivot
+                ctx.fillStyle = '#444';
+                ctx.beginPath();
+                ctx.arc(0, -60, 15, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Saw arm
+                ctx.fillStyle = '#666';
+                ctx.fillRect(-10, -120, 20, 60);
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(-10, -120, 20, 60);
+                
+                // Saw motor housing with bevel indicator
+                ctx.save();
+                ctx.translate(0, -120);
+                ctx.rotate(-bevelAngle * Math.PI / 180);
+                
+                // Motor housing
+                ctx.fillStyle = '#2E7D32';
+                ctx.fillRect(-30, -40, 60, 40);
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(-30, -40, 60, 40);
+                
+                // Blade
+                ctx.fillStyle = '#C0C0C0';
+                ctx.beginPath();
+                ctx.arc(0, 0, 35, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Blade teeth
+                ctx.strokeStyle = '#666';
+                ctx.lineWidth = 2;
+                for (let i = 0; i < 12; i++) {
+                    const angle = (i * 30) * Math.PI / 180;
+                    ctx.beginPath();
+                    ctx.moveTo(Math.cos(angle) * 30, Math.sin(angle) * 30);
+                    ctx.lineTo(Math.cos(angle) * 38, Math.sin(angle) * 38);
+                    ctx.stroke();
+                }
                 
                 ctx.restore();
+                ctx.restore();
                 
-                // Spring angle arc
-                ctx.strokeStyle = '#00AA00';
-                ctx.lineWidth = 2;
+                // Miter adjustment knob (left side of base)
+                ctx.fillStyle = '#FFD700';
                 ctx.beginPath();
-                ctx.arc(0, -tableRadius + 2, isVerySmall ? 30 : 40, -Math.PI/2, -Math.PI/2 + springRad, false);
+                ctx.arc(sawCenterX - 100, sawBaseY + 30, 12, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 2;
                 ctx.stroke();
                 
-                // Spring angle label
-                ctx.fillStyle = '#00AA00';
-                ctx.font = `bold ${fontSize}px Arial`;
-                ctx.textAlign = 'left';
-                ctx.fillText(springAngle.toFixed(0) + '°', isVerySmall ? 35 : 45, -tableRadius + (isVerySmall ? 18 : 22));
-                
-                // Orientation label
-                ctx.fillStyle = '#FF4444';
-                ctx.font = `bold ${labelSize}px Arial`;
-                ctx.textAlign = 'center';
-                if (cornerType === 'inside') {
-                    ctx.fillText(isVerySmall ? 'UPSIDE DN' : 'UPSIDE DOWN', 0, -tableRadius - moldingHeight * 0.5);
-                } else {
-                    ctx.fillText(isVerySmall ? 'RIGHT UP' : 'RIGHT-SIDE UP', 0, -tableRadius - moldingHeight * 0.5);
+                // Knob details
+                for (let i = 0; i < 6; i++) {
+                    const angle = (i * 60) * Math.PI / 180;
+                    ctx.beginPath();
+                    ctx.moveTo(sawCenterX - 100 + Math.cos(angle) * 8, sawBaseY + 30 + Math.sin(angle) * 8);
+                    ctx.lineTo(sawCenterX - 100 + Math.cos(angle) * 12, sawBaseY + 30 + Math.sin(angle) * 12);
+                    ctx.stroke();
                 }
-            }
-            
-            ctx.restore();
-            
-            // Blade (simplified view from above)
-            ctx.save();
-            ctx.translate(centerX, centerY);
-            ctx.rotate(-miterAngle * Math.PI / 180);
-            
-            const bladeWidth = isVerySmall ? 4 : (isMobile ? 5 : 8);
-            const bladeLength = tableRadius * 1.4;
-            
-            // Blade shadow/path
-            ctx.fillStyle = 'rgba(0,0,0,0.3)';
-            ctx.fillRect(-bladeWidth/2 - 2, -bladeLength/2 - 2, bladeWidth + 4, bladeLength + 4);
-            
-            // Blade
-            ctx.fillStyle = '#C0C0C0';
-            ctx.fillRect(-bladeWidth/2, -bladeLength/2, bladeWidth, bladeLength);
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 1;
-            ctx.strokeRect(-bladeWidth/2, -bladeLength/2, bladeWidth, bladeLength);
-            
-            ctx.restore();
-            
-            // Miter angle indicator (arc showing rotation)
-            ctx.strokeStyle = '#0066FF';
-            ctx.lineWidth = 4;
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, tableRadius + 35, -Math.PI/2, -Math.PI/2 - miterAngle * Math.PI / 180, true);
-            ctx.stroke();
-            
-            // Miter arrow
-            ctx.save();
-            ctx.translate(centerX, centerY);
-            ctx.rotate(-miterAngle * Math.PI / 180 - Math.PI/2);
-            ctx.fillStyle = '#0066FF';
-            ctx.beginPath();
-            ctx.moveTo(tableRadius + 35, 0);
-            ctx.lineTo(tableRadius + 27, -8);
-            ctx.lineTo(tableRadius + 27, 8);
-            ctx.closePath();
-            ctx.fill();
-            ctx.restore();
-            
-            // Miter angle label
-            ctx.fillStyle = '#0066FF';
-            ctx.font = `bold ${isVerySmall ? 12 : (isMobile ? 14 : 18)}px Arial`;
-            ctx.textAlign = 'center';
-            ctx.fillText('MITER: ' + miterAngle.toFixed(1) + '°', centerX, centerY - tableRadius - (isVerySmall ? 40 : (isMobile ? 45 : 65)));
-            
-            // Bevel angle indicator (only for flat cutting)
-            if (cuttingPosition === 'flat' && Math.abs(bevelAngle) > 0.5) {
-                ctx.fillStyle = '#FF6600';
-                ctx.font = `bold ${isVerySmall ? 11 : (isMobile ? 12 : 16)}px Arial`;
-                ctx.textAlign = 'center';
-                const bevelY = isVerySmall ? 35 : (isMobile ? 40 : 45);
-                ctx.fillText('BEVEL: ' + bevelAngle.toFixed(1) + '°', centerX, bevelY);
-            } else if (cuttingPosition === 'nested') {
-                ctx.fillStyle = '#00AA00';
-                ctx.font = `bold ${isVerySmall ? 11 : (isMobile ? 12 : 16)}px Arial`;
-                ctx.textAlign = 'center';
-                const bevelY = isVerySmall ? 35 : (isMobile ? 40 : 45);
-                ctx.fillText('BEVEL: 0°', centerX, bevelY);
-            }
-            
-            // Instructions box at bottom
-            const boxPadding = isVerySmall ? 6 : (isMobile ? 8 : 15);
-            const boxX = boxPadding;
-            const boxY = h - (isVerySmall ? 90 : (isMobile ? 100 : 130));
-            const boxW = w - (boxPadding * 2);
-            const boxH = isVerySmall ? 85 : (isMobile ? 95 : 120);
-            
-            ctx.fillStyle = '#fffacd';
-            ctx.fillRect(boxX, boxY, boxW, boxH);
-            ctx.strokeStyle = '#333';
-            ctx.lineWidth = 2;
-            ctx.strokeRect(boxX, boxY, boxW, boxH);
-            
-            ctx.fillStyle = '#333';
-            ctx.font = `bold ${labelSize + 1}px Arial`;
-            ctx.textAlign = 'left';
-            ctx.fillText('SETUP:', boxX + 6, boxY + (isVerySmall ? 12 : 14));
-            
-            ctx.font = `${labelSize}px Arial`;
-            let yPos = boxY + (isVerySmall ? 24 : 28);
-            const lineHeight = isVerySmall ? 15 : (isMobile ? 16 : 22);
-            
-            if (cuttingPosition === 'flat') {
-                ctx.fillStyle = '#0066cc';
-                ctx.fillText('Miter: ' + miterAngle.toFixed(1) + '°', boxX + 6, yPos);
-                yPos += lineHeight;
-                
-                ctx.fillStyle = '#ff6600';
-                ctx.fillText('Bevel: ' + bevelAngle.toFixed(1) + '°', boxX + 6, yPos);
-                yPos += lineHeight;
                 
                 ctx.fillStyle = '#333';
-                const text3 = cornerType === 'inside' ? 'Bottom → fence' : 'Top → fence';
-                ctx.fillText(text3, boxX + 6, yPos);
-                yPos += lineHeight;
+                ctx.font = `bold ${isVerySmall ? 8 : 10}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.fillText('MITER', sawCenterX - 100, sawBaseY + 50);
+                ctx.fillText(miterAngle.toFixed(1) + '°', sawCenterX - 100, sawBaseY + 62);
                 
-                ctx.fillText('Make cut', boxX + 6, yPos);
-            } else {
-                ctx.fillStyle = '#0066cc';
-                ctx.fillText('Miter: ' + miterAngle.toFixed(1) + '°', boxX + 6, yPos);
-                yPos += lineHeight;
+                // Bevel adjustment knob (right side)
+                ctx.fillStyle = '#FFD700';
+                ctx.beginPath();
+                ctx.arc(sawCenterX + 100, sawBaseY + 30, 12, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 2;
+                ctx.stroke();
                 
-                ctx.fillStyle = '#4CAF50';
-                ctx.fillText('Bevel: 0°', boxX + 6, yPos);
-                yPos += lineHeight;
+                // Knob details
+                for (let i = 0; i < 6; i++) {
+                    const angle = (i * 60) * Math.PI / 180;
+                    ctx.beginPath();
+                    ctx.moveTo(sawCenterX + 100 + Math.cos(angle) * 8, sawBaseY + 30 + Math.sin(angle) * 8);
+                    ctx.lineTo(sawCenterX + 100 + Math.cos(angle) * 12, sawBaseY + 30 + Math.sin(angle) * 12);
+                    ctx.stroke();
+                }
                 
                 ctx.fillStyle = '#333';
-                const text3 = cornerType === 'inside' ? 'Upside down, ' + springAngle + '°' : 'Right up, ' + springAngle + '°';
-                ctx.fillText(text3, boxX + 6, yPos);
-                yPos += lineHeight;
+                ctx.font = `bold ${isVerySmall ? 8 : 10}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.fillText('BEVEL', sawCenterX + 100, sawBaseY + 50);
+                ctx.fillText(bevelAngle.toFixed(1) + '°', sawCenterX + 100, sawBaseY + 62);
                 
-                ctx.fillText('Make cut', boxX + 6, yPos);
+                // Crown molding
+                const moldingY = sawBaseY - 40;
+                
+                if (cuttingPosition === 'flat') {
+                    // Draw molding laying flat
+                    ctx.save();
+                    ctx.translate(sawCenterX, moldingY);
+                    ctx.rotate(-miterAngle * Math.PI / 180);
+                    
+                    if (showCut) {
+                        // Show cut piece
+                        ctx.fillStyle = '#DEB887';
+                        ctx.beginPath();
+                        ctx.moveTo(-60, -15);
+                        ctx.lineTo(0, -15);
+                        ctx.lineTo(10, 0);
+                        ctx.lineTo(0, 15);
+                        ctx.lineTo(-60, 15);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        
+                        // Show the angled cut edge
+                        ctx.strokeStyle = '#FF0000';
+                        ctx.lineWidth = 3;
+                        ctx.beginPath();
+                        ctx.moveTo(0, -15);
+                        ctx.lineTo(10, 0);
+                        ctx.lineTo(0, 15);
+                        ctx.stroke();
+                    } else {
+                        // Show full piece before cut
+                        ctx.fillStyle = '#DEB887';
+                        ctx.fillRect(-80, -15, 160, 30);
+                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(-80, -15, 160, 30);
+                        
+                        // Show cut line
+                        ctx.strokeStyle = '#FF0000';
+                        ctx.lineWidth = 2;
+                        ctx.setLineDash([5, 5]);
+                        ctx.beginPath();
+                        ctx.moveTo(0, -20);
+                        ctx.lineTo(0, 20);
+                        ctx.stroke();
+                        ctx.setLineDash([]);
+                    }
+                    
+                    ctx.restore();
+                    
+                    // Labels
+                    ctx.fillStyle = '#0066FF';
+                    ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
+                    ctx.textAlign = 'left';
+                    if (cornerType === 'inside') {
+                        ctx.fillText('BOTTOM edge → fence', sawCenterX - 115, moldingY - 25);
+                        ctx.fillText('TOP edge → table', sawCenterX - 115, moldingY + 35);
+                    } else {
+                        ctx.fillText('TOP edge → fence', sawCenterX - 115, moldingY - 25);
+                        ctx.fillText('BOTTOM edge → table', sawCenterX - 115, moldingY + 35);
+                    }
+                    
+                } else {
+                    // Draw nested molding (upright against fence)
+                    ctx.save();
+                    ctx.translate(sawCenterX, sawBaseY);
+                    ctx.rotate(-miterAngle * Math.PI / 180);
+                    
+                    const springRad = springAngle * Math.PI / 180;
+                    ctx.rotate(-springRad);
+                    
+                    if (showCut) {
+                        // Show cut piece
+                        ctx.fillStyle = '#DEB887';
+                        ctx.beginPath();
+                        ctx.moveTo(-12, -5);
+                        ctx.lineTo(-12, -70);
+                        ctx.lineTo(12, -70);
+                        ctx.lineTo(12, -5);
+                        ctx.lineTo(8, 0);
+                        ctx.lineTo(-8, 0);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        
+                        // Show cut edge
+                        ctx.strokeStyle = '#FF0000';
+                        ctx.lineWidth = 3;
+                        ctx.beginPath();
+                        ctx.moveTo(-8, 0);
+                        ctx.lineTo(0, -5);
+                        ctx.lineTo(8, 0);
+                        ctx.stroke();
+                    } else {
+                        // Show full piece
+                        ctx.fillStyle = '#DEB887';
+                        ctx.fillRect(-12, -80, 24, 80);
+                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(-12, -80, 24, 80);
+                        
+                        // Show cut line
+                        ctx.strokeStyle = '#FF0000';
+                        ctx.lineWidth = 2;
+                        ctx.setLineDash([5, 5]);
+                        ctx.beginPath();
+                        ctx.moveTo(-15, 0);
+                        ctx.lineTo(15, 0);
+                        ctx.stroke();
+                        ctx.setLineDash([]);
+                    }
+                    
+                    ctx.restore();
+                    
+                    // Spring angle indicator
+                    ctx.strokeStyle = '#00AA00';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.save();
+                    ctx.translate(sawCenterX, sawBaseY);
+                    ctx.rotate(-miterAngle * Math.PI / 180);
+                    ctx.arc(0, 0, 40, -Math.PI/2, -Math.PI/2 - springRad, true);
+                    ctx.stroke();
+                    ctx.restore();
+                    
+                    ctx.fillStyle = '#00AA00';
+                    ctx.font = `bold ${isVerySmall ? 10 : 12}px Arial`;
+                    ctx.textAlign = 'left';
+                    ctx.fillText(springAngle + '° spring', sawCenterX + 50, sawBaseY - 30);
+                    
+                    // Orientation label
+                    ctx.fillStyle = '#0066FF';
+                    ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
+                    if (cornerType === 'inside') {
+                        ctx.fillText('Position UPSIDE DOWN', sawCenterX - 115, sawBaseY - 100);
+                    } else {
+                        ctx.fillText('Position RIGHT-SIDE UP', sawCenterX - 115, sawBaseY - 100);
+                    }
+                }
+                
+                // Setup instructions at top
+                const instructY = 50;
+                ctx.fillStyle = '#fff';
+                ctx.fillRect(10, instructY, w - 20, isVerySmall ? 60 : 70);
+                ctx.strokeStyle = '#2196F3';
+                ctx.lineWidth = 3;
+                ctx.strokeRect(10, instructY, w - 20, isVerySmall ? 60 : 70);
+                
+                ctx.fillStyle = '#1976D2';
+                ctx.font = `bold ${isVerySmall ? 10 : 12}px Arial`;
+                ctx.textAlign = 'left';
+                ctx.fillText('SAW SETTINGS:', 20, instructY + 18);
+                
+                ctx.fillStyle = '#333';
+                ctx.font = `${isVerySmall ? 9 : 11}px Arial`;
+                ctx.fillText('1. Set MITER knob to ' + miterAngle.toFixed(1) + '°', 20, instructY + 35);
+                ctx.fillText('2. Set BEVEL knob to ' + bevelAngle.toFixed(1) + '°', 20, instructY + 50);
+                if (isVerySmall) {
+                    ctx.fillText('3. Position & cut', 20, instructY + 65);
+                } else {
+                    ctx.fillText('3. Position molding and make cut', 20, instructY + 65);
+                }
             }
         }
 
