@@ -1,1 +1,379 @@
-How to Cut Crown Molding: A Beginner's Guide.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Cut Crown Molding - Step-by-Step Miter Saw Guide</title>
+    <meta name="description" content="Learn the 'upside down and backwards' method for cutting crown molding. Includes tips on spring angles and using a miter saw for perfect corners.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+        }
+
+        p, li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        ul li:before {
+            content: "🔨";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .pro-tip {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .pro-tip strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #e17055;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tbody tr:hover {
+            background: #f5f7ff;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .back-link {
+            background: #f0f4ff;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .back-link:hover {
+            background: #e6edff;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+        }
+
+        .angle-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .angle-list li {
+            padding: 10px 10px 10px 30px;
+        }
+
+        .angle-list li:before {
+            content: "📐";
+        }
+
+        strong {
+            color: #764ba2;
+        }
+
+        em {
+            color: #e17055;
+            font-style: italic;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+
+            .cta-button {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            p, li {
+                font-size: 1rem;
+            }
+
+            ul li {
+                padding-left: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="icon">🔨</div>
+            <h1>How to Cut Crown Molding</h1>
+            <p>The Ultimate Step-by-Step Guide</p>
+        </header>
+
+        <div class="content">
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px;">
+                Cutting crown molding is notoriously tricky because the wood sits at an angle against the wall and ceiling. To get a perfect fit, you need to master a few pro secrets.
+            </p>
+
+            <div class="section">
+                <h2>1. The Golden Rule: "Upside Down and Backwards"</h2>
+                <p>Most DIYers fail because they try to cut the molding as it sits on the wall. Instead, follow these steps on your miter saw:</p>
+                <ul>
+                    <li><strong>Upside Down:</strong> Place the ceiling edge of the molding flat on the saw table.</li>
+                    <li><strong>Backwards:</strong> The wall edge of the molding should rest against the saw fence.</li>
+                </ul>
+                <div class="pro-tip">
+                    <strong>Pro Tip:</strong>
+                    Think of the saw table as your ceiling and the saw fence as your wall.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. Setting Your Angles</h2>
+                <p>If you aren't using a "crown stop" fence, you need to set both the <strong>Miter Angle</strong> and the <strong>Bevel Angle</strong>.</p>
+                <div class="highlight-box">
+                    <p style="margin: 0;">Getting these numbers right is the hardest part. Instead of guessing, use our <strong>Crown Molding Angle Calculator</strong> to get the exact settings for your specific corner and spring angle.</p>
+                </div>
+                <a href="https://crownmoldingangles.github.io" class="cta-button">Use the Angle Calculator →</a>
+            </div>
+
+            <div class="section">
+                <h2>3. Understanding Spring Angles</h2>
+                <p>The "Spring Angle" is the angle at which the molding leans away from the wall.</p>
+                <div class="angle-list">
+                    <ul>
+                        <li><strong>38° Spring Angle:</strong> Most common for standard molding.</li>
+                        <li><strong>45° Spring Angle:</strong> Common for larger, decorative molding.</li>
+                        <li><strong>52° Spring Angle:</strong> Often used in high-end or custom builds.</li>
+                    </ul>
+                </div>
+                <div class="pro-tip">
+                    <strong>Unsure which one you have?</strong>
+                    Lay a scrap piece in a framing square; the distance it reaches on the wall vs. the ceiling will reveal your angle.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>4. Inside vs. Outside Corners</h2>
+                <ul style="margin-bottom: 20px;">
+                    <li><strong>Inside Corners:</strong> These are the corners where two walls meet (like the corner of a room).</li>
+                    <li><strong>Outside Corners:</strong> These occur where a wall turns a corner (like a chimney breast or a hallway turn).</li>
+                </ul>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Corner Type</th>
+                            <th>Miter Direction</th>
+                            <th>Bevel Direction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Inside Left</strong></td>
+                            <td>Right</td>
+                            <td>Left</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inside Right</strong></td>
+                            <td>Left</td>
+                            <td>Right</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outside Left</strong></td>
+                            <td>Left</td>
+                            <td>Left</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outside Right</strong></td>
+                            <td>Right</td>
+                            <td>Right</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>5. Why Precision Matters</h2>
+                <p>Even a 0.5-degree error in your wall angle can leave a massive gap in your trim. We recommend using a digital angle finder to measure your actual wall corner before cutting.</p>
+                <div class="highlight-box">
+                    <p style="margin: 0;">Once you have your wall angle (e.g., 89.5° instead of 90°), plug it into our calculator for a perfect joint.</p>
+                </div>
+                <a href="https://crownmoldingangles.github.io" class="cta-button">Calculate Your Angles Now →</a>
+            </div>
+        </div>
+
+        <footer>
+            <a href="https://crownmoldingangles.github.io" class="cta-button back-link">← Back to Crown Molding Calculator</a>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Get perfect miter and bevel angles every time.</p>
+        </footer>
+    </div>
+</body>
+</html>
