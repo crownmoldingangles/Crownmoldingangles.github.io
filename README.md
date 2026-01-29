@@ -1,6 +1,5 @@
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="3w4GC1azo_rciRXOXBDQY4z-SZOlDP8FvmKB1tkiiPA" />
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTNZ9QLRTG"></script>
 <script>
@@ -19,7 +18,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+<meta name="google-site-verification" content="3w4GC1azo_rciRXOXBDQY4z-SZOlDP8FvmKB1tkiiPA" />
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
