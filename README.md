@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
+    <meta name="google-site-verification" content="3w4GC1azo_rciRXOXBDQY4z-SZOlDP8FvmKB1tkiiPA" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTNZ9QLRTG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -400,8 +401,6 @@
             }
         }
     </style>
-    <meta name="google-site-verification" content="3w4GC1azo_rciRXOXBDQY4z-SZOlDP8FvmKB1tkiiPA" />
-
 </head>
 <body>
     <div class="container">
