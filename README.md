@@ -1,5 +1,27 @@
 <html lang="en">
 <head>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Crown Molding Angle Calculator",
+  "operatingSystem": "All",
+  "applicationCategory": "DesignApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": "1"
+  },
+  "featureList": "Miter and bevel angle calculation, vaulted ceiling support, spring angle presets",
+  "description": "A free DIY tool to calculate exact miter and bevel angles for crown molding installation, including vaulted and cathedral ceilings."
+}
+</script>
+
     <!-- Google tag (gtag.js) -->
     <meta name="google-site-verification" content="3w4GC1azo_rciRXOXBDQY4z-SZOlDP8FvmKB1tkiiPA" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTNZ9QLRTG"></script>
