@@ -63,6 +63,32 @@
             text-decoration: underline;
         }
 
+        .header-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-size: clamp(0.85em, 2.5vw, 1em);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .header-button:active {
+            transform: translateY(0);
+        }
+
         .content {
             display: grid;
             grid-template-columns: 1fr;
@@ -314,6 +340,50 @@
             margin-bottom: 15px;
         }
 
+        .guides-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+
+        .guides-box {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .guides-icon {
+            font-size: clamp(2.5em, 8vw, 3.5em);
+            margin-bottom: 15px;
+        }
+
+        .guides-box h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: clamp(1.3em, 4vw, 1.8em);
+        }
+
+        .guides-box p {
+            color: #555;
+            font-size: clamp(0.95em, 2.5vw, 1.1em);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .guides-link {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .guides-link:hover {
+            border-bottom: 2px solid #667eea;
+        }
+
         @media (min-width: 768px) {
             body {
                 padding: 20px;
@@ -407,7 +477,7 @@
         <div class="header">
             <h1>🔨 Crown Molding Angle Calculator</h1>
             <p>Professional-grade calculations for perfect miter and bevel cuts</p>
-            <p><a href="howto.html"> How to Cut Crown Molding: A Beginner's Guide </a></p>
+            <a href="howto.html" class="header-button">📖 How to Cut Crown Molding: A Beginner's Guide</a>
         </div>
 
         <div class="content">
@@ -524,6 +594,14 @@
                 No. Inside and outside corners require mirrored miter settings.
                 This calculator adjusts automatically based on corner type.
             </p>
+        </div>
+
+        <div class="guides-section" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
+            <div class="guides-box">
+                <div class="guides-icon">📚</div>
+                <h2>Guides & Help</h2>
+                <p>New to this? Check out our <a href="https://crownmoldingangles.github.io/howto.html" class="guides-link">Step-by-Step Guide on How to Cut Crown Molding</a>.</p>
+            </div>
         </div>
     </div>
 
