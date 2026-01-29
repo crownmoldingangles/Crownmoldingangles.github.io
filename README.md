@@ -408,7 +408,7 @@
         <div class="header">
             <h1>🔨 Crown Molding Angle Calculator</h1>
             <p>Professional-grade calculations for perfect miter and bevel cuts</p>
-            <p><a href="howto.md"> How to Cut Crown Molding: A Beginner's Guide </a></p>
+            <p><a href="howto.html"> How to Cut Crown Molding: A Beginner's Guide </a></p>
         </div>
 
         <div class="content">
