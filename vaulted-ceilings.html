@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Cut Crown Molding for Vaulted & Cathedral Ceilings</title>
+    <meta name="description" content="A specialized guide for calculating crown molding angles on sloped, vaulted, or cathedral ceilings. Learn how to handle the transition joints.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+        }
+
+        p, li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        ul, ol {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li, ol li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        ul li:before {
+            content: "🏔️";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        ol {
+            counter-reset: item;
+        }
+
+        ol li {
+            counter-increment: item;
+        }
+
+        ol li:before {
+            content: counter(item) ".";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .methods-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .method-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+
+        .method-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #ffc107;
+        }
+
+        .warning-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #28a745;
+        }
+
+        .highlight-box strong {
+            color: #155724;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .back-link {
+            background: #f0f4ff;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .back-link:hover {
+            background: #e6edff;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+        }
+
+        strong {
+            color: #764ba2;
+        }
+
+        .measurements-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .measurements-list li:before {
+            content: "📐";
+        }
+
+        .tips-list li:before {
+            content: "💡";
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .cta-section h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 20px;
+        }
+
+        .cta-section .cta-button {
+            background: white;
+            color: #667eea;
+        }
+
+        .cta-section .cta-button:hover {
+            background: #f0f4ff;
+        }
+
+        /* Mobile responsiveness */
+        @media (min-width: 768px) {
+            .methods-box {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            p, li {
+                font-size: 1rem;
+            }
+
+            ul li, ol li {
+                padding-left: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="icon">🏔️</div>
+            <h1>Cutting Crown Molding for Vaulted & Cathedral Ceilings</h1>
+            <p>Advanced Techniques for Sloped Ceilings</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                Standard 90-degree corners are hard enough, but <strong>vaulted ceilings</strong> (sloped ceilings) introduce a third dimension of difficulty. Because the ceiling isn't flat, the "spring angle" of your molding changes as it climbs the wall.
+            </div>
+
+            <div class="section">
+                <h2>The Challenge of Sloped Ceilings</h2>
+                <p>When crown molding meets at the peak of a cathedral ceiling or turns a corner on a slope, a standard 45-degree miter won't work. The joints will have massive gaps because the molding is "rolling" along the pitch of the roof.</p>
+                
+                <h3>Two Ways to Handle Vaulted Corners:</h3>
+                <div class="methods-box">
+                    <div class="method-card">
+                        <h4>1. The Compound Miter Method</h4>
+                        <p>Cutting the molding with a specific miter and bevel to match the slope. More professional-looking but requires precise calculations.</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>2. The Transition Block Method</h4>
+                        <p>Using a decorative wood block at the corner so you only have to make straight 90-degree cuts. Easier, but less "pro" looking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>How to Calculate the Compound Angles</h2>
+                <p>To get a seamless joint on a sloped ceiling, you need three measurements:</p>
+                
+                <div class="measurements-list">
+                    <ol>
+                        <li><strong>The Wall Angle:</strong> Usually 90 or 270 degrees.</li>
+                        <li><strong>The Pitch/Slope of the Ceiling:</strong> The angle at which the ceiling rises.</li>
+                        <li><strong>The Spring Angle of the Molding:</strong> Usually 38° or 45°.</li>
+                    </ol>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Advanced Trigonometry Required</strong>
+                    <p style="margin: 0;">Manually calculating these requires advanced trigonometry. To save time and wood, plug these values into our calculator to get your exact saw settings.</p>
+                </div>
+
+                <a href="https://crownmoldingangles.github.io" class="cta-button">Calculate Vaulted Ceiling Angles →</a>
+            </div>
+
+            <div class="section">
+                <h2>Pro Tips for Cathedral Peaks</h2>
+                <ul class="tips-list">
+                    <li><strong>Measure the "Peak" Angle:</strong> Don't assume your vaulted peak is a specific degree. Use a T-Bevel to find the exact angle where the two slopes meet.</li>
+                    <li><strong>Test with Scraps:</strong> Always cut a 6-inch test piece for both sides of a vaulted joint before cutting your expensive 12-foot lengths.</li>
+                    <li><strong>The "Transition" Piece:</strong> In some vaulted rooms, you may need a small "transition" piece of molding that sits level to bridge the gap between a horizontal wall and a sloped one.</li>
+                </ul>
+            </div>
+
+            <div class="cta-section">
+                <h3>Need the exact numbers?</h3>
+                <p>Our tool handles the complex math for you.</p>
+                <a href="https://crownmoldingangles.github.io" class="cta-button">Calculate My Vaulted Angles Now →</a>
+            </div>
+
+            <div class="section">
+                <div class="highlight-box">
+                    <strong>✅ Quick Reference</strong>
+                    <p style="margin: 0;">For most vaulted ceiling installations, having accurate measurements of your ceiling pitch is crucial. A digital angle finder or a quality T-bevel will be your best friends for this project.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <a href="https://crownmoldingangles.github.io" class="cta-button back-link">← Back to Crown Molding Calculator</a>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Get perfect miter and bevel angles every time.</p>
+        </footer>
+    </div>
+</body>
+</html>
