@@ -18,7 +18,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-<meta name="google-site-verification" content="3w4GC1azo_rciRXOXBDQY4z-SZOlDP8FvmKB1tkiiPA" />
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -400,6 +400,8 @@
             }
         }
     </style>
+    <meta name="google-site-verification" content="3w4GC1azo_rciRXOXBDQY4z-SZOlDP8FvmKB1tkiiPA" />
+
 </head>
 <body>
     <div class="container">
