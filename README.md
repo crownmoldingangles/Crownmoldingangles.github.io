@@ -400,6 +400,18 @@
             margin-bottom: 15px;
         }
 
+        .faq-item {
+            margin-bottom: 25px;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-item h3 {
+            margin-top: 0;
+        }
+
         .guides-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 15px;
@@ -719,28 +731,64 @@
             </ul>
         </article>
 
-        <section class="faq-section" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
+        <section class="faq-section" id="faq" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
             <h2>Frequently Asked Questions About Crown Molding Angles</h2>
             
-            <h3>What miter angle do I use for crown molding?</h3>
-            <p>
-                The miter angle depends on your crown molding's spring angle and whether you're cutting an inside corner or outside corner. For standard 38° or 45° crown molding at a 90-degree corner, this calculator automatically provides the exact miter and bevel angles needed.
-            </p>
+            <div class="faq-item">
+                <h3>How do you calculate crown molding angles?</h3>
+                <p>
+                    To calculate the exact miter and bevel angles, you need the <strong>wall angle</strong> (measured with an angle finder) and the <strong>spring angle</strong> of the molding. Our <a href="https://crownmoldingangles.github.io" style="color: #667eea; font-weight: 600;">Crown Molding Angle Calculator</a> handles the complex trigonometry to give you the precise saw settings for a gap-free fit.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What is the miter and bevel for a 38-degree spring angle?</h3>
+                <p>
+                    For a standard 90-degree corner with a 38-degree spring angle, the standard settings are a <strong>31.62° miter</strong> and a <strong>33.85° bevel</strong>. However, if your walls are not perfectly square, you should use our tool to adjust these numbers.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you cut crown molding upside down?</h3>
+                <p>
+                    Yes, the most common method for DIYers is cutting crown molding <strong>upside down and backwards</strong>. This allows you to use the saw's fence as the "wall" and the table as the "ceiling," making it easier to visualize the corner joint.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can this tool calculate angles for vaulted ceilings?</h3>
+                <p>
+                    Absolutely. When cutting crown for <strong>cathedral or vaulted ceilings</strong>, the slopes change the math. Our calculator supports non-standard wall and ceiling pitches to ensure your peaks and transitions line up perfectly.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What miter angle do I use for crown molding?</h3>
+                <p>
+                    The miter angle depends on your crown molding's spring angle and whether you're cutting an inside corner or outside corner. For standard 38° or 45° crown molding at a 90-degree corner, this calculator automatically provides the exact miter and bevel angles needed.
+                </p>
+            </div>
             
-            <h3>Do inside and outside corners use the same angles?</h3>
-            <p>
-                No. Inside corners and outside corners require different (mirrored) miter settings. This crown molding calculator adjusts automatically based on the corner type you select.
-            </p>
+            <div class="faq-item">
+                <h3>Do inside and outside corners use the same angles?</h3>
+                <p>
+                    No. Inside corners and outside corners require different (mirrored) miter settings. This crown molding calculator adjusts automatically based on the corner type you select.
+                </p>
+            </div>
 
-            <h3>How do I cut crown molding for vaulted ceilings?</h3>
-            <p>
-                For vaulted or cathedral ceilings, you need to account for the ceiling slope in addition to the wall corner angle. Enter your ceiling pitch angle as the corner angle in the calculator, and select your spring angle to get the correct compound miter and bevel angles.
-            </p>
+            <div class="faq-item">
+                <h3>How do I cut crown molding for vaulted ceilings?</h3>
+                <p>
+                    For vaulted or cathedral ceilings, you need to account for the ceiling slope in addition to the wall corner angle. Enter your ceiling pitch angle as the corner angle in the calculator, and select your spring angle to get the correct compound miter and bevel angles.
+                </p>
+            </div>
 
-            <h3>What's the difference between 38 and 45 degree spring angle crown molding?</h3>
-            <p>
-                38-degree spring angle (52/38) is the most common and sits flatter against the ceiling. 45-degree spring angle (45/45) projects further from the wall and ceiling, creating a more dramatic look. The spring angle affects both the miter and bevel angles needed for cuts.
-            </p>
+            <div class="faq-item">
+                <h3>What's the difference between 38 and 45 degree spring angle crown molding?</h3>
+                <p>
+                    38-degree spring angle (52/38) is the most common and sits flatter against the ceiling. 45-degree spring angle (45/45) projects further from the wall and ceiling, creating a more dramatic look. The spring angle affects both the miter and bevel angles needed for cuts.
+                </p>
+            </div>
         </section>
 
         <section class="guides-section" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
