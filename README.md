@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="description" content="Calculate perfect miter and bevel angles for crown molding in seconds. Free tool for 90°, vaulted, and cathedral ceilings. No more gaps or wasted wood!">
+
     <!-- Enhanced Schema.org Structured Data -->
     <script type="application/ld+json">
 {
