@@ -1,12 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Enhanced Schema.org Structured Data -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Crown Molding Angle Calculator",
-  "operatingSystem": "All",
   "applicationCategory": "DesignApplication",
+  "operatingSystem": "All",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -17,24 +19,60 @@
     "ratingValue": "5",
     "ratingCount": "1"
   },
-  "featureList": "Miter and bevel angle calculation, vaulted ceiling support, spring angle presets",
-  "description": "A free DIY tool to calculate exact miter and bevel angles for crown molding installation, including vaulted and cathedral ceilings."
+  "featureList": "Calculate crown molding miter angles, bevel angle calculator, vaulted ceiling crown molding, cathedral ceiling angles, 38 degree spring angle, 45 degree spring angle",
+  "description": "Free crown molding angle calculator for DIY projects. Calculate exact miter and bevel angles for inside corners, outside corners, vaulted ceilings, and cathedral ceilings. Supports 38°, 45°, and 52° spring angles.",
+  "url": "https://crownmoldingangles.github.io",
+  "creator": {
+    "@type": "Organization",
+    "name": "Crown Molding Angles"
+  }
 }
 </script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <meta name="google-site-verification" content="3w4GC1azo_rciRXOXBDQY4z-SZOlDP8FvmKB1tkiiPA" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XTNZ9QLRTG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTNZ9QLRTG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XTNZ9QLRTG');
+    </script>
 
-  gtag('config', 'G-XTNZ9QLRTG');
-</script>
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Crown Molding Angle Calculator</title>
+    
+    <!-- SEO-Optimized Title with High-Intent Keywords -->
+    <title>Crown Molding Angle Calculator - Free Miter and Bevel Angle Tool for DIY</title>
+    
+    <!-- Enhanced Meta Description with Long-Tail Keywords -->
+    <meta name="description" content="Free crown molding angle calculator. Instantly calculate exact miter and bevel angles for inside corners, outside corners, vaulted ceilings. Supports 38°, 45°, 52° spring angles. Perfect for DIY crown molding installation.">
+    
+    <!-- Keywords Meta (still useful for some search engines) -->
+    <meta name="keywords" content="crown molding angle calculator, miter angle calculator, bevel angle calculator, crown molding cuts, how to cut crown molding angles, 38 degree spring angle, 45 degree spring angle, vaulted ceiling crown molding, cathedral ceiling angles, inside corner crown molding, outside corner crown molding, compound miter saw angles, DIY crown molding">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Crown Molding Angle Calculator - Free Miter & Bevel Tool">
+    <meta property="og:description" content="Calculate perfect crown molding angles instantly. Free tool for miter and bevel calculations, vaulted ceilings, and all spring angles.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://crownmoldingangles.github.io">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Crown Molding Angle Calculator - Free Miter & Bevel Tool">
+    <meta name="twitter:description" content="Calculate perfect crown molding angles instantly. Free tool for miter and bevel calculations.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://crownmoldingangles.github.io">
+    
+    <!-- Author and Copyright -->
+    <meta name="author" content="Crown Molding Angles">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Language -->
+    <meta http-equiv="content-language" content="en-US">
+
     <style>
         * {
             margin: 0;
@@ -406,6 +444,39 @@
             border-bottom: 2px solid #667eea;
         }
 
+        /* SEO-Enhanced Content Section */
+        .seo-content {
+            background: white;
+            padding: 30px 25px;
+            margin: 20px 15px;
+            border-radius: 15px;
+            line-height: 1.8;
+        }
+
+        .seo-content h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .seo-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .seo-content p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .seo-content ul {
+            margin: 15px 0 15px 25px;
+            color: #555;
+        }
+
+        .seo-content li {
+            margin-bottom: 8px;
+        }
+
         @media (min-width: 768px) {
             body {
                 padding: 20px;
@@ -441,6 +512,12 @@
 
             .faq-section {
                 padding: 25px 30px;
+            }
+
+            .seo-content {
+                padding: 40px 35px;
+                margin: 20px auto;
+                max-width: 1200px;
             }
         }
 
@@ -481,6 +558,11 @@
             .faq-section {
                 padding: 15px 12px;
             }
+
+            .seo-content {
+                padding: 20px 15px;
+                margin: 15px 10px;
+            }
         }
 
         @media (max-width: 360px) {
@@ -496,25 +578,28 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header class="header">
             <h1>🔨 Crown Molding Angle Calculator</h1>
-            <p>Professional-grade calculations for perfect miter and bevel cuts</p>
-            <a href="howto.html" class="header-button">📖 How to Cut Crown Molding: A Beginner's Guide</a>
-        </div>
+            <p>Free Miter and Bevel Angle Calculator for Perfect Crown Molding Cuts</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px;">
+                <a href="howto.html" class="header-button" style="margin: 0;">📖 How to Cut Crown Molding</a>
+                <a href="https://crownmoldingangles.github.io/vaulted-ceilings.html" class="header-button" style="margin: 0;">🏔️ Vaulted Ceiling Guide</a>
+            </div>
+        </header>
 
         <div class="content">
-            <div class="calculator-section">
-                <h2>Input Parameters</h2>
+            <section class="calculator-section">
+                <h2>Crown Molding Miter & Bevel Calculator</h2>
                 
                 <div class="input-group">
                     <label for="cornerAngle">Corner Angle (degrees)</label>
-                    <input type="number" id="cornerAngle" value="90" min="1" max="180" step="0.1" inputmode="decimal">
+                    <input type="number" id="cornerAngle" value="90" min="1" max="180" step="0.1" inputmode="decimal" aria-label="Enter corner angle in degrees">
                     <small style="color: #666;">Most corners are 90°, but measure if unsure</small>
                 </div>
 
                 <div class="input-group">
                     <label for="springAngle">Crown Molding Spring Angle</label>
-                    <select id="springAngle">
+                    <select id="springAngle" aria-label="Select crown molding spring angle">
                         <option value="38">38° (52/38 - Most Common)</option>
                         <option value="45">45° (45/45 - Standard)</option>
                         <option value="52">52° (38/52)</option>
@@ -524,18 +609,18 @@
 
                 <div class="input-group" id="customAngleGroup" style="display: none;">
                     <label for="customSpringAngle">Custom Spring Angle (degrees)</label>
-                    <input type="number" id="customSpringAngle" value="38" min="1" max="89" step="0.1" inputmode="decimal">
+                    <input type="number" id="customSpringAngle" value="38" min="1" max="89" step="0.1" inputmode="decimal" aria-label="Enter custom spring angle">
                 </div>
 
                 <div class="input-group">
                     <label>Corner Type</label>
                     <div class="radio-group">
                         <label>
-                            <input type="radio" name="cornerType" value="inside" checked>
+                            <input type="radio" name="cornerType" value="inside" checked aria-label="Inside corner">
                             <span>Inside Corner</span>
                         </label>
                         <label>
-                            <input type="radio" name="cornerType" value="outside">
+                            <input type="radio" name="cornerType" value="outside" aria-label="Outside corner">
                             <span>Outside Corner</span>
                         </label>
                     </div>
@@ -545,19 +630,19 @@
                     <label>Cutting Position</label>
                     <div class="radio-group">
                         <label>
-                            <input type="radio" name="cuttingPosition" value="flat" checked>
+                            <input type="radio" name="cuttingPosition" value="flat" checked aria-label="Laying flat position">
                             <span>Laying Flat</span>
                         </label>
                         <label>
-                            <input type="radio" name="cuttingPosition" value="nested">
+                            <input type="radio" name="cuttingPosition" value="nested" aria-label="Nested upright position">
                             <span>Nested (Upright)</span>
                         </label>
                     </div>
                 </div>
 
-                <button onclick="calculate()">Calculate Angles</button>
+                <button onclick="calculate()" aria-label="Calculate miter and bevel angles">Calculate Angles</button>
 
-                <div class="results" id="results" style="display: none;">
+                <div class="results" id="results" style="display: none;" role="region" aria-live="polite">
                     <div class="result-item">
                         <div class="result-label">MITER ANGLE</div>
                         <div class="result-value" id="miterAngle">--</div>
@@ -582,14 +667,14 @@
                         <li>Set your saw to the calculated angles</li>
                     </ol>
                 </div>
-            </div>
+            </section>
 
-            <div class="diagram-section">
+            <section class="diagram-section">
                 <h2>Visual Cutting Guide</h2>
-                <canvas id="diagramCanvas" class="diagram-canvas"></canvas>
+                <canvas id="diagramCanvas" class="diagram-canvas" aria-label="Interactive diagram showing crown molding cutting angles"></canvas>
                 
                 <div class="info-box">
-                    <h3 style="color: #667eea; margin-bottom: 10px;">Understanding the Cuts:</h3>
+                    <h3 style="color: #667eea; margin-bottom: 10px;">Understanding Crown Molding Cuts:</h3>
                     <p>
                         <strong>Miter Angle:</strong> The angle you set on your miter saw's turntable (horizontal rotation).
                         
@@ -600,31 +685,77 @@
                         <strong>Nested:</strong> Crown molding positioned against fence at spring angle. Only miter angle needed.
                     </p>
                 </div>
-            </div>
+            </section>
         </div>
 
-        <div class="faq-section" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
-            <h2>Frequently Asked Questions</h2>
+        <!-- SEO-Enhanced Content Section -->
+        <article class="seo-content">
+            <h2>How to Use This Crown Molding Angle Calculator</h2>
+            <p>Installing crown molding can be challenging, especially when calculating the correct miter and bevel angles for inside corners, outside corners, and vaulted ceilings. Our free crown molding angle calculator makes it easy to get perfect cuts every time.</p>
+
+            <h2>What Are Crown Molding Spring Angles?</h2>
+            <p>The spring angle is the angle at which your crown molding sits against the wall and ceiling. The most common spring angles are:</p>
+            <ul>
+                <li><strong>38° Spring Angle (52/38):</strong> The most common crown molding spring angle found in home improvement stores</li>
+                <li><strong>45° Spring Angle (45/45):</strong> Standard angle used for larger decorative moldings</li>
+                <li><strong>52° Spring Angle (38/52):</strong> Often used in high-end custom installations</li>
+            </ul>
+
+            <h2>Calculating Miter Angles for Crown Molding</h2>
+            <p>The miter angle is the horizontal angle you set on your compound miter saw. For inside corners and outside corners, the miter angle varies based on the corner angle and spring angle of your crown molding. This calculator automatically computes the exact miter angle needed for your specific situation.</p>
+
+            <h2>Calculating Bevel Angles for Crown Molding</h2>
+            <p>The bevel angle is the vertical tilt of your saw blade. When cutting crown molding laying flat (upside down and backwards method), you'll need both a miter angle and bevel angle. Our calculator provides both angles instantly.</p>
+
+            <h2>Crown Molding for Vaulted and Cathedral Ceilings</h2>
+            <p>Installing crown molding on vaulted ceilings or cathedral ceilings requires special compound miter calculations. The ceiling slope changes the spring angle as the molding follows the pitch of the roof. Use our calculator with your ceiling pitch angle to get accurate cuts for sloped ceiling installations.</p>
+
+            <h2>Tips for Perfect Crown Molding Installation</h2>
+            <ul>
+                <li>Always measure your actual corner angles with a digital angle finder - not all corners are exactly 90°</li>
+                <li>Test your cuts on scrap pieces before cutting expensive crown molding</li>
+                <li>For the "upside down and backwards" method, place the ceiling edge flat on the saw table</li>
+                <li>Use the nested (upright) method with a crown molding jig for simpler cuts with only miter angles</li>
+            </ul>
+        </article>
+
+        <section class="faq-section" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
+            <h2>Frequently Asked Questions About Crown Molding Angles</h2>
+            
             <h3>What miter angle do I use for crown molding?</h3>
             <p>
-                The miter angle depends on the spring angle and corner type.
-                For standard 38° or 45° crown molding, this calculator gives
-                the exact miter and bevel angles automatically.
+                The miter angle depends on your crown molding's spring angle and whether you're cutting an inside corner or outside corner. For standard 38° or 45° crown molding at a 90-degree corner, this calculator automatically provides the exact miter and bevel angles needed.
             </p>
+            
             <h3>Do inside and outside corners use the same angles?</h3>
             <p>
-                No. Inside and outside corners require mirrored miter settings.
-                This calculator adjusts automatically based on corner type.
+                No. Inside corners and outside corners require different (mirrored) miter settings. This crown molding calculator adjusts automatically based on the corner type you select.
             </p>
-        </div>
 
-        <div class="guides-section" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
+            <h3>How do I cut crown molding for vaulted ceilings?</h3>
+            <p>
+                For vaulted or cathedral ceilings, you need to account for the ceiling slope in addition to the wall corner angle. Enter your ceiling pitch angle as the corner angle in the calculator, and select your spring angle to get the correct compound miter and bevel angles.
+            </p>
+
+            <h3>What's the difference between 38 and 45 degree spring angle crown molding?</h3>
+            <p>
+                38-degree spring angle (52/38) is the most common and sits flatter against the ceiling. 45-degree spring angle (45/45) projects further from the wall and ceiling, creating a more dramatic look. The spring angle affects both the miter and bevel angles needed for cuts.
+            </p>
+        </section>
+
+        <section class="guides-section" style="max-width: 1200px; margin: 0 auto; padding: 20px 15px;">
             <div class="guides-box">
                 <div class="guides-icon">📚</div>
-                <h2>Guides & Help</h2>
-                <p>New to this? Check out our <a href="https://crownmoldingangles.github.io/howto.html" class="guides-link">Step-by-Step Guide on How to Cut Crown Molding</a>.</p>
+                <h2>Crown Molding Installation Guides</h2>
+                <p>New to crown molding installation? Check out our comprehensive guides:</p>
+                <p style="margin-top: 15px;">
+                    <a href="https://crownmoldingangles.github.io/howto.html" class="guides-link">How to Cut Crown Molding: Step-by-Step Guide</a>
+                </p>
+                <p style="margin-top: 10px;">
+                    <a href="https://crownmoldingangles.github.io/vaulted-ceilings.html" class="guides-link">Vaulted & Cathedral Ceiling Crown Molding Guide</a>
+                </p>
             </div>
-        </div>
+        </section>
     </div>
 
     <script>
@@ -731,7 +862,6 @@
             const isMobile = w < 500;
             const isVerySmall = w < 360;
             
-            // Stop any existing animation
             if (animationFrame) {
                 cancelAnimationFrame(animationFrame);
             }
@@ -749,30 +879,25 @@
                 
                 const showCut = phase > 1;
                 
-                // Title with angle info
                 ctx.fillStyle = '#333';
                 ctx.font = `bold ${isVerySmall ? 14 : 18}px Arial`;
                 ctx.textAlign = 'center';
                 const titleText = showCut ? 'AFTER CUT' : 'BEFORE CUT';
                 ctx.fillText(titleText, w/2, 25);
                 
-                // Subtitle showing the corner angle
                 ctx.font = `${isVerySmall ? 10 : 12}px Arial`;
                 ctx.fillStyle = '#666';
                 ctx.fillText(`${cornerAngle.toFixed(1)}° ${cornerType} corner`, w/2, 42);
                 
-                // Draw miter saw
                 const sawBaseY = h * 0.65;
                 const sawCenterX = w / 2;
                 
-                // Base/Table
                 ctx.fillStyle = '#555';
                 ctx.fillRect(sawCenterX - 120, sawBaseY, 240, 20);
                 ctx.strokeStyle = '#000';
                 ctx.lineWidth = 2;
                 ctx.strokeRect(sawCenterX - 120, sawBaseY, 240, 20);
                 
-                // Fence
                 ctx.fillStyle = '#654321';
                 ctx.fillRect(sawCenterX - 120, sawBaseY - 25, 240, 25);
                 ctx.strokeStyle = '#000';
@@ -783,12 +908,10 @@
                 ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
                 ctx.fillText('FENCE', sawCenterX, sawBaseY - 10);
                 
-                // Turntable with dynamic miter rotation
                 ctx.save();
                 ctx.translate(sawCenterX, sawBaseY);
                 ctx.rotate(-miterAngle * Math.PI / 180);
                 
-                // Rotating table surface
                 ctx.fillStyle = '#888';
                 ctx.beginPath();
                 ctx.arc(0, 0, 80, 0, Math.PI * 2);
@@ -797,7 +920,6 @@
                 ctx.lineWidth = 2;
                 ctx.stroke();
                 
-                // Miter angle indicator lines
                 ctx.strokeStyle = '#FFD700';
                 ctx.lineWidth = 2;
                 ctx.beginPath();
@@ -805,39 +927,33 @@
                 ctx.lineTo(0, -75);
                 ctx.stroke();
                 
-                // Draw miter arc
                 ctx.strokeStyle = '#FFD700';
                 ctx.lineWidth = 2;
                 ctx.beginPath();
                 ctx.arc(0, 0, 50, -Math.PI/2, -Math.PI/2 - (miterAngle * Math.PI / 180), true);
                 ctx.stroke();
                 
-                // Saw arm pivot
                 ctx.fillStyle = '#444';
                 ctx.beginPath();
                 ctx.arc(0, -60, 15, 0, Math.PI * 2);
                 ctx.fill();
                 
-                // Saw arm
                 ctx.fillStyle = '#666';
                 ctx.fillRect(-10, -120, 20, 60);
                 ctx.strokeStyle = '#000';
                 ctx.lineWidth = 2;
                 ctx.strokeRect(-10, -120, 20, 60);
                 
-                // Saw motor housing with dynamic bevel tilt
                 ctx.save();
                 ctx.translate(0, -120);
                 ctx.rotate(-bevelAngle * Math.PI / 180);
                 
-                // Motor housing
                 ctx.fillStyle = '#2E7D32';
                 ctx.fillRect(-30, -40, 60, 40);
                 ctx.strokeStyle = '#000';
                 ctx.lineWidth = 2;
                 ctx.strokeRect(-30, -40, 60, 40);
                 
-                // Bevel angle indicator (if bevel is not 0)
                 if (Math.abs(bevelAngle) > 0.5) {
                     ctx.strokeStyle = '#FFA500';
                     ctx.lineWidth = 2;
@@ -846,7 +962,6 @@
                     ctx.stroke();
                 }
                 
-                // Blade
                 ctx.fillStyle = '#C0C0C0';
                 ctx.beginPath();
                 ctx.arc(0, 0, 35, 0, Math.PI * 2);
@@ -855,7 +970,6 @@
                 ctx.lineWidth = 2;
                 ctx.stroke();
                 
-                // Blade teeth
                 ctx.strokeStyle = '#666';
                 ctx.lineWidth = 2;
                 for (let i = 0; i < 12; i++) {
@@ -869,7 +983,6 @@
                 ctx.restore();
                 ctx.restore();
                 
-                // Miter adjustment knob with angle display
                 ctx.fillStyle = '#FFD700';
                 ctx.beginPath();
                 ctx.arc(sawCenterX - 100, sawBaseY + 30, 12, 0, Math.PI * 2);
@@ -892,7 +1005,6 @@
                 ctx.fillText('MITER', sawCenterX - 100, sawBaseY + 50);
                 ctx.fillText(miterAngle.toFixed(1) + '°', sawCenterX - 100, sawBaseY + 62);
                 
-                // Bevel adjustment knob with angle display
                 ctx.fillStyle = '#FFD700';
                 ctx.beginPath();
                 ctx.arc(sawCenterX + 100, sawBaseY + 30, 12, 0, Math.PI * 2);
@@ -915,17 +1027,14 @@
                 ctx.fillText('BEVEL', sawCenterX + 100, sawBaseY + 50);
                 ctx.fillText(bevelAngle.toFixed(1) + '°', sawCenterX + 100, sawBaseY + 62);
                 
-                // Crown molding with dynamic angles
                 const moldingY = sawBaseY - 40;
                 
                 if (cuttingPosition === 'flat') {
-                    // Draw molding laying flat with accurate cut angle
                     ctx.save();
                     ctx.translate(sawCenterX, moldingY);
                     ctx.rotate(-miterAngle * Math.PI / 180);
                     
                     if (showCut) {
-                        // Show cut piece with accurate angle
                         const cutDepth = 15 * Math.tan(bevelAngle * Math.PI / 180);
                         
                         ctx.fillStyle = '#DEB887';
@@ -941,7 +1050,6 @@
                         ctx.lineWidth = 2;
                         ctx.stroke();
                         
-                        // Highlight the angled cut edge
                         ctx.strokeStyle = '#FF0000';
                         ctx.lineWidth = 3;
                         ctx.beginPath();
@@ -950,7 +1058,6 @@
                         ctx.lineTo(0, 15);
                         ctx.stroke();
                         
-                        // Show the other piece moved away
                         ctx.globalAlpha = 0.5;
                         ctx.fillStyle = '#DEB887';
                         ctx.beginPath();
@@ -963,14 +1070,12 @@
                         ctx.fill();
                         ctx.globalAlpha = 1;
                     } else {
-                        // Show full piece before cut
                         ctx.fillStyle = '#DEB887';
                         ctx.fillRect(-80, -15, 160, 30);
                         ctx.strokeStyle = '#000';
                         ctx.lineWidth = 2;
                         ctx.strokeRect(-80, -15, 160, 30);
                         
-                        // Show cut line at angle
                         ctx.strokeStyle = '#FF0000';
                         ctx.lineWidth = 2;
                         ctx.setLineDash([5, 5]);
@@ -983,7 +1088,6 @@
                     
                     ctx.restore();
                     
-                    // Labels
                     ctx.fillStyle = '#0066FF';
                     ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
                     ctx.textAlign = 'left';
@@ -996,7 +1100,6 @@
                     }
                     
                 } else {
-                    // Draw nested molding with accurate spring angle
                     ctx.save();
                     ctx.translate(sawCenterX, sawBaseY);
                     ctx.rotate(-miterAngle * Math.PI / 180);
@@ -1005,7 +1108,6 @@
                     ctx.rotate(-springRad);
                     
                     if (showCut) {
-                        // Show cut piece
                         ctx.fillStyle = '#DEB887';
                         ctx.beginPath();
                         ctx.moveTo(-12, -5);
@@ -1020,7 +1122,6 @@
                         ctx.lineWidth = 2;
                         ctx.stroke();
                         
-                        // Show cut edge
                         ctx.strokeStyle = '#FF0000';
                         ctx.lineWidth = 3;
                         ctx.beginPath();
@@ -1029,7 +1130,6 @@
                         ctx.lineTo(8, 0);
                         ctx.stroke();
                         
-                        // Show other piece
                         ctx.globalAlpha = 0.5;
                         ctx.fillStyle = '#DEB887';
                         ctx.beginPath();
@@ -1043,14 +1143,12 @@
                         ctx.fill();
                         ctx.globalAlpha = 1;
                     } else {
-                        // Show full piece
                         ctx.fillStyle = '#DEB887';
                         ctx.fillRect(-12, -80, 24, 80);
                         ctx.strokeStyle = '#000';
                         ctx.lineWidth = 2;
                         ctx.strokeRect(-12, -80, 24, 80);
                         
-                        // Show cut line
                         ctx.strokeStyle = '#FF0000';
                         ctx.lineWidth = 2;
                         ctx.setLineDash([5, 5]);
@@ -1063,7 +1161,6 @@
                     
                     ctx.restore();
                     
-                    // Spring angle indicator with actual angle
                     ctx.strokeStyle = '#00AA00';
                     ctx.lineWidth = 3;
                     ctx.beginPath();
@@ -1079,7 +1176,6 @@
                     ctx.textAlign = 'left';
                     ctx.fillText(springAngle.toFixed(1) + '° spring', sawCenterX + 50, sawBaseY - 30);
                     
-                    // Orientation label
                     ctx.fillStyle = '#0066FF';
                     ctx.font = `bold ${isVerySmall ? 9 : 11}px Arial`;
                     if (cornerType === 'inside') {
@@ -1089,7 +1185,6 @@
                     }
                 }
                 
-                // Setup instructions box
                 const instructY = 60;
                 const boxHeight = isVerySmall ? 65 : 75;
                 ctx.fillStyle = '#fff';
@@ -1117,7 +1212,6 @@
             animateCut();
         }
 
-        // Initial calculation with default values
         calculate();
     </script>
 </body>
