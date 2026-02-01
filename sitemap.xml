@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://crownmoldingangles.github.io</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://crownmoldingangles.github.io/</loc>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://crownmoldingangles.github.io/cutting-guide</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://crownmoldingangles.github.io/howto.html</loc>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://crownmoldingangles.github.io/vaulted-ceilings</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://crownmoldingangles.github.io/vaulted-ceilings.html</loc>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>
