@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reddit Outreach Tool — Crown Molding Angles</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0f13;
+    --surface: #1a1a22;
+    --surface2: #22222e;
+    --border: #2e2e3e;
+    --accent: #7c6af7;
+    --accent2: #f76a6a;
+    --green: #4ade80;
+    --yellow: #fbbf24;
+    --text: #e8e8f0;
+    --muted: #7a7a9a;
+    --reddit: #ff4500;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px 16px;
+  }
+
+  .app { max-width: 900px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    width: 48px; height: 48px;
+    background: var(--reddit);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; flex-shrink: 0;
+  }
+  .header-text h1 {
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .header-text p { color: var(--muted); font-size: 0.9em; margin-top: 2px; }
+
+  /* Stats bar */
+  .stats {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 18px;
+    flex: 1;
+    min-width: 120px;
+  }
+  .stat-num { font-family: 'DM Mono', monospace; font-size: 1.6em; font-weight: 500; color: var(--accent); }
+  .stat-label { font-size: 0.78em; color: var(--muted); margin-top: 2px; }
+
+  /* Section titles */
+  .section-title {
+    font-size: 0.72em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+
+  /* Search cards */
+  .search-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .search-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+    display: block;
+  }
+  .search-card:hover {
+    border-color: var(--accent);
+    background: var(--surface2);
+    transform: translateY(-1px);
+  }
+  .search-card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .subreddit-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72em;
+    background: rgba(255,69,0,0.15);
+    color: var(--reddit);
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,69,0,0.3);
+    white-space: nowrap;
+  }
+  .search-card-query {
+    font-size: 0.88em;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .search-card-hint {
+    font-size: 0.78em;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .open-icon {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 0.85em;
+    flex-shrink: 0;
+  }
+
+  /* Reply templates */
+  .template-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .template-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .template-card:hover { border-color: var(--accent); }
+
+  .template-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .template-header-left { display: flex; align-items: center; gap: 12px; }
+  .template-tag {
+    font-size: 0.72em;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-general { background: rgba(124,106,247,0.15); color: var(--accent); border: 1px solid rgba(124,106,247,0.3); }
+  .tag-outside { background: rgba(251,191,36,0.15); color: var(--yellow); border: 1px solid rgba(251,191,36,0.3); }
+  .tag-vaulted { background: rgba(74,222,128,0.15); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+  .tag-angles { background: rgba(247,106,106,0.15); color: var(--accent2); border: 1px solid rgba(247,106,106,0.3); }
+  .tag-coping { background: rgba(99,179,237,0.15); color: #63b3ed; border: 1px solid rgba(99,179,237,0.3); }
+
+  .template-title { font-size: 0.92em; font-weight: 600; }
+  .chevron { color: var(--muted); transition: transform 0.2s; font-size: 0.85em; }
+  .chevron.open { transform: rotate(180deg); }
+
+  .template-body { display: none; padding: 0 16px 16px; }
+  .template-body.open { display: block; }
+
+  .template-text {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 0.88em;
+    line-height: 1.7;
+    color: #c8c8e0;
+    white-space: pre-wrap;
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 18px;
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .copy-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .copy-btn.copied { background: var(--green); color: #0f0f13; }
+
+  /* Tracker */
+  .tracker { margin-top: 4px; }
+  .tracker-input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .tracker-input {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88em;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .tracker-input:focus { border-color: var(--accent); }
+  .tracker-input::placeholder { color: var(--muted); }
+  .add-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 0.88em;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+  .add-btn:hover { opacity: 0.85; }
+
+  .thread-list { display: flex; flex-direction: column; gap: 8px; }
+  .thread-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .thread-check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    font-size: 0.75em;
+  }
+  .thread-check.done { background: var(--green); border-color: var(--green); color: #0f0f13; }
+  .thread-url {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78em;
+    color: var(--accent);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+  }
+  .thread-url:hover { text-decoration: underline; }
+  .thread-note { font-size: 0.8em; color: var(--muted); }
+  .thread-date { font-size: 0.75em; color: var(--muted); font-family: 'DM Mono', monospace; flex-shrink: 0; }
+  .delete-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 1em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: color 0.15s;
+    flex-shrink: 0;
+  }
+  .delete-btn:hover { color: var(--accent2); }
+
+  .empty-state {
+    text-align: center;
+    padding: 28px;
+    color: var(--muted);
+    font-size: 0.88em;
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+  }
+
+  /* Tips */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .tip-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .tip-icon { font-size: 1.4em; margin-bottom: 8px; }
+  .tip-title { font-size: 0.85em; font-weight: 600; margin-bottom: 4px; }
+  .tip-text { font-size: 0.78em; color: var(--muted); line-height: 1.5; }
+
+  @media (max-width: 600px) {
+    .stats { gap: 8px; }
+    .stat { min-width: 100px; padding: 10px 14px; }
+    .search-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">🧡</div>
+    <div class="header-text">
+      <h1>Reddit Outreach Tool</h1>
+      <p>Find threads, copy replies, track your posts — crownmoldingangles.github.io</p>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num" id="stat-searches">12</div>
+      <div class="stat-label">Search queries</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-templates">5</div>
+      <div class="stat-label">Reply templates</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-tracked">0</div>
+      <div class="stat-label">Threads tracked</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-done">0</div>
+      <div class="stat-label">Replies posted</div>
+    </div>
+  </div>
+
+  <!-- Search Queries -->
+  <div class="section-title">🔍 One-click Reddit searches — open each and look for unanswered questions</div>
+  <div class="search-grid" id="search-grid"></div>
+
+  <!-- Reply Templates -->
+  <div class="section-title">💬 Copy-paste reply templates</div>
+  <div class="template-list" id="template-list"></div>
+
+  <!-- Thread Tracker -->
+  <div class="section-title">✅ Thread tracker — log threads you've replied to</div>
+  <div class="tracker">
+    <div class="tracker-input-row">
+      <input class="tracker-input" id="url-input" placeholder="Paste Reddit thread URL here..." />
+      <input class="tracker-input" id="note-input" placeholder="Note (optional)" style="max-width:180px;" />
+      <button class="add-btn" onclick="addThread()">+ Add</button>
+    </div>
+    <div class="thread-list" id="thread-list"></div>
+  </div>
+
+  <!-- Tips -->
+  <div class="section-title">💡 Engagement tips</div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🎯</div>
+      <div class="tip-title">Be genuinely helpful first</div>
+      <div class="tip-text">Answer the question fully before mentioning your tool. Reddit hates spam but loves real help.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⏰</div>
+      <div class="tip-title">Check weekly</div>
+      <div class="tip-text">New posts appear constantly. Spend 20 min every Monday searching and replying to fresh threads.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📅</div>
+      <div class="tip-title">Target recent posts</div>
+      <div class="tip-text">Sort by "New" in each subreddit. Replies to recent posts get seen; old posts are buried.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔁</div>
+      <div class="tip-title">Vary your replies</div>
+      <div class="tip-text">Don't paste the same template word-for-word every time. Customize a sentence or two so it feels natural.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🏆</div>
+      <div class="tip-title">Upvotes = SEO juice</div>
+      <div class="tip-text">Highly upvoted comments with your link send stronger signals to Google than low-engagement posts.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚫</div>
+      <div class="tip-title">Avoid self-promotion posts</div>
+      <div class="tip-text">Don't create new posts promoting your site. Reply to existing questions only — that's where the value is.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── Data ─────────────────────────────────────────────────────────────────────
+
+const searches = [
+  { sub: "r/DIY", query: "crown molding angles help", label: "Crown molding angles help" },
+  { sub: "r/DIY", query: "crown molding miter saw cut", label: "Miter saw crown cuts" },
+  { sub: "r/HomeImprovement", query: "crown molding angles", label: "Crown molding angles" },
+  { sub: "r/HomeImprovement", query: "crown molding corners not 90", label: "Corners not 90°" },
+  { sub: "r/Carpentry", query: "crown molding spring angle", label: "Spring angle questions" },
+  { sub: "r/Carpentry", query: "crown molding outside corner", label: "Outside corner cuts" },
+  { sub: "r/DIY", query: "crown molding inside corner cope miter", label: "Cope vs miter inside" },
+  { sub: "r/HomeImprovement", query: "crown molding vaulted ceiling angles", label: "Vaulted ceiling crown" },
+  { sub: "r/DIY", query: "compound miter saw crown molding", label: "Compound miter saw" },
+  { sub: "r/Carpentry", query: "crown molding return end", label: "Crown molding returns" },
+  { sub: "r/HomeImprovement", query: "crown molding 38 45 spring angle difference", label: "38 vs 45 spring angle" },
+  { sub: "r/DIY", query: "crown molding calculator angles bevel", label: "Calculator / bevel angles" },
+];
+
+const templates = [
+  {
+    tag: "tag-general",
+    tagLabel: "General angles",
+    title: "Someone asking what angles to use",
+    text: `Great question — the angles depend on two things: your corner measurement and your molding's spring angle (usually 38° for most store-bought crown).
+
+For a standard 90° corner with 38° spring angle laying flat on the saw:
+• Miter: 31.62°
+• Bevel: 33.85°
+
+But honestly the best move is to measure your actual corner — most walls are 89° or 91°, not a perfect 90°, and even 1° off creates a visible gap.
+
+I built a free calculator that handles all the math instantly: https://crownmoldingangles.github.io — just enter your corner angle and spring angle and it gives you exact miter + bevel settings. Saved me a lot of scrap cuts!`
+  },
+  {
+    tag: "tag-outside",
+    tagLabel: "Outside corner",
+    title: "Someone asking about outside corners",
+    text: `Outside corners use the same angle values as inside corners, but the molding orientation on the saw is flipped — top (ceiling) edge against the fence instead of the bottom edge. Easy to mix up!
+
+For 90° outside corner, 38° spring angle laying flat:
+• Miter: 31.62°
+• Bevel: 33.85°
+• Position: top edge against fence, bottom edge on table
+
+I have a full outside corner guide with a step-by-step breakdown here: https://crownmoldingangles.github.io/outside-corners.html
+
+And the main calculator at https://crownmoldingangles.github.io — select "Outside Corner" and it walks you through the saw position too.`
+  },
+  {
+    tag: "tag-vaulted",
+    tagLabel: "Vaulted ceiling",
+    title: "Someone asking about vaulted / cathedral ceilings",
+    text: `Vaulted ceilings are tricky because the ceiling pitch changes the effective spring angle as the molding climbs the slope. You can't just use the standard 90° corner angles.
+
+The approach that works: measure the actual angle the crown will make with the wall at each point, then use that as your corner angle input.
+
+This free calculator handles it — https://crownmoldingangles.github.io — just enter your pitch angle as the corner angle. There's also a dedicated vaulted ceiling guide at https://crownmoldingangles.github.io/vaulted-ceilings.html that explains the geometry in more detail.`
+  },
+  {
+    tag: "tag-coping",
+    tagLabel: "Coping vs mitering",
+    title: "Someone debating whether to cope or miter inside corners",
+    text: `Pros cope inside corners almost universally — here's why: mitered inside corners rely on the walls being perfectly square (they never are) and stay tight permanently (wood moves with humidity). Coped joints hide both problems.
+
+That said, mitering is perfectly fine for paint-grade MDF in a newer house where corners are close to square.
+
+The miter angles you'd use for inside corners (whether mitering fully or just making the initial 45° cut to start a cope):
+https://crownmoldingangles.github.io — select Inside Corner and it gives you exact compound miter + bevel angles.
+
+I also wrote up a full coping vs mitering comparison here: https://crownmoldingangles.github.io/coping-vs-mitering.html`
+  },
+  {
+    tag: "tag-angles",
+    tagLabel: "Non-90° corners",
+    title: "Someone with walls that aren't square",
+    text: `This is super common — most "square" corners are actually 88°–92°. Even 1° off produces a visible gap on a miter joint.
+
+The fix is straightforward: measure the actual corner angle with a cheap digital angle finder ($15–$20 at any hardware store), then plug the exact number into a calculator.
+
+This free tool handles any corner angle: https://crownmoldingangles.github.io — enter your measured angle instead of assuming 90° and it gives you the precise miter and bevel settings.
+
+There's also an angle table for common non-square corners here: https://crownmoldingangles.github.io/not-90-degrees.html`
+  },
+];
+
+// ── Render searches ───────────────────────────────────────────────────────────
+
+function renderSearches() {
+  const grid = document.getElementById('search-grid');
+  grid.innerHTML = searches.map(s => {
+    const url = `https://www.reddit.com/search/?q=${encodeURIComponent(s.query)}&restrict_sr=0&sort=new`;
+    return `
+      <a href="${url}" target="_blank" class="search-card">
+        <div class="search-card-top">
+          <span class="subreddit-badge">${s.sub}</span>
+          <span class="open-icon">↗</span>
+        </div>
+        <div class="search-card-query">${s.label}</div>
+        <div class="search-card-hint">"${s.query}"</div>
+      </a>`;
+  }).join('');
+}
+
+// ── Render templates ──────────────────────────────────────────────────────────
+
+function renderTemplates() {
+  const list = document.getElementById('template-list');
+  list.innerHTML = templates.map((t, i) => `
+    <div class="template-card">
+      <div class="template-header" onclick="toggleTemplate(${i})">
+        <div class="template-header-left">
+          <span class="template-tag ${t.tag}">${t.tagLabel}</span>
+          <span class="template-title">${t.title}</span>
+        </div>
+        <span class="chevron" id="chev-${i}">▼</span>
+      </div>
+      <div class="template-body" id="tbody-${i}">
+        <div class="template-text">${t.text}</div>
+        <button class="copy-btn" id="copybtn-${i}" onclick="copyTemplate(${i})">
+          📋 Copy reply
+        </button>
+      </div>
+    </div>`).join('');
+}
+
+function toggleTemplate(i) {
+  const body = document.getElementById(`tbody-${i}`);
+  const chev = document.getElementById(`chev-${i}`);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chev.classList.toggle('open', !isOpen);
+}
+
+function copyTemplate(i) {
+  navigator.clipboard.writeText(templates[i].text).then(() => {
+    const btn = document.getElementById(`copybtn-${i}`);
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = '📋 Copy reply';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// ── Thread tracker ────────────────────────────────────────────────────────────
+
+let threads = JSON.parse(localStorage.getItem('reddit-threads') || '[]');
+
+function saveThreads() {
+  localStorage.setItem('reddit-threads', JSON.stringify(threads));
+  updateStats();
+}
+
+function addThread() {
+  const url = document.getElementById('url-input').value.trim();
+  const note = document.getElementById('note-input').value.trim();
+  if (!url) return;
+  threads.unshift({
+    id: Date.now(),
+    url,
+    note,
+    done: false,
+    date: new Date().toLocaleDateString('en-CA')
+  });
+  document.getElementById('url-input').value = '';
+  document.getElementById('note-input').value = '';
+  saveThreads();
+  renderThreads();
+}
+
+function toggleDone(id) {
+  threads = threads.map(t => t.id === id ? {...t, done: !t.done} : t);
+  saveThreads();
+  renderThreads();
+}
+
+function deleteThread(id) {
+  threads = threads.filter(t => t.id !== id);
+  saveThreads();
+  renderThreads();
+}
+
+function renderThreads() {
+  const list = document.getElementById('thread-list');
+  if (threads.length === 0) {
+    list.innerHTML = `<div class="empty-state">No threads tracked yet — paste a Reddit URL above after you reply to a post</div>`;
+    return;
+  }
+  list.innerHTML = threads.map(t => `
+    <div class="thread-item">
+      <div class="thread-check ${t.done ? 'done' : ''}" onclick="toggleDone(${t.id})">
+        ${t.done ? '✓' : ''}
+      </div>
+      <a href="${t.url}" target="_blank" class="thread-url">${t.url}</a>
+      ${t.note ? `<span class="thread-note">${t.note}</span>` : ''}
+      <span class="thread-date">${t.date}</span>
+      <button class="delete-btn" onclick="deleteThread(${t.id})">✕</button>
+    </div>`).join('');
+}
+
+function updateStats() {
+  document.getElementById('stat-tracked').textContent = threads.length;
+  document.getElementById('stat-done').textContent = threads.filter(t => t.done).length;
+}
+
+// allow Enter key in url input
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('url-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') addThread();
+  });
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+
+renderSearches();
+renderTemplates();
+renderThreads();
+updateStats();
+</script>
+</body>
+</html>
