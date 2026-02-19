@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Outreach Tool — Crown Molding Angles</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0f13;
+    --surface: #1a1a22;
+    --surface2: #22222e;
+    --border: #2e2e3e;
+    --accent: #7c6af7;
+    --accent2: #f76a6a;
+    --green: #4ade80;
+    --yellow: #fbbf24;
+    --text: #e8e8f0;
+    --muted: #7a7a9a;
+    --reddit: #ff4500;
+    --youtube: #ff0000;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px 16px; }
+  .app { max-width: 960px; margin: 0 auto; }
+
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .logo { width: 48px; height: 48px; background: linear-gradient(135deg, var(--reddit), var(--youtube)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .header-text h1 { font-size: 1.4em; font-weight: 700; letter-spacing: -0.3px; }
+  .header-text p { color: var(--muted); font-size: 0.88em; margin-top: 3px; }
+
+  .stats { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; flex: 1; min-width: 110px; }
+  .stat-num { font-family: 'DM Mono', monospace; font-size: 1.5em; font-weight: 500; color: var(--accent); }
+  .stat-label { font-size: 0.75em; color: var(--muted); margin-top: 2px; }
+
+  .tabs { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 5px; margin-bottom: 24px; width: fit-content; }
+  .tab { padding: 9px 22px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9em; transition: all 0.15s; color: var(--muted); border: none; background: none; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; gap: 8px; }
+  .tab:hover { color: var(--text); }
+  .tab.active-reddit { background: var(--reddit); color: white; }
+  .tab.active-youtube { background: var(--youtube); color: white; }
+  .tab.active-tracker { background: var(--accent); color: white; }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .section-title { font-size: 0.7em; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 12px; margin-top: 28px; }
+  .section-title:first-child { margin-top: 0; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-bottom: 8px; }
+  .link-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.15s; text-decoration: none; display: block; }
+  .link-card:hover { background: var(--surface2); transform: translateY(-1px); }
+  .link-card.reddit-card:hover { border-color: var(--reddit); }
+  .link-card.youtube-card:hover { border-color: var(--youtube); }
+  .card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .platform-badge { font-family: 'DM Mono', monospace; font-size: 0.7em; padding: 2px 8px; border-radius: 20px; white-space: nowrap; font-weight: 500; }
+  .badge-reddit  { background: rgba(255,69,0,0.15); color: var(--reddit); border: 1px solid rgba(255,69,0,0.3); }
+  .badge-youtube { background: rgba(255,0,0,0.15);  color: var(--youtube); border: 1px solid rgba(255,0,0,0.3); }
+  .card-label { font-size: 0.88em; color: var(--text); font-weight: 500; line-height: 1.4; }
+  .card-hint  { font-size: 0.76em; color: var(--muted); margin-top: 3px; }
+  .open-icon  { margin-left: auto; color: var(--muted); font-size: 0.85em; flex-shrink: 0; }
+
+  .channel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 8px; }
+  .channel-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: all 0.15s; }
+  .channel-card:hover { border-color: var(--youtube); background: var(--surface2); transform: translateY(-1px); }
+  .channel-icon { width: 36px; height: 36px; background: rgba(255,0,0,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1em; flex-shrink: 0; }
+  .channel-name { font-size: 0.88em; font-weight: 600; color: var(--text); }
+  .channel-why  { font-size: 0.75em; color: var(--muted); margin-top: 2px; line-height: 1.3; }
+
+  .template-list { display: flex; flex-direction: column; gap: 10px; }
+  .template-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.15s; }
+  .template-card:hover { border-color: var(--accent); }
+  .template-header { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; cursor: pointer; user-select: none; }
+  .template-header-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .template-tag { font-size: 0.69em; font-weight: 700; padding: 3px 9px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+  .tag-general { background: rgba(124,106,247,0.15); color: var(--accent);  border: 1px solid rgba(124,106,247,0.3); }
+  .tag-outside { background: rgba(251,191,36,0.15);  color: var(--yellow);  border: 1px solid rgba(251,191,36,0.3); }
+  .tag-vaulted { background: rgba(74,222,128,0.15);  color: var(--green);   border: 1px solid rgba(74,222,128,0.3); }
+  .tag-angles  { background: rgba(247,106,106,0.15); color: var(--accent2); border: 1px solid rgba(247,106,106,0.3); }
+  .tag-coping  { background: rgba(99,179,237,0.15);  color: #63b3ed;        border: 1px solid rgba(99,179,237,0.3); }
+  .tag-yt      { background: rgba(255,0,0,0.12);     color: #ff6b6b;        border: 1px solid rgba(255,0,0,0.25); }
+  .template-title { font-size: 0.9em; font-weight: 600; }
+  .chevron { color: var(--muted); transition: transform 0.2s; font-size: 0.82em; }
+  .chevron.open { transform: rotate(180deg); }
+  .template-body { display: none; padding: 0 16px 16px; }
+  .template-body.open { display: block; }
+  .template-text { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px; font-size: 0.86em; line-height: 1.75; color: #c8c8e0; white-space: pre-wrap; font-family: 'DM Sans', sans-serif; margin-bottom: 10px; }
+  .copy-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; border: none; border-radius: 8px; padding: 9px 18px; font-size: 0.84em; font-weight: 600; cursor: pointer; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
+  .copy-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .copy-btn.copied { background: var(--green); color: #0f0f13; }
+
+  .strategy-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 4px; }
+  .strategy-box h3 { font-size: 0.92em; color: var(--text); margin-bottom: 12px; }
+  .strategy-steps { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-step { display: flex; gap: 12px; align-items: flex-start; }
+  .step-num { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,0,0,0.15); color: #ff6b6b; font-size: 0.75em; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .step-text { font-size: 0.86em; color: #b0b0c8; line-height: 1.6; }
+  .step-text strong { color: var(--text); }
+
+  .tracker-tabs { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+  .tracker-tab { padding: 6px 16px; border-radius: 6px; font-size: 0.82em; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: none; color: var(--muted); font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .tracker-tab.active { background: var(--surface2); color: var(--text); border-color: var(--accent); }
+
+  .tracker-input-row { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .tracker-input { flex: 1; min-width: 180px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.86em; outline: none; transition: border-color 0.15s; }
+  .tracker-input:focus { border-color: var(--accent); }
+  .tracker-input::placeholder { color: var(--muted); }
+  .platform-select { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.86em; outline: none; cursor: pointer; }
+  .add-btn { background: var(--accent); color: white; border: none; border-radius: 8px; padding: 10px 18px; font-weight: 600; font-size: 0.86em; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: opacity 0.15s; white-space: nowrap; }
+  .add-btn:hover { opacity: 0.85; }
+
+  .entry-list { display: flex; flex-direction: column; gap: 8px; }
+  .entry-item { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 11px 13px; }
+  .entry-check { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; font-size: 0.72em; }
+  .entry-check.done { background: var(--green); border-color: var(--green); color: #0f0f13; }
+  .entry-platform { font-size: 0.68em; font-weight: 700; padding: 2px 7px; border-radius: 10px; flex-shrink: 0; }
+  .ep-reddit  { background: rgba(255,69,0,0.2);  color: var(--reddit); }
+  .ep-youtube { background: rgba(255,0,0,0.15);  color: #ff6b6b; }
+  .entry-url { font-family: 'DM Mono', monospace; font-size: 0.76em; color: var(--accent); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+  .entry-url:hover { text-decoration: underline; }
+  .entry-note { font-size: 0.78em; color: var(--muted); white-space: nowrap; max-width: 140px; overflow: hidden; text-overflow: ellipsis; }
+  .entry-date { font-size: 0.72em; color: var(--muted); font-family: 'DM Mono', monospace; flex-shrink: 0; }
+  .delete-btn { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 0.95em; padding: 2px 5px; border-radius: 4px; transition: color 0.15s; flex-shrink: 0; }
+  .delete-btn:hover { color: var(--accent2); }
+  .empty-state { text-align: center; padding: 28px; color: var(--muted); font-size: 0.85em; border: 1px dashed var(--border); border-radius: 10px; }
+
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+  .tip-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+  .tip-icon  { font-size: 1.3em; margin-bottom: 8px; }
+  .tip-title { font-size: 0.83em; font-weight: 600; margin-bottom: 4px; }
+  .tip-text  { font-size: 0.76em; color: var(--muted); line-height: 1.5; }
+
+  @media (max-width: 600px) {
+    .stats { gap: 8px; }
+    .stat { min-width: 90px; padding: 10px 12px; }
+    .card-grid, .channel-grid { grid-template-columns: 1fr; }
+    .tabs { width: 100%; }
+    .tab { flex: 1; justify-content: center; padding: 9px 8px; font-size: 0.82em; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div class="logo">📣</div>
+    <div class="header-text">
+      <h1>SEO Outreach Tool</h1>
+      <p>Reddit + YouTube — find opportunities, copy replies, track your comments · crownmoldingangles.github.io</p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">12</div><div class="stat-label">Reddit searches</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">YouTube searches</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-label">Reply templates</div></div>
+    <div class="stat"><div class="stat-num" id="stat-tracked">0</div><div class="stat-label">Posts tracked</div></div>
+    <div class="stat"><div class="stat-num" id="stat-done">0</div><div class="stat-label">Replies posted</div></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active-reddit" id="tab-reddit"   onclick="switchTab('reddit')">🧡 Reddit</button>
+    <button class="tab"               id="tab-youtube"  onclick="switchTab('youtube')">▶️ YouTube</button>
+    <button class="tab"               id="tab-tracker"  onclick="switchTab('tracker')">✅ Tracker</button>
+  </div>
+
+  <!-- ══ REDDIT ══ -->
+  <div class="tab-panel active" id="panel-reddit">
+    <div class="section-title">🔍 One-click Reddit searches — open each, sort by New, find unanswered questions</div>
+    <div class="card-grid" id="reddit-search-grid"></div>
+
+    <div class="section-title">💬 Reddit reply templates — expand, copy, tweak one sentence before posting</div>
+    <div class="template-list" id="reddit-template-list"></div>
+
+    <div class="section-title">💡 Reddit tips</div>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">Help first, link second</div><div class="tip-text">Answer the question fully before mentioning your tool. Reddit hates spam but loves genuine help.</div></div>
+      <div class="tip-card"><div class="tip-icon">📅</div><div class="tip-title">Sort by New</div><div class="tip-text">Fresh posts get more visibility. Reply before anyone else answers.</div></div>
+      <div class="tip-card"><div class="tip-icon">🔁</div><div class="tip-title">Vary your wording</div><div class="tip-text">Customise 1–2 sentences per reply so it doesn't look templated. Reddit mods spot copy-paste.</div></div>
+      <div class="tip-card"><div class="tip-icon">🏆</div><div class="tip-title">Upvotes = SEO signal</div><div class="tip-text">Highly upvoted comments with your link send stronger trust signals to Google.</div></div>
+      <div class="tip-card"><div class="tip-icon">🚫</div><div class="tip-title">No promo posts</div><div class="tip-text">Never create posts just to promote your site. Reply to existing questions only.</div></div>
+      <div class="tip-card"><div class="tip-icon">⏰</div><div class="tip-title">20 min/week</div><div class="tip-text">3–5 replies per week compounds quickly. Set a Monday reminder and stick to it.</div></div>
+    </div>
+  </div>
+
+  <!-- ══ YOUTUBE ══ -->
+  <div class="tab-panel" id="panel-youtube">
+    <div class="section-title">🔍 One-click YouTube searches — opens sorted by view count — target 50k+ views, 1–3 years old</div>
+    <div class="card-grid" id="yt-search-grid"></div>
+
+    <div class="section-title">🎬 Target these channels directly — proven crown molding content, active comment sections</div>
+    <div class="channel-grid" id="channel-grid"></div>
+
+    <div class="section-title">📋 The right workflow</div>
+    <div class="strategy-box">
+      <h3>How to find and reply to YouTube comments — 30 min/week</h3>
+      <div class="strategy-steps">
+        <div class="strategy-step"><div class="step-num">1</div><div class="step-text"><strong>Click a search</strong> below — results open sorted by view count.</div></div>
+        <div class="strategy-step"><div class="step-num">2</div><div class="step-text"><strong>Pick a video</strong> with 50k+ views, published 1–3 years ago. These get steady daily traffic from Google.</div></div>
+        <div class="strategy-step"><div class="step-num">3</div><div class="step-text"><strong>Ctrl+F in comments</strong> and search for "angle", "degree", "spring", "corner" to find relevant unanswered questions fast.</div></div>
+        <div class="strategy-step"><div class="step-num">4</div><div class="step-text"><strong>Reply to that person's specific comment</strong> — never post a standalone promotional comment. Replies to questions look helpful, not spammy.</div></div>
+        <div class="strategy-step"><div class="step-num">5</div><div class="step-text"><strong>Copy a template below</strong>, customise the opening line to match their exact question, then post.</div></div>
+        <div class="strategy-step"><div class="step-num">6</div><div class="step-text"><strong>Log the video URL</strong> in the Tracker tab so you don't revisit the same video next week.</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">💬 YouTube comment templates — always reply to an existing question</div>
+    <div class="template-list" id="yt-template-list"></div>
+
+    <div class="section-title">💡 YouTube tips</div>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-icon">📊</div><div class="tip-title">View count matters</div><div class="tip-text">50k+ view videos get daily organic traffic from Google. Your comment works for years, not days.</div></div>
+      <div class="tip-card"><div class="tip-icon">🕐</div><div class="tip-title">1–3 year sweet spot</div><div class="tip-text">New videos haven't proven they rank. Very old ones are buried. 1–3 years = proven ongoing traffic.</div></div>
+      <div class="tip-card"><div class="tip-icon">↩️</div><div class="tip-title">Reply, don't post</div><div class="tip-text">Reply to someone's question — never post a standalone promotional comment. It'll be flagged.</div></div>
+      <div class="tip-card"><div class="tip-icon">🔍</div><div class="tip-title">Ctrl+F to find questions</div><div class="tip-text">Search the comments for "angle", "degree", "spring" to quickly find people who need your help.</div></div>
+      <div class="tip-card"><div class="tip-icon">📌</div><div class="tip-title">Pin-worthy answers</div><div class="tip-text">If your reply gets liked by the creator, YouTube may pin it near the top of the comments.</div></div>
+      <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">Channel pages too</div><div class="tip-text">Check the Community tab on each channel — creators sometimes post questions that need helpful replies.</div></div>
+    </div>
+  </div>
+
+  <!-- ══ TRACKER ══ -->
+  <div class="tab-panel" id="panel-tracker">
+    <div class="section-title">✅ Log every Reddit thread or YouTube video you've commented on</div>
+    <div class="tracker-input-row">
+      <select class="platform-select" id="platform-select">
+        <option value="reddit">Reddit</option>
+        <option value="youtube">YouTube</option>
+      </select>
+      <input class="tracker-input" id="url-input" placeholder="Paste Reddit thread or YouTube video URL..." />
+      <input class="tracker-input" id="note-input" placeholder="Note e.g. 'asked about 38° spring'" style="max-width:200px;" />
+      <button class="add-btn" onclick="addEntry()">+ Add</button>
+    </div>
+    <div class="tracker-tabs">
+      <button class="tracker-tab active" id="ttab-all"     onclick="switchTrackerTab('all')">All <span id="count-all">(0)</span></button>
+      <button class="tracker-tab"        id="ttab-reddit"  onclick="switchTrackerTab('reddit')">Reddit <span id="count-reddit">(0)</span></button>
+      <button class="tracker-tab"        id="ttab-youtube" onclick="switchTrackerTab('youtube')">YouTube <span id="count-youtube">(0)</span></button>
+      <button class="tracker-tab"        id="ttab-pending" onclick="switchTrackerTab('pending')">To post <span id="count-pending">(0)</span></button>
+    </div>
+    <div class="entry-list" id="entry-list"></div>
+  </div>
+
+</div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────
+
+const redditSearches = [
+  { sub:"r/DIY",             query:"crown molding angles help",               label:"Crown molding angles help" },
+  { sub:"r/DIY",             query:"crown molding miter saw cut",              label:"Miter saw crown cuts" },
+  { sub:"r/DIY",             query:"crown molding inside corner cope miter",   label:"Cope vs miter inside corners" },
+  { sub:"r/DIY",             query:"compound miter saw crown molding",         label:"Compound miter saw" },
+  { sub:"r/HomeImprovement", query:"crown molding angles",                     label:"Crown molding angles" },
+  { sub:"r/HomeImprovement", query:"crown molding corners not 90",             label:"Corners not 90°" },
+  { sub:"r/HomeImprovement", query:"crown molding vaulted ceiling angles",     label:"Vaulted ceiling crown" },
+  { sub:"r/HomeImprovement", query:"crown molding calculator angles bevel",    label:"Calculator / bevel angles" },
+  { sub:"r/Carpentry",       query:"crown molding spring angle",               label:"Spring angle questions" },
+  { sub:"r/Carpentry",       query:"crown molding outside corner",             label:"Outside corner cuts" },
+  { sub:"r/Carpentry",       query:"crown molding return end",                 label:"Crown molding returns" },
+  { sub:"r/Carpentry",       query:"crown molding 38 45 spring angle",        label:"38° vs 45° spring angle" },
+];
+
+const ytSearches = [
+  { query:"how to cut crown molding",                label:"How to cut crown molding" },
+  { query:"crown molding angles compound miter saw", label:"Crown molding compound angles" },
+  { query:"crown molding inside corners",            label:"Crown molding inside corners" },
+  { query:"crown molding outside corners",           label:"Crown molding outside corners" },
+  { query:"crown molding spring angle",              label:"Crown molding spring angle" },
+  { query:"crown molding vaulted ceiling",           label:"Vaulted ceiling crown molding" },
+  { query:"how to install crown molding",            label:"How to install crown molding" },
+  { query:"crown molding miter bevel angles",        label:"Miter and bevel angle cuts" },
+];
+
+const channels = [
+  { name:"This Old House",            why:"Massive audience, tons of angle questions in comments",  url:"https://www.youtube.com/@ThisOldHouse/search?query=crown+molding" },
+  { name:"Steve Ramsey Woodworking",  why:"DIY-focused, exact target audience for your calculator", url:"https://www.youtube.com/@steveRamseyWoodworking/search?query=crown+molding" },
+  { name:"Home RenoVision DIY",       why:"Very active comment sections, home renovation audience",  url:"https://www.youtube.com/@HomeRenoVisionDIY/search?query=crown+molding" },
+  { name:"April Wilkerson",           why:"Large DIY following, engages with comments",              url:"https://www.youtube.com/@AprilWilkerson/search?query=crown+molding" },
+  { name:"Fix This Build That",       why:"Woodworking + home improvement crossover audience",       url:"https://www.youtube.com/@FixThisBuildThat/search?query=crown+molding" },
+  { name:"The Idaho Painter",         why:"Finish work audience — exact crown molding demographic",  url:"https://www.youtube.com/@TheIdahoPainter/search?query=crown+molding" },
+];
+
+const redditTemplates = [
+  {
+    tag:"tag-general", tagLabel:"General angles",
+    title:"Someone asking what angles to use",
+    text:`Great question — the angles depend on two things: your corner measurement and your molding's spring angle (usually 38° for most store-bought crown).
+
+For a standard 90° corner with 38° spring angle laying flat on the saw:
+• Miter: 31.62°
+• Bevel: 33.85°
+
+But the best move is to measure your actual corner — most walls are 89°–91°, not a perfect 90°, and even 1° off creates a visible gap.
+
+I built a free calculator that handles all the math: https://crownmoldingangles.github.io — enter your corner angle and spring angle and it gives exact miter + bevel settings. Saved me a lot of wasted cuts.`
+  },
+  {
+    tag:"tag-outside", tagLabel:"Outside corner",
+    title:"Someone asking about outside corners",
+    text:`Outside corners use the same angle values as inside corners, but the molding orientation on the saw is flipped — top (ceiling) edge against the fence instead of the bottom edge. Easy to mix up!
+
+For a 90° outside corner, 38° spring angle laying flat:
+• Miter: 31.62°  |  Bevel: 33.85°
+• Position: top (ceiling) edge against fence, bottom (wall) edge on table
+
+Full outside corner guide: https://crownmoldingangles.github.io/outside-corners.html
+
+Main calculator at https://crownmoldingangles.github.io — select Outside Corner and it shows the exact saw position.`
+  },
+  {
+    tag:"tag-vaulted", tagLabel:"Vaulted ceiling",
+    title:"Someone asking about vaulted / cathedral ceilings",
+    text:`Vaulted ceilings are tricky because the ceiling pitch changes the effective angle as the molding climbs the slope — you can't use standard 90° settings.
+
+The approach: measure the actual angle the crown makes with the wall at that point, then use that as your corner angle input.
+
+Free calculator that handles it: https://crownmoldingangles.github.io — enter your pitch angle as the corner angle. Dedicated vaulted ceiling guide: https://crownmoldingangles.github.io/vaulted-ceilings.html`
+  },
+  {
+    tag:"tag-coping", tagLabel:"Coping vs mitering",
+    title:"Someone debating whether to cope or miter inside corners",
+    text:`Pros cope inside corners almost universally — mitered inside corners rely on perfectly square walls (rare) and open up as wood moves with humidity. Coped joints hide both problems.
+
+That said, mitering is fine for paint-grade MDF in a newer house where corners are close to square.
+
+For the miter angles (whether mitering fully or making the initial cut to start a cope): https://crownmoldingangles.github.io — select Inside Corner for exact compound miter + bevel.
+
+Full coping vs mitering breakdown: https://crownmoldingangles.github.io/coping-vs-mitering.html`
+  },
+  {
+    tag:"tag-angles", tagLabel:"Non-90° corners",
+    title:"Someone with walls that aren't square",
+    text:`Very common — most "square" corners are actually 88°–92°. Even 1° off produces a visible gap on a miter joint.
+
+Fix: grab a digital angle finder ($15–20 at any hardware store), measure the actual corner, then enter the exact number into a calculator.
+
+This handles any corner angle: https://crownmoldingangles.github.io — enter your measured angle instead of assuming 90° and it gives precise miter and bevel settings.
+
+Angle table for common non-square corners: https://crownmoldingangles.github.io/not-90-degrees.html`
+  },
+];
+
+const ytTemplates = [
+  {
+    tag:"tag-yt", tagLabel:"YouTube — angles",
+    title:"Someone asking about specific angles in the comments",
+    text:`The angles depend on your spring angle (check your molding packaging — most store-bought crown is 38°) and your actual corner measurement.
+
+For 38° spring angle at a standard 90° corner laying flat:
+• Miter: 31.62°  |  Bevel: 33.85°
+
+If your walls aren't perfectly square (most aren't), there's a free calculator that takes your exact corner angle and gives precise settings: crownmoldingangles.github.io — hope that helps!`
+  },
+  {
+    tag:"tag-yt", tagLabel:"YouTube — spring angle",
+    title:"Someone asking how to find their spring angle",
+    text:`To find your spring angle: lay the crown molding flat on a table with the back side up, then measure the angle between the back flat and the table surface. Most home improvement store crown is 38° (sometimes labeled 52/38 on the packaging).
+
+Full comparison of 38° vs 45° vs 52° spring angles here: crownmoldingangles.github.io/spring-angle-comparison.html — explains how each one affects your cut angles too.`
+  },
+  {
+    tag:"tag-yt", tagLabel:"YouTube — outside corner",
+    title:"Someone struggling with outside corners",
+    text:`Outside corners catch a lot of people out — the angles are the same values as inside corners but the molding orientation on the saw is reversed. For outside corners you put the TOP (ceiling) edge against the fence, not the bottom. That's the most common mistake.
+
+If your corner isn't exactly 90°, measure it with a digital angle finder and plug it into: crownmoldingangles.github.io — select Outside Corner and it shows the exact saw setup.`
+  },
+  {
+    tag:"tag-yt", tagLabel:"YouTube — not 90 degrees",
+    title:"Someone whose walls aren't square",
+    text:`Super common — most "square" corners measure 88°–92° in reality. Even 1° off causes a visible gap once painted.
+
+The fix: grab a digital angle finder ($15 at any hardware store), measure the actual corner, then use a calculator with that exact number. crownmoldingangles.github.io takes any corner angle and gives precise miter + bevel settings — way better than guessing at 45°.`
+  },
+  {
+    tag:"tag-yt", tagLabel:"YouTube — vaulted ceiling",
+    title:"Someone asking about vaulted or cathedral ceilings",
+    text:`Vaulted ceilings need a different approach because the ceiling pitch changes the compound angle calculation — standard 90° corner settings won't work.
+
+Measure the angle the crown makes with the wall at the sloped section, use that as your corner angle input here: crownmoldingangles.github.io — there's also a dedicated vaulted ceiling guide on the site that walks through it step by step.`
+  },
+];
+
+// ── TAB SWITCHING ─────────────────────────────────────────────────
+
+function switchTab(tab) {
+  ['reddit','youtube','tracker'].forEach(t => {
+    document.getElementById(`panel-${t}`).classList.toggle('active', t === tab);
+    const el = document.getElementById(`tab-${t}`);
+    el.className = 'tab';
+    if (t === tab) el.classList.add(t === 'youtube' ? 'active-youtube' : t === 'tracker' ? 'active-tracker' : 'active-reddit');
+  });
+}
+
+// ── RENDER SEARCH GRIDS ───────────────────────────────────────────
+
+function renderRedditSearches() {
+  document.getElementById('reddit-search-grid').innerHTML = redditSearches.map(s => {
+    const url = `https://www.reddit.com/search/?q=${encodeURIComponent(s.query)}&restrict_sr=0&sort=new`;
+    return `<a href="${url}" target="_blank" class="link-card reddit-card">
+      <div class="card-top"><span class="platform-badge badge-reddit">${s.sub}</span><span class="open-icon">↗</span></div>
+      <div class="card-label">${s.label}</div>
+      <div class="card-hint">"${s.query}"</div>
+    </a>`;
+  }).join('');
+}
+
+function renderYtSearches() {
+  // sp=CAM%3D sorts by view count on YouTube
+  document.getElementById('yt-search-grid').innerHTML = ytSearches.map(s => {
+    const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(s.query)}&sp=CAM%3D`;
+    return `<a href="${url}" target="_blank" class="link-card youtube-card">
+      <div class="card-top"><span class="platform-badge badge-youtube">YouTube</span><span class="open-icon">↗</span></div>
+      <div class="card-label">${s.label}</div>
+      <div class="card-hint">Opens sorted by view count</div>
+    </a>`;
+  }).join('');
+}
+
+function renderChannels() {
+  document.getElementById('channel-grid').innerHTML = channels.map(c => `
+    <a href="${c.url}" target="_blank" class="channel-card">
+      <div class="channel-icon">🎬</div>
+      <div><div class="channel-name">${c.name}</div><div class="channel-why">${c.why}</div></div>
+    </a>`).join('');
+}
+
+// ── RENDER TEMPLATES ──────────────────────────────────────────────
+
+function renderTemplates(containerId, templateData, prefix) {
+  document.getElementById(containerId).innerHTML = templateData.map((t, i) => {
+    const id = `${prefix}-${i}`;
+    return `<div class="template-card">
+      <div class="template-header" onclick="toggleTpl('${id}')">
+        <div class="template-header-left">
+          <span class="template-tag ${t.tag}">${t.tagLabel}</span>
+          <span class="template-title">${t.title}</span>
+        </div>
+        <span class="chevron" id="chev-${id}">▼</span>
+      </div>
+      <div class="template-body" id="tbody-${id}">
+        <div class="template-text">${t.text}</div>
+        <button class="copy-btn" id="copybtn-${id}" onclick="copyTpl('${id}',${i},'${prefix}')">📋 Copy reply</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleTpl(id) {
+  const body = document.getElementById(`tbody-${id}`);
+  const chev = document.getElementById(`chev-${id}`);
+  const open = body.classList.contains('open');
+  body.classList.toggle('open', !open);
+  chev.classList.toggle('open', !open);
+}
+
+function copyTpl(id, index, prefix) {
+  const src = prefix === 'r' ? redditTemplates : ytTemplates;
+  navigator.clipboard.writeText(src[index].text).then(() => {
+    const btn = document.getElementById(`copybtn-${id}`);
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '📋 Copy reply'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ── TRACKER ───────────────────────────────────────────────────────
+
+let entries = JSON.parse(localStorage.getItem('outreach-entries') || '[]');
+let trackerFilter = 'all';
+
+function saveEntries() {
+  localStorage.setItem('outreach-entries', JSON.stringify(entries));
+  updateStats();
+  updateCounts();
+}
+
+function addEntry() {
+  const url      = document.getElementById('url-input').value.trim();
+  const note     = document.getElementById('note-input').value.trim();
+  const platform = document.getElementById('platform-select').value;
+  if (!url) return;
+  entries.unshift({ id: Date.now(), url, note, platform, done: false, date: new Date().toLocaleDateString('en-CA') });
+  document.getElementById('url-input').value  = '';
+  document.getElementById('note-input').value = '';
+  saveEntries();
+  renderEntries();
+}
+
+function toggleDone(id) {
+  entries = entries.map(e => e.id === id ? {...e, done: !e.done} : e);
+  saveEntries(); renderEntries();
+}
+
+function deleteEntry(id) {
+  entries = entries.filter(e => e.id !== id);
+  saveEntries(); renderEntries();
+}
+
+function switchTrackerTab(filter) {
+  trackerFilter = filter;
+  ['all','reddit','youtube','pending'].forEach(f => document.getElementById(`ttab-${f}`).classList.toggle('active', f === filter));
+  renderEntries();
+}
+
+function renderEntries() {
+  const list = document.getElementById('entry-list');
+  let filtered = entries;
+  if (trackerFilter === 'reddit')  filtered = entries.filter(e => e.platform === 'reddit');
+  if (trackerFilter === 'youtube') filtered = entries.filter(e => e.platform === 'youtube');
+  if (trackerFilter === 'pending') filtered = entries.filter(e => !e.done);
+  if (!filtered.length) {
+    list.innerHTML = `<div class="empty-state">No entries yet${trackerFilter !== 'all' ? ' for this filter' : ''} — add a URL above after posting a comment</div>`;
+    return;
+  }
+  list.innerHTML = filtered.map(e => `
+    <div class="entry-item">
+      <div class="entry-check ${e.done ? 'done' : ''}" onclick="toggleDone(${e.id})">${e.done ? '✓' : ''}</div>
+      <span class="entry-platform ${e.platform === 'reddit' ? 'ep-reddit' : 'ep-youtube'}">${e.platform === 'reddit' ? 'Reddit' : 'YouTube'}</span>
+      <a href="${e.url}" target="_blank" class="entry-url">${e.url}</a>
+      ${e.note ? `<span class="entry-note">${e.note}</span>` : ''}
+      <span class="entry-date">${e.date}</span>
+      <button class="delete-btn" onclick="deleteEntry(${e.id})">✕</button>
+    </div>`).join('');
+}
+
+function updateStats() {
+  document.getElementById('stat-tracked').textContent = entries.length;
+  document.getElementById('stat-done').textContent    = entries.filter(e => e.done).length;
+}
+
+function updateCounts() {
+  document.getElementById('count-all').textContent     = `(${entries.length})`;
+  document.getElementById('count-reddit').textContent  = `(${entries.filter(e => e.platform==='reddit').length})`;
+  document.getElementById('count-youtube').textContent = `(${entries.filter(e => e.platform==='youtube').length})`;
+  document.getElementById('count-pending').textContent = `(${entries.filter(e => !e.done).length})`;
+}
+
+// ── INIT ──────────────────────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('url-input').addEventListener('keydown', e => { if (e.key === 'Enter') addEntry(); });
+});
+
+renderRedditSearches();
+renderYtSearches();
+renderChannels();
+renderTemplates('reddit-template-list', redditTemplates, 'r');
+renderTemplates('yt-template-list', ytTemplates, 'y');
+renderEntries();
+updateStats();
+updateCounts();
+</script>
+</body>
+</html>
