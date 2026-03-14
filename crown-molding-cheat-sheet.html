@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crown Molding Angle Cheat Sheet — Free Printable Reference</title>
+<meta name="description" content="Free printable crown molding angle cheat sheet. Most common miter and bevel settings, spring angle identification, non-90° corner table, and common mistakes. Save to phone or print.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+
+  /* ── HEADER — matches site exactly ── */
+  .header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 28px 20px 24px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: clamp(1.5em, 6vw, 2.4em);
+    margin-bottom: 8px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .header p {
+    font-size: clamp(0.82em, 3vw, 1em);
+    opacity: 0.92;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .header-button {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 9px 18px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid rgba(255,255,255,0.45);
+    font-size: clamp(0.78em, 2.5vw, 0.88em);
+    backdrop-filter: blur(10px);
+  }
+
+  .header-button:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    padding: 28px 24px 32px;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-heading {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: #667eea;
+    margin: 28px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #667eea;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-heading:first-child { margin-top: 0; }
+
+  /* ── FORMULA ROWS ── */
+  .formula-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .formula-row {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 13px 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    border-left: 4px solid #667eea;
+    transition: box-shadow 0.2s;
+  }
+
+  .formula-row:hover { box-shadow: 0 2px 12px rgba(102,126,234,0.15); }
+  .formula-row.outside  { border-left-color: #764ba2; }
+  .formula-row.common   { border-left-color: #f59e0b; }
+  .formula-row.spring45 { border-left-color: #10b981; }
+  .formula-row.spring52 { border-left-color: #6b7faa; }
+
+  .row-badge {
+    font-size: 0.67em;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+  }
+
+  .badge-standard { background: rgba(102,126,234,0.12); color: #667eea; border: 1px solid rgba(102,126,234,0.3); }
+  .badge-outside  { background: rgba(118,75,162,0.12);  color: #764ba2; border: 1px solid rgba(118,75,162,0.3); }
+  .badge-common   { background: rgba(245,158,11,0.12);  color: #b45309; border: 1px solid rgba(245,158,11,0.3); }
+  .badge-45       { background: rgba(16,185,129,0.12);  color: #065f46; border: 1px solid rgba(16,185,129,0.3); }
+  .badge-52       { background: rgba(107,127,170,0.12); color: #4a5a8a; border: 1px solid rgba(107,127,170,0.3); }
+
+  .row-label {
+    font-size: 0.85em;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .row-label small {
+    display: block;
+    font-size: 0.88em;
+    color: #777;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .row-angles {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .angle-val {
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .angle-key {
+    font-size: 0.65em;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 2px;
+  }
+
+  /* ── INFO BOX (yellow tip — matches site's warning style) ── */
+  .tip-box {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+  }
+
+  .tip-box-title {
+    color: #856404;
+    font-weight: 700;
+    font-size: 0.85em;
+    margin-bottom: 6px;
+  }
+
+  .tip-box p, .tip-box li {
+    color: #856404;
+    font-size: 0.83em;
+    line-height: 1.6;
+  }
+
+  .tip-box ul { padding-left: 16px; }
+
+  /* ── SPRING ANGLE BOX (purple — matches calculator section style) ── */
+  .spring-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 18px;
+    color: white;
+  }
+
+  .spring-box-title {
+    font-size: 0.78em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.85;
+    margin-bottom: 14px;
+  }
+
+  .spring-rows { display: flex; flex-direction: column; gap: 10px; }
+
+  .spring-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  .spring-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .spring-info {
+    font-size: 0.83em;
+    line-height: 1.5;
+    opacity: 0.95;
+  }
+
+  .spring-info strong { font-weight: 700; opacity: 1; }
+
+  .spring-tag {
+    font-size: 0.68em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.25);
+    color: white;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+    align-self: flex-start;
+  }
+
+  /* ── TABLE — matches site's table style ── */
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83em;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+  }
+
+  .ref-table thead tr {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .ref-table th {
+    padding: 10px 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.88em;
+    letter-spacing: 0.3px;
+  }
+
+  .ref-table th:first-child { text-align: left; }
+
+  .ref-table tbody tr { border-bottom: 1px solid #f0f0f0; }
+  .ref-table tbody tr:last-child { border-bottom: none; }
+  .ref-table tbody tr:nth-child(even) { background: #f8f9fa; }
+  .ref-table tbody tr.highlight { background: #f0f4ff; }
+
+  .ref-table td {
+    padding: 9px 12px;
+    text-align: center;
+    color: #333;
+    font-size: 0.95em;
+  }
+
+  .ref-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+  }
+
+  .ref-table .highlight td { color: #667eea; font-weight: 700; }
+  .ref-table .highlight td:first-child { color: #667eea; }
+
+  .table-note {
+    font-size: 0.72em;
+    color: #999;
+    text-align: right;
+    margin-top: 5px;
+  }
+
+  /* ── DIAGRAM ── */
+  .diagram-wrap {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .diagram-caption {
+    font-size: 0.78em;
+    color: #667eea;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
+  }
+
+  svg.diagram { width: 100%; max-width: 400px; }
+
+  /* ── MISTAKES ── */
+  .mistake-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .mistake {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-left: 4px solid #f87171;
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+
+  .mistake-icon { font-size: 1.1em; flex-shrink: 0; margin-top: 1px; }
+
+  .mistake-text {
+    font-size: 0.84em;
+    color: #555;
+    line-height: 1.55;
+  }
+
+  .mistake-text strong { color: #333; }
+
+  /* ── STEPS ── */
+  .steps { display: flex; flex-direction: column; gap: 10px; }
+
+  .step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+
+  .step-n {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 0.8em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-text {
+    font-size: 0.84em;
+    color: #555;
+    line-height: 1.55;
+  }
+
+  .step-text strong { color: #667eea; }
+  .step-text a { color: #667eea; font-weight: 600; }
+
+  /* ── GUIDES GRID — matches site's guide cards ── */
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .guide-card {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 14px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: block;
+  }
+
+  .guide-card:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102,126,234,0.15);
+  }
+
+  .guide-icon { font-size: 1.4em; margin-bottom: 6px; }
+  .guide-title { font-size: 0.84em; font-weight: 700; color: #333; margin-bottom: 3px; }
+  .guide-desc  { font-size: 0.74em; color: #666; line-height: 1.4; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 24px;
+    text-align: center;
+  }
+
+  .footer-url {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  .footer-tagline {
+    font-size: 0.82em;
+    opacity: 0.85;
+    margin-bottom: 14px;
+  }
+
+  .footer-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.88em;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.5);
+    transition: all 0.3s;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0 4px 8px;
+  }
+
+  .footer-btn:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    .content { padding: 20px 16px 24px; }
+    .formula-row { grid-template-columns: 1fr auto; }
+    .formula-row .row-badge { grid-column: 1 / -1; }
+    .guides-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .container { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .footer-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>🔨 Crown Molding Cheat Sheet</h1>
+    <p>Most common miter &amp; bevel angles — save to your phone or print for the job site</p>
+    <div class="nav-buttons">
+      <a href="https://crownmoldingangles.github.io/" class="header-button">🔨 Calculator</a>
+      <a href="https://crownmoldingangles.github.io/angle-chart.html" class="header-button">📊 Full Angle Chart</a>
+      <a href="https://crownmoldingangles.github.io/spring-angle-comparison.html" class="header-button">📏 Spring Angles</a>
+      <a href="https://crownmoldingangles.github.io/outside-corners.html" class="header-button">🔄 Outside Corners</a>
+      <a href="https://crownmoldingangles.github.io/not-90-degrees.html" class="header-button">📐 Non-90° Corners</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- MOST COMMON CUTS -->
+    <div class="section-heading">📐 Most Common Cuts</div>
+
+    <div class="tip-box" style="margin-bottom:14px;">
+      <div class="tip-box-title">⚠️ Before you cut — check these two things:</div>
+      <ul>
+        <li><strong>Spring angle:</strong> Check your molding label — most store-bought is 38° (labeled "52/38")</li>
+        <li><strong>Corner angle:</strong> Measure with a digital angle finder — don't assume 90°</li>
+      </ul>
+    </div>
+
+    <div class="formula-grid">
+
+      <div class="formula-row">
+        <span class="row-badge badge-standard">Standard</span>
+        <div class="row-label">
+          Inside Corner · 90°
+          <small>38° spring angle · flat cut on saw table</small>
+        </div>
+        <div class="row-angles">
+          <div class="angle-key">Miter · Bevel</div>
+          <div class="angle-val">31.62° · 33.85°</div>
+        </div>
+      </div>
+
+      <div class="formula-row outside">
+        <span class="row-badge badge-outside">Outside</span>
+        <div class="row-label">
+          Outside Corner · 90°
+          <small>38° spring · ceiling edge against fence</small>
+        </div>
+        <div class="row-angles">
+          <div class="angle-key">Miter · Bevel</div>
+          <div class="angle-val">31.62° · 33.85°</div>
+        </div>
+      </div>
+
+      <div class="formula-row common">
+        <span class="row-badge badge-common">Common</span>
+        <div class="row-label">
+          Inside Corner · 88°
+          <small>Slightly acute — very common in older homes</small>
+        </div>
+        <div class="row-angles">
+          <div class="angle-key">Miter · Bevel</div>
+          <div class="angle-val">30.86° · 33.18°</div>
+        </div>
+      </div>
+
+      <div class="formula-row common">
+        <span class="row-badge badge-common">Common</span>
+        <div class="row-label">
+          Inside Corner · 92°
+          <small>Slightly obtuse — very common in newer homes</small>
+        </div>
+        <div class="row-angles">
+          <div class="angle-key">Miter · Bevel</div>
+          <div class="angle-val">32.37° · 34.51°</div>
+        </div>
+      </div>
+
+      <div class="formula-row spring45">
+        <span class="row-badge badge-45">45° Spring</span>
+        <div class="row-label">
+          Inside Corner · 90°
+          <small>45° spring angle (45/45) · flat cut</small>
+        </div>
+        <div class="row-angles">
+          <div class="angle-key">Miter · Bevel</div>
+          <div class="angle-val">35.26° · 30.00°</div>
+        </div>
+      </div>
+
+      <div class="formula-row spring52">
+        <span class="row-badge badge-52">52° Spring</span>
+        <div class="row-label">
+          Inside Corner · 90°
+          <small>52° spring angle (38/52) · flat cut</small>
+        </div>
+        <div class="row-angles">
+          <div class="angle-key">Miter · Bevel</div>
+          <div class="angle-val">38.24° · 25.81°</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IDENTIFY SPRING ANGLE -->
+    <div class="section-heading">📏 Identify Your Spring Angle</div>
+
+    <div class="spring-box">
+      <div class="spring-box-title">How to find it in 30 seconds</div>
+      <div class="spring-rows">
+        <div class="spring-row">
+          <div class="spring-dot"></div>
+          <div class="spring-info">
+            <strong>Check the label</strong> — look for "52/38" or "45/45" on the packaging or end of the molding. The second number is your spring angle.
+          </div>
+          <span class="spring-tag">Method 1</span>
+        </div>
+        <div class="spring-row">
+          <div class="spring-dot"></div>
+          <div class="spring-info">
+            <strong>Lay flat &amp; measure</strong> — place molding back-side up on a flat surface. Measure the angle between the back flat and the table surface. That's your spring angle.
+          </div>
+          <span class="spring-tag">Method 2</span>
+        </div>
+        <div class="spring-row">
+          <div class="spring-dot"></div>
+          <div class="spring-info">
+            <strong>When in doubt:</strong> most crown molding at Home Depot and Lowe's is <strong>38° spring angle</strong>. Try 38° first.
+          </div>
+          <span class="spring-tag">Quick tip</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NON-90 TABLE -->
+    <div class="section-heading">📊 Non-90° Corner Reference · 38° Spring</div>
+
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th>Corner Angle</th>
+          <th>Miter</th>
+          <th>Bevel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>85°</td><td>29.42°</td><td>31.78°</td></tr>
+        <tr><td>87°</td><td>30.14°</td><td>32.48°</td></tr>
+        <tr><td>88°</td><td>30.86°</td><td>33.18°</td></tr>
+        <tr class="highlight"><td>90° ⭐ Standard</td><td>31.62°</td><td>33.85°</td></tr>
+        <tr><td>92°</td><td>32.37°</td><td>34.51°</td></tr>
+        <tr><td>95°</td><td>33.63°</td><td>35.49°</td></tr>
+        <tr><td>100°</td><td>35.89°</td><td>37.38°</td></tr>
+        <tr><td>110°</td><td>40.59°</td><td>40.33°</td></tr>
+        <tr><td>120°</td><td>45.00°</td><td>42.43°</td></tr>
+        <tr><td>135°</td><td>51.34°</td><td>44.44°</td></tr>
+      </tbody>
+    </table>
+    <p class="table-note">For any corner angle → use the free calculator at crownmoldingangles.github.io</p>
+
+    <!-- SAW POSITION DIAGRAM -->
+    <div class="section-heading">🪚 Flat Cut · Molding Position on Saw</div>
+
+    <div class="diagram-wrap">
+      <div class="diagram-caption">Inside corner — molding flat on saw table</div>
+      <svg class="diagram" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- saw table surface -->
+        <rect x="20" y="148" width="360" height="16" rx="3" fill="#667eea" opacity="0.15"/>
+        <rect x="20" y="148" width="360" height="16" rx="3" fill="none" stroke="#667eea" stroke-width="1.5" opacity="0.4"/>
+        <text x="190" y="161" font-family="'Segoe UI',sans-serif" font-size="9" fill="#667eea" text-anchor="middle" opacity="0.8">SAW TABLE</text>
+
+        <!-- fence -->
+        <rect x="20" y="56" width="14" height="92" rx="2" fill="#764ba2" opacity="0.25"/>
+        <rect x="20" y="56" width="14" height="92" rx="2" fill="none" stroke="#764ba2" stroke-width="1.5" opacity="0.5"/>
+        <text x="10" y="110" font-family="'Segoe UI',sans-serif" font-size="8" fill="#764ba2" text-anchor="middle" transform="rotate(-90,10,110)" opacity="0.8">FENCE</text>
+
+        <!-- LEFT molding piece -->
+        <polygon points="34,146 155,146 155,122 52,122" fill="#667eea" opacity="0.18"/>
+        <polygon points="34,146 155,146 155,122 52,122" fill="none" stroke="#667eea" stroke-width="1.5"/>
+        <text x="88" y="138" font-family="'Segoe UI',sans-serif" font-size="10" font-weight="600" fill="#667eea" text-anchor="middle">LEFT PIECE</text>
+
+        <!-- RIGHT molding piece -->
+        <polygon points="208,146 329,146 311,122 208,122" fill="#764ba2" opacity="0.18"/>
+        <polygon points="208,146 329,146 311,122 208,122" fill="none" stroke="#764ba2" stroke-width="1.5"/>
+        <text x="264" y="138" font-family="'Segoe UI',sans-serif" font-size="10" font-weight="600" fill="#764ba2" text-anchor="middle">RIGHT PIECE</text>
+
+        <!-- miter cut lines -->
+        <line x1="155" y1="122" x2="155" y2="148" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,3"/>
+        <line x1="208" y1="122" x2="208" y2="148" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,3"/>
+
+        <!-- miter angle arc -->
+        <path d="M 168 148 A 14 14 0 0 1 178 134" stroke="#f59e0b" stroke-width="1.5" fill="none"/>
+        <text x="174" y="126" font-family="'Segoe UI',sans-serif" font-size="8.5" font-weight="600" fill="#f59e0b" text-anchor="middle">MITER</text>
+        <text x="174" y="136" font-family="'Segoe UI',sans-serif" font-size="8.5" font-weight="600" fill="#f59e0b" text-anchor="middle">CUT</text>
+
+        <!-- CEILING EDGE label (top of molding) -->
+        <text x="90" y="117" font-family="'Segoe UI',sans-serif" font-size="8.5" fill="#555" text-anchor="middle">ceiling edge (top)</text>
+        <!-- WALL EDGE label (bottom of molding) -->
+        <text x="90" y="185" font-family="'Segoe UI',sans-serif" font-size="8.5" fill="#555" text-anchor="middle">wall edge (bottom) — against fence</text>
+
+        <!-- arrows from wall edge to fence -->
+        <line x1="34" y1="168" x2="34" y2="176" stroke="#764ba2" stroke-width="1" opacity="0.5"/>
+        <text x="80" y="176" font-family="'Segoe UI',sans-serif" font-size="7.5" fill="#764ba2" opacity="0.7">both pieces wall-edge against fence</text>
+
+        <!-- bevel note -->
+        <rect x="130" y="60" width="140" height="36" rx="6" fill="#fff3cd" stroke="#ffc107" stroke-width="1"/>
+        <text x="200" y="76" font-family="'Segoe UI',sans-serif" font-size="8.5" fill="#856404" text-anchor="middle" font-weight="600">Bevel = tilt saw blade</text>
+        <text x="200" y="89" font-family="'Segoe UI',sans-serif" font-size="8.5" fill="#856404" text-anchor="middle">away from fence</text>
+      </svg>
+    </div>
+
+    <!-- COMMON MISTAKES -->
+    <div class="section-heading">❌ 3 Most Common Mistakes</div>
+
+    <div class="mistake-list">
+      <div class="mistake">
+        <div class="mistake-icon">📐</div>
+        <div class="mistake-text">
+          <strong>Assuming 90°</strong> — Most corners measure 88°–92°. Even 1° off creates a visible gap once painted. Always measure with a digital angle finder before cutting.
+        </div>
+      </div>
+      <div class="mistake">
+        <div class="mistake-icon">📏</div>
+        <div class="mistake-text">
+          <strong>Wrong spring angle</strong> — Using 38° settings on 45° molding produces cuts that look almost right but fit terribly. Check your molding label before anything else (look for "52/38" or "45/45").
+        </div>
+      </div>
+      <div class="mistake">
+        <div class="mistake-icon">🔄</div>
+        <div class="mistake-text">
+          <strong>Outside corner orientation</strong> — For outside corners, the <strong>ceiling (top) edge goes against the fence</strong> — opposite of inside corners. This trips up even experienced DIYers.
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW TO GET EXACT ANGLES -->
+    <div class="section-heading">✅ Get Angles for Any Corner</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-text">Measure your corner with a <strong>digital angle finder</strong> — don't assume it's 90°. Most walls are off by 1–3°.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-text">Find your <strong>spring angle</strong> — check the molding label. Most store-bought crown is <strong>38°</strong>.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-text">Enter both numbers at <a href="https://crownmoldingangles.github.io/">crownmoldingangles.github.io</a> — get exact miter &amp; bevel settings instantly. Free, no signup.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-text"><strong>Cut a test piece</strong> in scrap first. Verify the fit before cutting your good molding.</div>
+      </div>
+    </div>
+
+    <!-- RELATED GUIDES -->
+    <div class="section-heading">📚 Related Guides</div>
+
+    <div class="guides-grid">
+      <a href="https://crownmoldingangles.github.io/spring-angle-comparison.html" class="guide-card">
+        <div class="guide-icon">📏</div>
+        <div class="guide-title">Spring Angle Guide</div>
+        <div class="guide-desc">Identify 38°, 45°, and 52° in 30 seconds</div>
+      </a>
+      <a href="https://crownmoldingangles.github.io/outside-corners.html" class="guide-card">
+        <div class="guide-icon">🔄</div>
+        <div class="guide-title">Outside Corners</div>
+        <div class="guide-desc">Exact angles and saw orientation</div>
+      </a>
+      <a href="https://crownmoldingangles.github.io/not-90-degrees.html" class="guide-card">
+        <div class="guide-icon">📐</div>
+        <div class="guide-title">Non-90° Corners</div>
+        <div class="guide-desc">Angles for walls that aren't square</div>
+      </a>
+      <a href="https://crownmoldingangles.github.io/angle-chart.html" class="guide-card">
+        <div class="guide-icon">📊</div>
+        <div class="guide-title">Full Angle Chart</div>
+        <div class="guide-desc">Every corner 85°–135°, all spring angles</div>
+      </a>
+      <a href="https://crownmoldingangles.github.io/coping-vs-mitering.html" class="guide-card">
+        <div class="guide-icon">✂️</div>
+        <div class="guide-title">Coping vs Mitering</div>
+        <div class="guide-desc">Which technique pros use for inside corners</div>
+      </a>
+      <a href="https://crownmoldingangles.github.io/vaulted-ceilings.html" class="guide-card">
+        <div class="guide-icon">🏔️</div>
+        <div class="guide-title">Vaulted Ceilings</div>
+        <div class="guide-desc">Special angles for sloped ceilings</div>
+      </a>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-url">crownmoldingangles.github.io</div>
+    <div class="footer-tagline">Free calculator · printable angle chart · no signup needed</div>
+    <a href="https://crownmoldingangles.github.io/" class="footer-btn">🔨 Open Calculator</a>
+    <button class="footer-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+  </div>
+
+</div><!-- /container -->
+
+</body>
+</html>
