@@ -1,428 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Cut Crown Molding for Vaulted & Cathedral Ceilings</title>
-    <meta name="keywords" content="vaulted ceiling crown molding, cathedral ceiling crown molding angles, crown molding sloped ceiling, crown moulding vaulted ceiling, crown moulding cathedral ceiling angles, vaulted ceiling crown moulding angles, crown molding vaulted ceiling angle calculator">
-    <meta name="description" content="How to cut crown molding (crown moulding) for vaulted and cathedral ceilings. Calculate compound miter and bevel angles for sloped ceilings, peaked transitions, and cathedral ceiling crown molding installations.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-
-        .content {
-            padding: 40px 30px;
-        }
-
-        .intro {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
-            border-radius: 4px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-            display: inline-block;
-        }
-
-        h3 {
-            color: #764ba2;
-            font-size: 1.2rem;
-            margin: 20px 0 10px 0;
-        }
-
-        p, li {
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-        }
-
-        ul, ol {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        ul li, ol li {
-            padding-left: 30px;
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        ul li:before {
-            content: "🏔️";
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-        }
-
-        ol {
-            counter-reset: item;
-        }
-
-        ol li {
-            counter-increment: item;
-        }
-
-        ol li:before {
-            content: counter(item) ".";
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            color: #667eea;
-            font-size: 1.1rem;
-        }
-
-        .methods-box {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .method-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 5px solid #667eea;
-        }
-
-        .method-card h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 5px solid #ffc107;
-        }
-
-        .warning-box strong {
-            color: #856404;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 5px solid #28a745;
-        }
-
-        .highlight-box strong {
-            color: #155724;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin: 10px 10px 10px 0;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
-
-        .back-link {
-            background: #f0f4ff;
-            color: #667eea;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
-        }
-
-        .back-link:hover {
-            background: #e6edff;
-        }
-
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        footer {
-            background: #f8f9fa;
-            padding: 30px;
-            text-align: center;
-            color: #666;
-        }
-
-        strong {
-            color: #764ba2;
-        }
-
-        .measurements-list {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .measurements-list li:before {
-            content: "📐";
-        }
-
-        .tips-list li:before {
-            content: "💡";
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            margin: 30px 0;
-            color: white;
-        }
-
-        .cta-section h3 {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 20px;
-        }
-
-        .cta-section .cta-button {
-            background: white;
-            color: #667eea;
-        }
-
-        .cta-section .cta-button:hover {
-            background: #f0f4ff;
-        }
-
-        /* Mobile responsiveness */
-        @media (min-width: 768px) {
-            .methods-box {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            header {
-                padding: 30px 20px;
-            }
-
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            .content {
-                padding: 25px 20px;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            h3 {
-                font-size: 1.1rem;
-            }
-
-            .cta-button {
-                display: block;
-                text-align: center;
-                margin: 10px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.3rem;
-            }
-
-            p, li {
-                font-size: 1rem;
-            }
-
-            ul li, ol li {
-                padding-left: 25px;
-            }
-        }
-    </style>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTNZ9QLRTG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){{dataLayer.push(arguments);}}
+      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-XTNZ9QLRTG');
     </script>
 
-    <link rel="canonical" href="https://crownmoldingangles.github.io/vaulted-ceilings.html">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Crown Molding for Vaulted &amp; Cathedral Ceilings">
-    <meta property="og:description" content="How to cut crown molding for vaulted and cathedral ceilings. Compound miter and bevel angles for sloped ceilings.">
-    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can you put crown molding on a cathedral ceiling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can install crown molding on a cathedral or vaulted ceiling, but it requires different angle calculations than flat ceilings. The ceiling pitch changes the compound miter and bevel angles needed. The key is measuring the actual angle where the sloped ceiling meets the wall, then using that measurement as your corner angle input in a compound miter calculator."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What angles do you use for crown molding on a vaulted ceiling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For crown molding on a vaulted ceiling, you need to measure three things: the wall corner angle (usually 90 degrees), the ceiling pitch angle, and your molding spring angle. Measure the angle where the sloped ceiling meets the wall using a digital angle finder, then enter that angle into a compound miter calculator with your spring angle to get exact miter and bevel settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you measure the pitch angle for vaulted ceiling crown molding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a digital angle finder or T-bevel held against the sloped ceiling surface. The reading gives you the ceiling pitch. For the peak where two slopes meet, measure the angle between the two ceiling surfaces at the ridge. Never assume a standard pitch — always measure your specific ceiling before cutting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a transition block for vaulted ceiling crown molding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A transition block is a decorative wood block used at the point where crown molding changes angle on a vaulted ceiling. Instead of cutting complex compound angles, the molding runs level to the block on each side with standard 90 degree cuts. The block covers the transition. This is a simpler alternative to compound miter cuts and is widely used by professionals in difficult vaulted ceiling situations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle the peak of a cathedral ceiling with crown molding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At the peak of a cathedral ceiling, two sloped runs of crown molding meet. Measure the angle between the two slopes at the ridge using a T-bevel. The two pieces get cut at matching angles but mirrored — one left, one right. Test fit with scrap pieces before cutting your good molding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does spring angle matter more on vaulted ceilings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — the spring angle is even more critical on vaulted ceilings because the pitch compounds the error if you use the wrong spring angle. Always confirm your spring angle before calculating vaulted ceiling cuts."
+      }
+    }
+  ]
+}
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Crown Molding for Vaulted &amp; Cathedral Ceilings — Angles &amp; How-To Guide</title>
+    <meta name="description" content="How to cut crown molding for vaulted and cathedral ceilings. Step-by-step guide to measuring pitch angles, calculating compound miter and bevel settings, handling cathedral peaks, and using transition blocks. Free angle calculator included.">
+    <meta name="keywords" content="vaulted ceiling crown molding, cathedral ceiling crown molding angles, crown molding sloped ceiling, crown moulding vaulted ceiling, crown molding vaulted ceiling angle calculator, cathedral ceiling crown molding angles, vaulted ceiling crown moulding angles, can you put crown molding on a cathedral ceiling, crown molding angles for vaulted ceiling">
+    <meta property="og:title" content="Crown Molding for Vaulted &amp; Cathedral Ceilings — Angles &amp; How-To Guide">
+    <meta property="og:description" content="How to cut crown molding for vaulted and cathedral ceilings. Measure pitch angles, calculate compound miter and bevel settings, and handle cathedral peaks.">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://crownmoldingangles.github.io/vaulted-ceilings.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Crown Molding for Vaulted &amp; Cathedral Ceilings">
-    <meta name="twitter:description" content="How to cut crown molding for vaulted and cathedral ceilings. Compound angles for sloped ceilings.">
+    <meta name="twitter:description" content="Step-by-step guide to crown molding on vaulted and cathedral ceilings — pitch measurement, compound cuts, and transition blocks.">
+    <link rel="canonical" href="https://crownmoldingangles.github.io/vaulted-ceilings.html">
+    <meta name="author" content="Crown Molding Angles">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 10px; width: 100%; }
+        .container { max-width: 900px; width: 100%; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; text-align: center; }
+        .header h1 { font-size: clamp(1.4em, 5vw, 2.2em); margin-bottom: 10px; line-height: 1.2; }
+        .header p { font-size: clamp(0.9em, 2.5vw, 1.1em); opacity: 0.9; margin-bottom: 20px; }
+        .back-btn { display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 10px 22px; text-decoration: none; border-radius: 50px; font-weight: 600; border: 2px solid rgba(255,255,255,0.5); font-size: clamp(0.85em, 2.5vw, 1em); transition: all 0.3s; margin: 5px; }
+        .back-btn:hover { background: rgba(255,255,255,0.3); border-color: white; }
+        .content { padding: 30px 25px; }
+        h2 { color: #667eea; font-size: clamp(1.15em, 4vw, 1.55em); margin: 35px 0 15px; border-bottom: 2px solid #667eea; padding-bottom: 8px; }
+        h2:first-child { margin-top: 0; }
+        h3 { color: #444; font-size: clamp(1em, 3vw, 1.15em); margin: 22px 0 10px; }
+        p { color: #555; line-height: 1.8; margin-bottom: 15px; font-size: clamp(0.9em, 2.5vw, 1em); }
+        ul, ol { color: #555; line-height: 1.8; margin: 15px 0 15px 25px; font-size: clamp(0.9em, 2.5vw, 1em); }
+        li { margin-bottom: 8px; }
+        a { color: #667eea; font-weight: 600; }
+        .callout { background: #f0f4ff; border-left: 5px solid #667eea; padding: 18px 20px; border-radius: 0 10px 10px 0; margin: 20px 0; }
+        .callout strong { color: #667eea; display: block; margin-bottom: 5px; font-size: 1.05em; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 18px 20px; border-radius: 0 10px 10px 0; margin: 20px 0; }
+        .warning strong { color: #856404; display: block; margin-bottom: 5px; }
+        .method-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 20px 0; }
+        .method-card { border-radius: 12px; padding: 20px; border: 2px solid; }
+        .method-card.compound { background: #f0f4ff; border-color: #667eea; }
+        .method-card.block    { background: #f0fff4; border-color: #28a745; }
+        .method-card h3 { margin-top: 0; font-size: 1.05em; }
+        .method-card.compound h3 { color: #667eea; }
+        .method-card.block    h3 { color: #28a745; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; font-weight: 700; margin-bottom: 10px; }
+        .method-card.compound .badge { background: #667eea; color: white; }
+        .method-card.block    .badge { background: #28a745; color: white; }
+        .method-card ul { margin-left: 16px; font-size: 0.9em; }
+        .steps { display: flex; flex-direction: column; gap: 12px; margin: 15px 0; }
+        .step { display: flex; gap: 14px; align-items: flex-start; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 10px; padding: 14px 16px; }
+        .step-n { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; font-weight: 700; font-size: 0.82em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-text { font-size: 0.9em; color: #555; line-height: 1.6; }
+        .step-text strong { color: #333; }
+        .angle-table { width: 100%; border-collapse: collapse; margin: 15px 0 20px; font-size: clamp(0.82em, 2.2vw, 0.93em); overflow-x: auto; display: block; }
+        .angle-table th { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 11px 10px; text-align: left; white-space: nowrap; }
+        .angle-table td { padding: 9px 10px; border: 1px solid #ddd; white-space: nowrap; }
+        .angle-table tr:nth-child(even) { background: #f8f9fa; }
+        .angle-table tr.hl td { background: #f0f4ff; font-weight: 700; color: #667eea; }
+        .scenario-grid { display: flex; flex-direction: column; gap: 14px; margin: 16px 0; }
+        .scenario { background: #f8f9fa; border: 1px solid #e9ecef; border-left: 4px solid #667eea; border-radius: 0 10px 10px 0; padding: 14px 16px; }
+        .scenario h3 { color: #667eea; margin: 0 0 8px; font-size: 0.95em; }
+        .scenario p { margin: 0; font-size: 0.88em; color: #555; line-height: 1.6; }
+        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { color: #667eea; margin: 0 0 10px; font-size: 1em; }
+        .faq-item p { margin-bottom: 0; }
+        .cta-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 25px; border-radius: 15px; text-align: center; margin: 35px 0 10px; }
+        .cta-box h2 { color: white; margin: 0 0 10px; border-bottom: none; padding-bottom: 0; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-btn { display: inline-block; background: white; color: #667eea; padding: 14px 30px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: clamp(0.95em, 2.5vw, 1.1em); transition: all 0.3s; margin: 5px; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px; }
+        .nav-link { background: rgba(255,255,255,0.15); color: white; padding: 8px 18px; border-radius: 50px; text-decoration: none; font-size: 0.9em; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s; }
+        .nav-link:hover { background: rgba(255,255,255,0.25); }
+        @media (max-width: 600px) { .content { padding: 20px 15px; } .header { padding: 20px 15px; } }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="icon">🏔️</div>
-            <h1>Cutting Crown Molding for Vaulted & Cathedral Ceilings</h1>
-            <p>Advanced Techniques for Sloped Ceilings — also called <strong>crown moulding</strong> on vaulted ceilings in Canada &amp; UK</p>
-            <nav style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px;">
-                <a href="https://crownmoldingangles.github.io/" style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:9px 18px;text-decoration:none;border-radius:50px;font-weight:600;font-size:0.9em;border:2px solid rgba(255,255,255,0.45);">🔨 Calculator</a>
-                <a href="https://crownmoldingangles.github.io/angle-chart.html" style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:9px 18px;text-decoration:none;border-radius:50px;font-weight:600;font-size:0.9em;border:2px solid rgba(255,255,255,0.45);">📊 Angle Chart</a>
-                <a href="https://crownmoldingangles.github.io/outside-corners.html" style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:9px 18px;text-decoration:none;border-radius:50px;font-weight:600;font-size:0.9em;border:2px solid rgba(255,255,255,0.45);">🔄 Outside Corners</a>
-                <a href="https://crownmoldingangles.github.io/not-90-degrees.html" style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:9px 18px;text-decoration:none;border-radius:50px;font-weight:600;font-size:0.9em;border:2px solid rgba(255,255,255,0.45);">📐 Non-90° Corners</a>
-                <a href="https://crownmoldingangles.github.io/coping-vs-mitering.html" style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:9px 18px;text-decoration:none;border-radius:50px;font-weight:600;font-size:0.9em;border:2px solid rgba(255,255,255,0.45);">✂️ Coping vs Mitering</a>
-                <a href="https://crownmoldingangles.github.io/spring-angle-comparison.html" style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:9px 18px;text-decoration:none;border-radius:50px;font-weight:600;font-size:0.9em;border:2px solid rgba(255,255,255,0.45);">📏 Spring Angles</a>
-                <a href="https://crownmoldingangles.github.io/crown-molding-returns.html" style="display:inline-block;background:rgba(255,255,255,0.2);color:white;padding:9px 18px;text-decoration:none;border-radius:50px;font-weight:600;font-size:0.9em;border:2px solid rgba(255,255,255,0.45);">↩️ Returns</a>
-            </nav>
-        </header>
+<div class="container">
 
-        <div class="content">
-            <div class="intro">
-                Standard 90-degree corners are hard enough, but <strong>vaulted ceilings</strong> crown molding installations (also called <strong>crown moulding</strong> vaulted ceiling work in Canada and the UK) (sloped ceilings) introduce a third dimension of difficulty. Because the ceiling isn't flat, the "spring angle" of your molding changes as it climbs the wall.
-            </div>
+    <header class="header">
+        <h1>🏔️ Crown Molding for Vaulted &amp; Cathedral Ceilings</h1>
+        <p>Advanced techniques for sloped ceilings — also called <strong>crown moulding</strong> on vaulted ceilings in Canada &amp; UK</p>
+        <div>
+            <a href="https://crownmoldingangles.github.io/" class="back-btn">🔨 Back to Calculator</a>
+            <a href="https://crownmoldingangles.github.io/angle-chart.html" class="back-btn">📊 Angle Chart</a>
+        </div>
+        <div class="nav-links">
+            <a href="outside-corners.html" class="nav-link">🔄 Outside Corners</a>
+            <a href="not-90-degrees.html" class="nav-link">📐 Non-90° Corners</a>
+            <a href="spring-angle-comparison.html" class="nav-link">📏 Spring Angles</a>
+            <a href="coping-vs-mitering.html" class="nav-link">✂️ Coping vs Mitering</a>
+            <a href="crown-molding-returns.html" class="nav-link">↩️ Returns</a>
+        </div>
+    </header>
 
-            <div class="section">
-                <h2>The Challenge of Sloped Ceilings</h2>
-                <p>When crown molding meets at the peak of a cathedral ceiling or turns a corner on a slope, a standard 45-degree miter won't work. The joints will have massive gaps because the molding is "rolling" along the pitch of the roof.</p>
-                
-                <h3>Two Ways to Handle Vaulted Corners:</h3>
-                <div class="methods-box">
-                    <div class="method-card">
-                        <h4>1. The Compound Miter Method</h4>
-                        <p>Cutting the molding with a specific miter and bevel to match the slope. More professional-looking but requires precise calculations.</p>
-                    </div>
-                    <div class="method-card">
-                        <h4>2. The Transition Block Method</h4>
-                        <p>Using a decorative wood block at the corner so you only have to make straight 90-degree cuts. Easier, but less "pro" looking.</p>
-                    </div>
-                </div>
-            </div>
+    <div class="content">
 
-            <div class="section">
-                <h2>How to Calculate the Compound Angles</h2>
-                <p>To get a seamless joint on a sloped ceiling, you need three measurements:</p>
-                
-                <div class="measurements-list">
-                    <ol>
-                        <li><strong>The Wall Angle:</strong> Usually 90 or 270 degrees.</li>
-                        <li><strong>The Pitch/Slope of the Ceiling:</strong> The angle at which the ceiling rises.</li>
-                        <li><strong>The Spring Angle of the Molding:</strong> Usually 38° or 45°.</li>
-                    </ol>
-                </div>
+        <h2>Can You Put Crown Molding on a Vaulted Ceiling?</h2>
 
-                <div class="warning-box">
-                    <strong>⚠️ Advanced Trigonometry Required</strong>
-                    <p style="margin: 0;">Manually calculating these requires advanced trigonometry. To save time and wood, plug these values into our calculator to get your exact saw settings.</p>
-                </div>
+        <p>Yes — crown molding (also called <strong>crown moulding</strong> in Canada and the UK) can be installed on vaulted and cathedral ceilings, but it requires different angle calculations than flat ceilings. Standard 90° corner settings won't work because the sloped ceiling changes the compound angles the molding needs to make.</p>
 
-                <a href="https://crownmoldingangles.github.io" class="cta-button">Calculate Vaulted Ceiling Angles →</a>
-            </div>
+        <p>On a flat ceiling, you only need to know your corner angle and spring angle. On a vaulted ceiling, the ceiling pitch adds a third variable that changes both the miter and bevel. This is what trips up most DIYers who try to adapt standard crown molding techniques to sloped ceilings.</p>
 
-            <div class="section">
-                <h2>Pro Tips for Cathedral Peaks</h2>
-                <ul class="tips-list">
-                    <li><strong>Measure the "Peak" Angle:</strong> Don't assume your vaulted peak is a specific degree. Use a T-Bevel to find the exact angle where the two slopes meet.</li>
-                    <li><strong>Test with Scraps:</strong> Always cut a 6-inch test piece for both sides of a vaulted joint before cutting your expensive 12-foot lengths.</li>
-                    <li><strong>The "Transition" Piece:</strong> In some vaulted rooms, you may need a small "transition" piece of molding that sits level to bridge the gap between a horizontal wall and a sloped one.</li>
+        <div class="callout">
+            <strong>💡 The Core Principle</strong>
+            Treat the angle where the sloped ceiling meets the wall as your "corner angle" input. Measure it with a digital angle finder, enter it into the calculator along with your spring angle, and you get the correct compound miter and bevel settings for that specific slope.
+        </div>
+
+        <h2>Two Methods for Vaulted Ceiling Crown Molding</h2>
+
+        <div class="method-cards">
+            <div class="method-card compound">
+                <h3>Method 1: Compound Miter Cuts</h3>
+                <span class="badge">Professional</span>
+                <p style="font-size:0.88em;color:#555;margin-bottom:10px;">Crown molding follows the slope continuously with precisely calculated compound angles at each transition.</p>
+                <ul>
+                    <li>✅ Seamless, professional appearance</li>
+                    <li>✅ No visible breaks in the molding run</li>
+                    <li>✅ Preferred for open-plan rooms</li>
+                    <li>❌ Requires precise angle measurement</li>
+                    <li>❌ More complex calculations</li>
+                    <li>❌ Harder to adjust if cuts are wrong</li>
                 </ul>
             </div>
-
-            <div class="cta-section">
-                <h3>Need the exact numbers?</h3>
-                <p>Our tool handles the complex math for you.</p>
-                <a href="https://crownmoldingangles.github.io" class="cta-button">Calculate My Vaulted Angles Now →</a>
-            </div>
-
-            <div class="section">
-                <div class="highlight-box">
-                    <strong>✅ Quick Reference</strong>
-                    <p style="margin: 0;">For most vaulted ceiling installations, having accurate measurements of your ceiling pitch is crucial. A digital angle finder or a quality T-bevel will be your best friends for this project.</p>
-                </div>
+            <div class="method-card block">
+                <h3>Method 2: Transition Block</h3>
+                <span class="badge">Easier Alternative</span>
+                <p style="font-size:0.88em;color:#555;margin-bottom:10px;">A decorative block at each transition point — crown makes standard cuts into each side.</p>
+                <ul>
+                    <li>✅ No compound angle calculations needed</li>
+                    <li>✅ Standard 90° cuts on each side of block</li>
+                    <li>✅ Widely used by professionals</li>
+                    <li>✅ Easy to adjust or redo</li>
+                    <li>❌ Visible block at transition points</li>
+                    <li>❌ Less seamless appearance</li>
+                </ul>
             </div>
         </div>
 
-        <footer>
-            <a href="https://crownmoldingangles.github.io" class="cta-button back-link">← Back to Crown Molding Calculator</a>
-            <p style="margin-top: 20px; font-size: 0.9rem;">Get perfect miter and bevel angles every time.</p>
-        </footer>
+        <h2>How to Measure Vaulted Ceiling Angles</h2>
+
+        <p>Accurate measurement is the most important step. Never guess or assume a standard pitch — residential vaulted ceilings vary widely, and even a 1° error produces visible gaps.</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-n">1</div>
+                <div class="step-text"><strong>Measure the ceiling pitch.</strong> Hold a digital angle finder flat against the sloped ceiling surface. The reading is your ceiling pitch angle. For a cathedral peak, measure where the two slopes meet at the ridge.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">2</div>
+                <div class="step-text"><strong>Measure the wall corner angle.</strong> Use the same angle finder at the corner where two walls meet. Most rooms are 90° but always verify — especially in older homes.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">3</div>
+                <div class="step-text"><strong>Identify your spring angle.</strong> Check the molding label for numbers like "52/38" or "45/45." The second number is your spring angle. Most residential crown molding is 38°. See the <a href="spring-angle-comparison.html">spring angle guide</a> if you're unsure.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">4</div>
+                <div class="step-text"><strong>Enter your measurements into the calculator.</strong> Use the <a href="https://crownmoldingangles.github.io/">Crown Molding Angle Calculator</a> — enter the pitch angle as your corner angle and select your spring angle. The calculator handles the compound trigonometry and gives exact miter and bevel settings.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">5</div>
+                <div class="step-text"><strong>Cut test pieces first.</strong> Always cut 6-inch test pieces in scrap wood before cutting your good molding. Vaulted ceiling angles are unforgiving — verify the fit before committing to full-length cuts.</div>
+            </div>
+        </div>
+
+        <h2>Common Vaulted Ceiling Scenarios</h2>
+
+        <div class="scenario-grid">
+            <div class="scenario">
+                <h3>🏠 Crown on the Level Walls Below the Slope</h3>
+                <p>If you're running crown only on the flat, level walls and stopping before the slope begins, use standard calculations. This is the simplest approach and works well in rooms where the vaulted section is only part of the ceiling.</p>
+            </div>
+            <div class="scenario">
+                <h3>📐 Crown Following the Slope Up the Raked Wall</h3>
+                <p>Crown running up a raked (sloped) wall needs the pitch angle as the corner input. Measure the angle where the sloped ceiling meets the raked wall with a digital angle finder, then calculate as normal using that angle in the calculator.</p>
+            </div>
+            <div class="scenario">
+                <h3>⛪ Cathedral Ceiling Peak</h3>
+                <p>Two sloped runs of crown meet at the ridge. Measure the angle between the two ceiling slopes at the peak using a T-bevel. Both pieces get the same miter angle but mirrored — left piece mitered right, right piece mitered left. They should meet flush at the ridge.</p>
+            </div>
+            <div class="scenario">
+                <h3>🔄 Transition from Level to Sloped Ceiling</h3>
+                <p>Where crown transitions from a flat ceiling to a sloped section, use either a compound miter cut at the transition point or a transition block that terminates both runs cleanly. The transition block is recommended for most DIYers — it eliminates the most complex calculation on the job.</p>
+            </div>
+        </div>
+
+        <h2>Ceiling Pitch Reference — Common Residential Slopes</h2>
+
+        <p>If you cannot measure your ceiling pitch directly, this table shows common angles by roof pitch. Note that interior ceiling pitch may differ from exterior roof pitch — always measure if possible.</p>
+
+        <table class="angle-table">
+            <thead>
+                <tr>
+                    <th>Roof Pitch</th>
+                    <th>Rise/Run</th>
+                    <th>Ceiling Angle</th>
+                    <th>Common In</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>3/12</td><td>3" per foot</td><td>~14°</td><td>Low-slope vaults, sunrooms</td></tr>
+                <tr><td>4/12</td><td>4" per foot</td><td>~18°</td><td>Ranchers, bungalows</td></tr>
+                <tr class="hl"><td>6/12</td><td>6" per foot</td><td>~27°</td><td>Most common residential</td></tr>
+                <tr><td>8/12</td><td>8" per foot</td><td>~34°</td><td>Steeper residential, cottages</td></tr>
+                <tr><td>10/12</td><td>10" per foot</td><td>~40°</td><td>High-pitch homes</td></tr>
+                <tr><td>12/12</td><td>12" per foot</td><td>45°</td><td>A-frame cabins</td></tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <strong>⚠️ Always Measure — Don't Rely on This Table</strong>
+            These are approximate angles. Actual interior ceiling angles vary based on framing and finish work. A digital angle finder costs $15–20 and takes 30 seconds to use. Always measure before cutting.
+        </div>
+
+        <h2>How to Use a Transition Block</h2>
+
+        <p>The transition block is the most practical approach for most DIYers on their first vaulted ceiling installation. It eliminates the hardest calculation on the job.</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-n">1</div>
+                <div class="step-text"><strong>Mark the transition point</strong> on the wall where the level ceiling meets the slope. This is where your block will sit.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">2</div>
+                <div class="step-text"><strong>Cut the block</strong> from a piece of matching crown molding stock or a simple rectangular piece of wood cut to match the crown's projection depth. It needs a flat wall face and flat side faces for the crown to terminate against.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">3</div>
+                <div class="step-text"><strong>Install the block</strong> at the transition point with construction adhesive and finish nails.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">4</div>
+                <div class="step-text"><strong>Run the level crown</strong> up to the block with a standard square-cut end butting into the flat face of the block.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">5</div>
+                <div class="step-text"><strong>Run the sloped crown</strong> down from the slope to the other side of the block — also with a square-cut end. The block covers the transition entirely.</div>
+            </div>
+            <div class="step">
+                <div class="step-n">6</div>
+                <div class="step-text"><strong>Caulk and paint.</strong> Fill any gaps with paintable caulk. Once painted, the transition looks intentional and clean.</div>
+            </div>
+        </div>
+
+        <h2>Pro Tips for a Professional Result</h2>
+
+        <ul>
+            <li><strong>Use a T-bevel at the peak.</strong> A T-bevel conforms to any angle and transfers it directly to your saw. Essential for cathedral peaks where a digital angle finder is hard to position accurately.</li>
+            <li><strong>Label every piece before cutting.</strong> Vaulted ceiling cuts are easy to mix up — especially mirrored pairs. Label each piece with masking tape before you make any cuts.</li>
+            <li><strong>Pre-finish before installing.</strong> Prime or paint the molding before installation. Touching up paint overhead on a vaulted ceiling is difficult.</li>
+            <li><strong>Use construction adhesive at the slope.</strong> On sloped sections, nailing into framing at the correct angle is tricky. Construction adhesive combined with a few finish nails gives a much more secure hold.</li>
+            <li><strong>Cut test pieces every time.</strong> A 6-inch scrap piece cut to your calculated angles takes 2 minutes and saves potentially expensive full-length cuts. Never skip the test piece on vaulted ceilings.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Can you put crown molding on a cathedral ceiling?</h3>
+            <p>Yes. Crown molding can be installed on cathedral and vaulted ceilings, but the ceiling pitch changes the required miter and bevel angles. Measure the pitch angle where the sloped ceiling meets the wall, enter it as your corner angle in the <a href="https://crownmoldingangles.github.io/">calculator</a>, and you'll get the correct compound settings for your specific slope.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What angles do I use for crown molding on a vaulted ceiling?</h3>
+            <p>Measure the actual angle where the sloped ceiling meets the wall with a digital angle finder — don't assume a standard value. Enter that measurement as your corner angle in the Crown Molding Angle Calculator along with your spring angle (usually 38°). The calculator provides exact miter and bevel settings for your specific ceiling pitch.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do you measure the pitch angle for vaulted ceiling crown molding?</h3>
+            <p>Hold a digital angle finder flat against the sloped ceiling surface — the reading is your pitch angle. For the peak where two slopes meet, measure the angle between the two ceiling surfaces at the ridge with a T-bevel. Always measure your specific ceiling rather than assuming a standard pitch.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is a transition block for vaulted ceiling crown molding?</h3>
+            <p>A transition block is a decorative wood block placed where the crown molding changes angle on a vaulted ceiling. Crown molding runs into each side of the block with standard square cuts, eliminating complex compound angle calculations at the transition point. It's a practical, professional solution widely used by finish carpenters.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do you handle the peak of a cathedral ceiling?</h3>
+            <p>At the ridge, two sloped runs of crown meet. Measure the angle between the two ceiling slopes with a T-bevel, then enter that angle in the calculator. Both pieces get the same miter and bevel angles but mirrored — one cut left, one cut right. Always cut test pieces in scrap wood first and verify the fit before cutting good molding.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does the spring angle matter more on vaulted ceilings?</h3>
+            <p>Yes — the spring angle is even more critical on vaulted ceilings because the pitch compounds any error. A spring angle mistake on a flat ceiling affects one cut uniformly. On a vaulted ceiling, the same error affects every cut differently along the slope. Always confirm your spring angle before calculating vaulted ceiling cuts.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Crown molding angles for vaulted ceiling — where do I start?</h3>
+            <p>Start by measuring your ceiling pitch with a digital angle finder. Then identify your molding's spring angle (check the label — most residential crown is 38°). Enter the pitch angle as the corner angle in the <a href="https://crownmoldingangles.github.io/">free calculator</a>. Cut a 6-inch test piece before cutting any full-length molding.</p>
+        </div>
+
+        <div class="cta-box">
+            <h2>🔨 Calculate Your Vaulted Ceiling Angles</h2>
+            <p>Enter your ceiling pitch as the corner angle and select your spring angle — get exact miter and bevel settings for your specific vaulted ceiling installation.</p>
+            <a href="https://crownmoldingangles.github.io/" class="cta-btn">Open the Free Calculator</a>
+            <a href="https://crownmoldingangles.github.io/angle-chart.html" class="cta-btn">📊 Angle Chart</a>
+            <div class="nav-links">
+                <a href="outside-corners.html" class="nav-link">🔄 Outside Corner Guide</a>
+                <a href="spring-angle-comparison.html" class="nav-link">📏 Spring Angle Guide</a>
+                <a href="not-90-degrees.html" class="nav-link">📐 Non-90° Corners</a>
+                <a href="coping-vs-mitering.html" class="nav-link">✂️ Coping vs Mitering</a>
+                <a href="crown-molding-returns.html" class="nav-link">↩️ Crown Returns</a>
+            </div>
+        </div>
+
     </div>
+</div>
 </body>
 </html>
