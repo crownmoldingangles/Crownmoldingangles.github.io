@@ -1,381 +1,611 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTNZ9QLRTG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XTNZ9QLRTG');
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Cut Crown Molding",
+  "description": "Step-by-step guide to cutting crown molding with a miter saw — measure your corners, identify your spring angle, calculate compound miter and bevel angles, and make perfect cuts every time.",
+  "totalTime": "PT2H",
+  "tool": [
+    { "@type": "HowToTool", "name": "Compound miter saw" },
+    { "@type": "HowToTool", "name": "Digital angle finder" },
+    { "@type": "HowToTool", "name": "Tape measure" },
+    { "@type": "HowToTool", "name": "Pencil" },
+    { "@type": "HowToTool", "name": "Safety glasses" }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Measure your corner angles",
+      "text": "Use a digital angle finder to measure every corner in the room. Do not assume 90° — most residential corners measure between 87° and 93°. Write down each measurement."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Identify your spring angle",
+      "text": "Check the molding label for numbers like 52/38 or 45/45. The second number is your spring angle. Most crown molding sold at Home Depot and Lowe's is 38° spring angle."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Calculate your miter and bevel angles",
+      "text": "Enter your corner angle and spring angle into the Crown Molding Angle Calculator at crownmoldingangles.github.io to get exact miter and bevel settings for your saw."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Set up your miter saw",
+      "text": "For the flat (laying down) method, set both the miter angle and bevel angle on your compound miter saw. For the nested method, set only the miter to 45° with 0° bevel."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cut test pieces in scrap wood",
+      "text": "Always cut 6-inch test pieces first and dry-fit them in the corner before cutting your good molding. This catches any measurement or setup errors before they waste expensive material."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cut and install the crown molding",
+      "text": "Cut your full-length pieces using the verified angles. Install with construction adhesive and finish nails into the wall plate and ceiling joists. Fill nail holes and caulk any small gaps before painting."
+    }
+  ]
+}
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you cut crown molding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To cut crown molding: 1) Measure each corner angle with a digital angle finder. 2) Identify your molding's spring angle (usually 38° for store-bought crown). 3) Calculate the exact miter and bevel angles using those two measurements. 4) Set your compound miter saw to those angles. 5) Cut test pieces in scrap first. 6) Cut and install your molding. The two cutting methods are laying flat (requires both miter and bevel settings) and nested upright (requires only a 45° miter for standard 90° corners)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What angle do you cut crown molding at?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The angle depends on your corner measurement and spring angle. For the most common setup — 38° spring angle at a 90° corner laying flat — set your miter to 31.62° and bevel to 33.85°. For 45° spring angle: miter 35.26°, bevel 30.00°. For the nested (upright) method, set miter to 45° and bevel to 0° for any 90° corner regardless of spring angle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you cut crown molding with a miter saw?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are two methods. Flat method: lay the molding face-up on the saw table, set both miter and bevel angles, with the ceiling edge against the fence and wall edge on the table. Nested method: hold the molding upright against the fence at its spring angle (using a jig), set only the miter to 45°, and no bevel is needed. The flat method is more common for DIYers because the molding stays stable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you cut crown molding inside corners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For inside corners you can either miter both pieces (matching compound angles that meet in the corner) or cope one piece to fit over the other. For mitered inside corners with 38° spring angle at 90°: miter 31.62°, bevel 33.85°. For coped corners, one piece runs flat to the wall and the second piece is cut to follow the first piece's profile with a coping saw."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you cut crown molding outside corners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Outside corners use the same miter and bevel angles as inside corners but the molding orientation on the saw is reversed. For outside corners, the ceiling (top) edge goes against the fence — opposite of inside corners. This is the most common mistake with outside corners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the spring angle of crown molding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The spring angle is the angle between the back of the crown molding and the wall when installed. The three common spring angles are 38° (52/38) — most common at hardware stores; 45° (45/45) — standard for larger profiles; and 52° (38/52) — used in custom installations. Check your molding label for numbers like 52/38 — the second number is the spring angle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you cut crown molding for corners that aren't 90 degrees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Measure the actual corner angle with a digital angle finder — most walls are 87°–93°. Enter your measured angle and spring angle into a crown molding angle calculator to get the exact miter and bevel settings for that specific corner. Never assume 90°; even 1° off creates a visible gap."
+      }
+    }
+  ]
+}
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Crown Molding Angle Calculator",
+      "item": "https://crownmoldingangles.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "How to Cut Crown Molding",
+      "item": "https://crownmoldingangles.github.io/howto.html"
+    }
+  ]
+}
+</script>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Cut Crown Molding - Step-by-Step Miter Saw Guide</title>
-    <meta name="description" content="Learn the 'upside down and backwards' method for cutting crown molding. Includes tips on spring angles and using a miter saw for perfect corners.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>How to Cut Crown Molding — Step-by-Step Guide for Any Corner</title>
+    <meta name="description" content="How to cut crown molding step by step — measure corners, find your spring angle, calculate exact miter & bevel angles, and set up your miter saw correctly. Covers inside corners, outside corners, flat cuts, and nested cuts. Free angle calculator included.">
+    <meta name="keywords" content="how to cut crown molding, how to cut crown molding with miter saw, crown molding cutting guide, how to cut crown molding corners, how to cut crown molding inside corner, how to cut crown molding outside corner, cutting crown molding angles, crown molding miter saw angles, how to cut crown moulding">
+    <meta property="og:title" content="How to Cut Crown Molding — Step-by-Step Guide for Any Corner">
+    <meta property="og:description" content="Step-by-step guide to cutting crown molding — measure corners, find your spring angle, calculate exact miter & bevel angles, and set up your saw correctly.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://crownmoldingangles.github.io/howto.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Cut Crown Molding — Step-by-Step Guide">
+    <meta name="twitter:description" content="Step-by-step: measure corners, find spring angle, calculate exact miter & bevel angles, set up your miter saw. Free calculator included.">
+    <link rel="canonical" href="https://crownmoldingangles.github.io/howto.html">
+    <meta name="author" content="Crown Molding Angles">
+    <meta name="robots" content="index, follow">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 10px; width: 100%; }
+        .container { max-width: 900px; width: 100%; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 20px; text-align: center; }
+        .header h1 { font-size: clamp(1.4em, 5vw, 2.2em); margin-bottom: 10px; line-height: 1.2; }
+        .header p { font-size: clamp(0.9em, 2.5vw, 1.1em); opacity: 0.9; margin-bottom: 20px; }
+        .back-btn { display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 10px 22px; text-decoration: none; border-radius: 50px; font-weight: 600; border: 2px solid rgba(255,255,255,0.5); font-size: clamp(0.85em, 2.5vw, 1em); transition: all 0.3s; margin: 5px; }
+        .back-btn:hover { background: rgba(255,255,255,0.3); border-color: white; }
+        .content { padding: 30px 25px; }
+        h2 { color: #667eea; font-size: clamp(1.15em, 4vw, 1.55em); margin: 35px 0 15px; border-bottom: 2px solid #667eea; padding-bottom: 8px; }
+        h2:first-child { margin-top: 0; }
+        h3 { color: #444; font-size: clamp(1em, 3vw, 1.15em); margin: 22px 0 10px; }
+        p { color: #555; line-height: 1.8; margin-bottom: 15px; font-size: clamp(0.9em, 2.5vw, 1em); }
+        ul, ol { color: #555; line-height: 1.8; margin: 15px 0 15px 25px; font-size: clamp(0.9em, 2.5vw, 1em); }
+        li { margin-bottom: 8px; }
+        a { color: #667eea; font-weight: 600; }
+        strong { color: #333; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+        .callout { background: #f0f4ff; border-left: 5px solid #667eea; padding: 18px 20px; border-radius: 0 10px 10px 0; margin: 20px 0; }
+        .callout strong { color: #667eea; display: block; margin-bottom: 5px; font-size: 1.05em; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 18px 20px; border-radius: 0 10px 10px 0; margin: 20px 0; }
+        .warning strong { color: #856404; display: block; margin-bottom: 5px; }
+        .success { background: #f0fff4; border-left: 5px solid #28a745; padding: 18px 20px; border-radius: 0 10px 10px 0; margin: 20px 0; }
+        .success strong { color: #155724; display: block; margin-bottom: 5px; }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
+        /* Numbered steps */
+        .steps { display: flex; flex-direction: column; gap: 14px; margin: 16px 0; }
+        .step { display: flex; gap: 16px; align-items: flex-start; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 16px 18px; }
+        .step-n { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; font-weight: 700; font-size: 0.9em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+        .step-content { flex: 1; }
+        .step-title { font-weight: 700; color: #333; font-size: 0.95em; margin-bottom: 5px; }
+        .step-text { font-size: 0.88em; color: #555; line-height: 1.65; }
+        .step-text a { color: #667eea; }
 
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
+        /* Method cards */
+        .method-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 18px 0; }
+        .method-card { border-radius: 12px; padding: 20px; border: 2px solid; }
+        .method-card.flat   { background: #f0f4ff; border-color: #667eea; }
+        .method-card.nested { background: #f0fff4; border-color: #28a745; }
+        .method-card h3 { margin-top: 0; font-size: 1.05em; }
+        .method-card.flat   h3 { color: #667eea; }
+        .method-card.nested h3 { color: #28a745; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; font-weight: 700; margin-bottom: 10px; }
+        .method-card.flat   .badge { background: #667eea; color: white; }
+        .method-card.nested .badge { background: #28a745; color: white; }
+        .method-card ul { margin-left: 16px; font-size: 0.88em; }
 
-        header h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+        /* Angles table */
+        .angle-table { width: 100%; border-collapse: collapse; margin: 15px 0 8px; font-size: clamp(0.82em, 2.2vw, 0.93em); overflow-x: auto; display: block; }
+        .angle-table th { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 11px 10px; text-align: left; white-space: nowrap; }
+        .angle-table td { padding: 9px 10px; border: 1px solid #ddd; white-space: nowrap; }
+        .angle-table tr:nth-child(even) { background: #f8f9fa; }
+        .angle-table tr.hl td { background: #f0f4ff; font-weight: 700; color: #667eea; }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
+        /* Quick ref box */
+        .quick-ref { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 18px 20px; margin: 16px 0; }
+        .quick-ref-title { font-size: 0.75em; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #667eea; margin-bottom: 12px; }
+        .quick-ref ul { margin: 0 0 0 18px; font-size: 0.9em; }
+        .quick-ref li { margin-bottom: 8px; color: #333; }
 
-        .content {
-            padding: 40px 30px;
-        }
+        /* Tools list */
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin: 14px 0; }
+        .tool-item { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 10px; padding: 12px 14px; font-size: 0.85em; color: #333; display: flex; align-items: center; gap: 8px; }
+        .tool-icon { font-size: 1.2em; flex-shrink: 0; }
 
-        .section {
-            margin-bottom: 40px;
-        }
+        /* Related guides */
+        .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin-top: 6px; }
+        .guide-card { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 14px; text-decoration: none; transition: all 0.2s; display: block; }
+        .guide-card:hover { border-color: #667eea; background: #f0f4ff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102,126,234,0.15); }
+        .guide-icon { font-size: 1.4em; margin-bottom: 6px; }
+        .guide-title { font-size: 0.84em; font-weight: 700; color: #333; margin-bottom: 3px; }
+        .guide-desc  { font-size: 0.74em; color: #666; line-height: 1.4; }
 
-        h2 {
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-            display: inline-block;
-        }
+        /* FAQ */
+        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { color: #667eea; margin: 0 0 10px; font-size: 1em; }
+        .faq-item p { margin-bottom: 0; }
 
-        h3 {
-            color: #764ba2;
-            font-size: 1.2rem;
-            margin: 20px 0 10px 0;
-        }
+        /* CTA */
+        .cta-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 25px; border-radius: 15px; text-align: center; margin: 35px 0 10px; }
+        .cta-box h2 { color: white; margin: 0 0 10px; border-bottom: none; padding-bottom: 0; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .cta-btn { display: inline-block; background: white; color: #667eea; padding: 14px 30px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: clamp(0.95em, 2.5vw, 1.1em); transition: all 0.3s; margin: 5px; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px; }
+        .nav-link { background: rgba(255,255,255,0.15); color: white; padding: 8px 18px; border-radius: 50px; text-decoration: none; font-size: 0.9em; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s; }
+        .nav-link:hover { background: rgba(255,255,255,0.25); }
 
-        p, li {
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        ul li {
-            padding-left: 30px;
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        ul li:before {
-            content: "🔨";
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-        }
-
-        .pro-tip {
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        .pro-tip strong {
-            color: #667eea;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 5px solid #e17055;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        tbody tr:hover {
-            background: #f5f7ff;
-        }
-
-        tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin: 10px 10px 10px 0;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
-
-        .back-link {
-            background: #f0f4ff;
-            color: #667eea;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
-        }
-
-        .back-link:hover {
-            background: #e6edff;
-        }
-
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        footer {
-            background: #f8f9fa;
-            padding: 30px;
-            text-align: center;
-            color: #666;
-        }
-
-        .angle-list {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .angle-list li {
-            padding: 10px 10px 10px 30px;
-        }
-
-        .angle-list li:before {
-            content: "📐";
-        }
-
-        strong {
-            color: #764ba2;
-        }
-
-        em {
-            color: #e17055;
-            font-style: italic;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            header {
-                padding: 30px 20px;
-            }
-
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            .content {
-                padding: 25px 20px;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            h3 {
-                font-size: 1.1rem;
-            }
-
-            table {
-                font-size: 0.85rem;
-            }
-
-            th, td {
-                padding: 10px 8px;
-            }
-
-            .cta-button {
-                display: block;
-                text-align: center;
-                margin: 10px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.3rem;
-            }
-
-            p, li {
-                font-size: 1rem;
-            }
-
-            ul li {
-                padding-left: 25px;
-            }
-        }
+        @media (max-width: 600px) { .content { padding: 20px 15px; } .header { padding: 20px 15px; } }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="icon">🔨</div>
-            <h1>How to Cut Crown Molding</h1>
-            <p>The Ultimate Step-by-Step Guide</p>
-        </header>
+<div class="container">
 
-        <div class="content">
-            <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px;">
-                Cutting crown molding is notoriously tricky because the wood sits at an angle against the wall and ceiling. To get a perfect fit, you need to master a few pro secrets.
-            </p>
+    <header class="header">
+        <h1>🪚 How to Cut Crown Molding</h1>
+        <p>Step-by-step guide — measure corners, find your spring angle, calculate exact angles, and cut perfect crown molding every time</p>
+        <div>
+            <a href="https://crownmoldingangles.github.io/" class="back-btn">🔨 Angle Calculator</a>
+            <a href="https://crownmoldingangles.github.io/angle-chart.html" class="back-btn">📊 Angle Chart</a>
+        </div>
+        <div class="nav-links">
+            <a href="outside-corners.html" class="nav-link">🔄 Outside Corners</a>
+            <a href="spring-angle-comparison.html" class="nav-link">📏 Spring Angles</a>
+            <a href="coping-vs-mitering.html" class="nav-link">✂️ Coping vs Mitering</a>
+            <a href="not-90-degrees.html" class="nav-link">📐 Non-90° Corners</a>
+            <a href="vaulted-ceilings.html" class="nav-link">🏔️ Vaulted Ceilings</a>
+        </div>
+    </header>
 
-            <div class="section">
-                <h2>1. The Golden Rule: "Upside Down and Backwards"</h2>
-                <p>Most DIYers fail because they try to cut the molding as it sits on the wall. Instead, follow these steps on your miter saw:</p>
+    <div class="content">
+
+        <!-- ANSWER BOX — structured for AI Overview extraction -->
+        <h2>How to Cut Crown Molding — Quick Answer</h2>
+
+        <div class="quick-ref">
+            <div class="quick-ref-title">The 6-Step Process</div>
+            <ul>
+                <li><strong>Step 1 — Measure every corner angle</strong> with a digital angle finder. Do not assume 90°.</li>
+                <li><strong>Step 2 — Find your spring angle</strong> — check the molding label (look for "52/38" or "45/45"). Most store-bought crown is 38°.</li>
+                <li><strong>Step 3 — Calculate miter &amp; bevel angles</strong> — enter both measurements into the <a href="https://crownmoldingangles.github.io/">free calculator</a>.</li>
+                <li><strong>Step 4 — Set up your compound miter saw</strong> to the calculated angles.</li>
+                <li><strong>Step 5 — Cut test pieces in scrap wood</strong> and dry-fit before cutting your good molding.</li>
+                <li><strong>Step 6 — Cut, nail, caulk, and paint.</strong></li>
+            </ul>
+        </div>
+
+        <p>Crown molding (also called <strong>crown moulding</strong> in Canada and the UK) requires compound angle cuts because the molding sits at an angle bridging the wall and ceiling. This means your saw needs two angle settings simultaneously — a miter angle (horizontal rotation) and a bevel angle (blade tilt). The exact values depend on your corner measurement and the spring angle of your specific molding.</p>
+
+        <!-- TOOLS YOU NEED -->
+        <h2>Tools You Need</h2>
+
+        <div class="tools-grid">
+            <div class="tool-item"><div class="tool-icon">🪚</div>Compound miter saw</div>
+            <div class="tool-item"><div class="tool-icon">📐</div>Digital angle finder</div>
+            <div class="tool-item"><div class="tool-icon">📏</div>Tape measure</div>
+            <div class="tool-item"><div class="tool-icon">✏️</div>Pencil &amp; marking tape</div>
+            <div class="tool-item"><div class="tool-icon">🥽</div>Safety glasses</div>
+            <div class="tool-item"><div class="tool-icon">🔨</div>Finish nailer or hammer</div>
+            <div class="tool-item"><div class="tool-icon">🪣</div>Paintable caulk</div>
+            <div class="tool-item"><div class="tool-icon">🪵</div>Scrap wood for test cuts</div>
+        </div>
+
+        <div class="callout">
+            <strong>💡 Most Important Tool — Digital Angle Finder</strong>
+            A digital angle finder ($15–20 at any hardware store) is the single most useful tool for crown molding. It measures your actual corner angles so you're not guessing. Most walls are 88°–92° — assuming 90° and being wrong by even 1° creates a visible gap at the joint.
+        </div>
+
+        <!-- STEP BY STEP -->
+        <h2>Step-by-Step: How to Cut Crown Molding</h2>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-n">1</div>
+                <div class="step-content">
+                    <div class="step-title">Measure every corner angle in the room</div>
+                    <div class="step-text">Place a digital angle finder flat across both walls at each corner. Record the exact reading — don't round to 90°. Label each corner on a rough sketch of the room (e.g. "NW corner = 89.5°", "NE corner = 91°"). Walls that look square rarely measure exactly 90°, especially in older homes.</div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-n">2</div>
+                <div class="step-content">
+                    <div class="step-title">Identify your spring angle</div>
+                    <div class="step-text">Check the label on the end of your molding or its packaging. Look for numbers like <strong>52/38</strong> or <strong>45/45</strong> — the second number is your spring angle. If there's no label, lay the molding back-side up on a flat table and measure the angle between the back flat and the table surface. Most crown molding from Home Depot and Lowe's is <strong>38° spring angle</strong>. See the <a href="spring-angle-comparison.html">spring angle guide</a> for the full identification method.</div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-n">3</div>
+                <div class="step-content">
+                    <div class="step-title">Calculate your miter and bevel angles</div>
+                    <div class="step-text">Enter your corner angle and spring angle into the <a href="https://crownmoldingangles.github.io/">Crown Molding Angle Calculator</a>. Select Inside Corner or Outside Corner and your cutting method (flat or nested). The calculator gives you the exact miter and bevel settings. For a standard 90° corner with 38° spring angle laying flat, the settings are miter <strong>31.62°</strong> and bevel <strong>33.85°</strong>.</div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-n">4</div>
+                <div class="step-content">
+                    <div class="step-title">Set up your miter saw</div>
+                    <div class="step-text">Set the miter angle (the rotating table) and the bevel angle (the blade tilt) to your calculated values. For the flat method, you need both angles set simultaneously — this is why you need a <strong>compound miter saw</strong>, not a basic single-bevel saw. Double-check both settings before cutting. See the saw setup section below for exact molding positioning.</div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-n">5</div>
+                <div class="step-content">
+                    <div class="step-title">Cut test pieces in scrap wood first</div>
+                    <div class="step-text">Cut 6-inch pieces of scrap wood at your calculated angles and hold them in the actual corner. The joint should close tightly with no visible gap. If there's a gap, re-measure your corner or adjust the angles slightly. <strong>Never skip this step</strong> — crown molding is expensive and mistakes cost real money.</div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-n">6</div>
+                <div class="step-content">
+                    <div class="step-title">Mark, cut, and label every piece</div>
+                    <div class="step-text">Mark each piece of molding with masking tape before cutting — write the corner location, which end gets which cut, and left vs right. Inside corners and outside corners look similar once cut and are easy to mix up. Cut all pieces for the room before installing any of them so you can dry-fit everything first.</div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-n">7</div>
+                <div class="step-content">
+                    <div class="step-title">Install, nail, fill, and caulk</div>
+                    <div class="step-text">Apply a thin bead of construction adhesive to the back of the molding and press it into position. Secure with finish nails into the wall plate and ceiling joists — nail at a slight downward angle into the wall and a slight upward angle into the ceiling. Set nails with a nail set, fill holes with wood filler, and caulk any small gaps at the wall and ceiling edges before painting.</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TWO CUTTING METHODS -->
+        <h2>Two Ways to Cut Crown Molding — Flat vs Nested</h2>
+
+        <p>There are two standard methods for cutting crown molding on a miter saw. Both produce identical results — the difference is how the molding sits on the saw.</p>
+
+        <div class="method-cards">
+            <div class="method-card flat">
+                <h3>Method A: Laying Flat (Compound Cut)</h3>
+                <span class="badge">Most Common</span>
+                <p style="font-size:0.88em;color:#555;margin-bottom:12px;">Molding lays face-up flat on the saw table. Requires both miter and bevel settings.</p>
                 <ul>
-                    <li><strong>Upside Down:</strong> Place the ceiling edge of the molding flat on the saw table.</li>
-                    <li><strong>Backwards:</strong> The wall edge of the molding should rest against the saw fence.</li>
+                    <li>✅ Molding stays stable on the table</li>
+                    <li>✅ Easier to work alone</li>
+                    <li>✅ Works with any size molding</li>
+                    <li>✅ Most precise for large profiles</li>
+                    <li>❌ Requires both miter &amp; bevel set</li>
+                    <li>❌ Settings change with spring angle</li>
                 </ul>
-                <div class="pro-tip">
-                    <strong>Pro Tip:</strong>
-                    Think of the saw table as your ceiling and the saw fence as your wall.
+                <div style="margin-top:12px;padding:10px;background:white;border-radius:8px;font-size:0.84em;color:#555;">
+                    <strong style="color:#667eea;">Positioning:</strong> Ceiling edge flat on table, wall edge against fence, molding face up.
                 </div>
             </div>
-
-            <div class="section">
-                <h2>2. Setting Your Angles</h2>
-                <p>If you aren't using a "crown stop" fence, you need to set both the <strong>Miter Angle</strong> and the <strong>Bevel Angle</strong>.</p>
-                <div class="highlight-box">
-                    <p style="margin: 0;">Getting these numbers right is the hardest part. Instead of guessing, use our <strong>Crown Molding Angle Calculator</strong> to get the exact settings for your specific corner and spring angle.</p>
-                </div>
-                <a href="https://crownmoldingangles.github.io" class="cta-button">Use the Angle Calculator →</a>
-            </div>
-
-            <div class="section">
-                <h2>3. Understanding Spring Angles</h2>
-                <p>The "Spring Angle" is the angle at which the molding leans away from the wall.</p>
-                <div class="angle-list">
-                    <ul>
-                        <li><strong>38° Spring Angle:</strong> Most common for standard molding.</li>
-                        <li><strong>45° Spring Angle:</strong> Common for larger, decorative molding.</li>
-                        <li><strong>52° Spring Angle:</strong> Often used in high-end or custom builds.</li>
-                    </ul>
-                </div>
-                <div class="pro-tip">
-                    <strong>Unsure which one you have?</strong>
-                    Lay a scrap piece in a framing square; the distance it reaches on the wall vs. the ceiling will reveal your angle.
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>4. Inside vs. Outside Corners</h2>
-                <ul style="margin-bottom: 20px;">
-                    <li><strong>Inside Corners:</strong> These are the corners where two walls meet (like the corner of a room).</li>
-                    <li><strong>Outside Corners:</strong> These occur where a wall turns a corner (like a chimney breast or a hallway turn).</li>
+            <div class="method-card nested">
+                <h3>Method B: Nested Upright</h3>
+                <span class="badge">Simpler Setting</span>
+                <p style="font-size:0.88em;color:#555;margin-bottom:12px;">Molding stands upright at its spring angle against the fence. Requires only miter setting.</p>
+                <ul>
+                    <li>✅ Only one angle to set (45° for 90° corners)</li>
+                    <li>✅ Same setting for any spring angle</li>
+                    <li>✅ Easier to visualise the cut</li>
+                    <li>❌ Molding can shift — use a stop block</li>
+                    <li>❌ Harder with very large crown profiles</li>
+                    <li>❌ Needs a crown stop jig to hold position</li>
                 </ul>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Corner Type</th>
-                            <th>Miter Direction</th>
-                            <th>Bevel Direction</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Inside Left</strong></td>
-                            <td>Right</td>
-                            <td>Left</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Inside Right</strong></td>
-                            <td>Left</td>
-                            <td>Right</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Outside Left</strong></td>
-                            <td>Left</td>
-                            <td>Left</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Outside Right</strong></td>
-                            <td>Right</td>
-                            <td>Right</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>5. Why Precision Matters</h2>
-                <p>Even a 0.5-degree error in your wall angle can leave a massive gap in your trim. We recommend using a digital angle finder to measure your actual wall corner before cutting.</p>
-                <div class="highlight-box">
-                    <p style="margin: 0;">Once you have your wall angle (e.g., 89.5° instead of 90°), plug it into our calculator for a perfect joint.</p>
+                <div style="margin-top:12px;padding:10px;background:white;border-radius:8px;font-size:0.84em;color:#555;">
+                    <strong style="color:#28a745;">Positioning:</strong> Wall edge on table, ceiling edge against fence. Molding held at spring angle.
                 </div>
-                <a href="https://crownmoldingangles.github.io" class="cta-button">Calculate Your Angles Now →</a>
             </div>
         </div>
 
-        <footer>
-            <a href="https://crownmoldingangles.github.io" class="cta-button back-link">← Back to Crown Molding Calculator</a>
-            <p style="margin-top: 20px; font-size: 0.9rem;">Get perfect miter and bevel angles every time.</p>
-        </footer>
+        <!-- QUICK ANGLE REFERENCE -->
+        <h2>Quick Angle Reference — Most Common Cuts</h2>
+
+        <p>These are the most common saw settings for standard 90° corners. For any other corner angle, use the <a href="https://crownmoldingangles.github.io/">free calculator</a> or the <a href="angle-chart.html">full angle chart</a>.</p>
+
+        <table class="angle-table">
+            <thead>
+                <tr>
+                    <th>Spring Angle</th>
+                    <th>Corner</th>
+                    <th>Miter — Flat</th>
+                    <th>Bevel — Flat</th>
+                    <th>Miter — Nested</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hl"><td><strong>38° (52/38)</strong></td><td>90° inside</td><td>31.62°</td><td>33.85°</td><td>45.00°</td></tr>
+                <tr><td>38° (52/38)</td><td>88° inside</td><td>30.86°</td><td>33.18°</td><td>44.00°</td></tr>
+                <tr><td>38° (52/38)</td><td>92° inside</td><td>32.37°</td><td>34.51°</td><td>46.00°</td></tr>
+                <tr class="hl"><td><strong>45° (45/45)</strong></td><td>90° inside</td><td>35.26°</td><td>30.00°</td><td>45.00°</td></tr>
+                <tr class="hl"><td><strong>52° (38/52)</strong></td><td>90° inside</td><td>38.94°</td><td>25.24°</td><td>45.00°</td></tr>
+            </tbody>
+        </table>
+        <p style="font-size:0.82em;color:#999;margin-top:-8px;">For outside corners, use the same miter/bevel values but reverse the miter direction and flip the molding orientation on the saw.</p>
+
+        <!-- INSIDE VS OUTSIDE CORNERS -->
+        <h2>Inside Corners vs Outside Corners</h2>
+
+        <h3>Inside Corners</h3>
+        <p>Inside corners are where two walls meet inward — the most common type in a room. You have two options:</p>
+        <ul>
+            <li><strong>Mitered inside corners</strong> — both pieces cut at matching compound angles. Fast, but gaps appear if walls aren't perfectly square. Use the calculator for exact angles.</li>
+            <li><strong>Coped inside corners</strong> — one piece runs flat into the corner, the second is cut to follow the first piece's profile. Takes longer but stays tight as wood moves with humidity. The preferred method for professionals. See the <a href="coping-vs-mitering.html">coping vs mitering guide</a>.</li>
+        </ul>
+
+        <h3>Outside Corners</h3>
+        <p>Outside corners project outward — above fireplaces, room dividers, and bay windows. The miter and bevel values are identical to inside corners but the <strong>molding orientation on the saw is reversed</strong>: the ceiling (top) edge goes against the fence instead of the bottom. This is the most common outside corner mistake. See the <a href="outside-corners.html">full outside corner guide</a> for the complete saw setup.</p>
+
+        <!-- COMMON MISTAKES -->
+        <h2>Most Common Crown Molding Cutting Mistakes</h2>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-n" style="background:#f87171;flex-shrink:0;">✕</div>
+                <div class="step-content">
+                    <div class="step-title">Assuming corners are 90°</div>
+                    <div class="step-text">Most residential corners are 88°–92°. Even 1° off creates a visible gap that caulk can't hide well. Always measure every corner with a digital angle finder before calculating.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#f87171;flex-shrink:0;">✕</div>
+                <div class="step-content">
+                    <div class="step-title">Wrong spring angle</div>
+                    <div class="step-text">Using 38° settings on 45° molding produces cuts that look almost right but fit terribly. The miter and bevel are several degrees off — always check the label before calculating anything.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#f87171;flex-shrink:0;">✕</div>
+                <div class="step-content">
+                    <div class="step-title">Wrong orientation on outside corners</div>
+                    <div class="step-text">For outside corners, the ceiling edge goes against the fence — the opposite of inside corners. Mixing these up produces a mirrored cut that's entirely the wrong shape.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#f87171;flex-shrink:0;">✕</div>
+                <div class="step-content">
+                    <div class="step-title">Skipping test cuts</div>
+                    <div class="step-text">Cutting straight into expensive 12-foot lengths without a test piece first is the most costly mistake. A 6-inch scrap cut takes 2 minutes and can save $50+ in wasted material.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#f87171;flex-shrink:0;">✕</div>
+                <div class="step-content">
+                    <div class="step-title">Cutting all pieces the same</div>
+                    <div class="step-text">Left and right pieces for the same corner get mirrored cuts — not identical ones. Label every piece before cutting and double-check orientation before each cut.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRO TIPS -->
+        <h2>Pro Tips for Perfect Crown Molding</h2>
+
+        <ul>
+            <li><strong>Run a string line along the wall</strong> before installing to find any bows or humps — a wall that bulges out in the middle will push the molding away from the ceiling, creating a gap no matter how good your cuts are.</li>
+            <li><strong>Cut slightly long on your first piece</strong> in each run. You can always trim a little off — you can't add length back.</li>
+            <li><strong>Use a story pole</strong> to transfer your measurements from the wall to the saw without measuring twice — mark all your lengths directly on a long stick, then transfer them to the molding.</li>
+            <li><strong>Pre-prime before installation.</strong> Paint or prime the molding before nailing it up. Running a brush along installed molding near the ceiling is awkward; getting good coverage on the back edges is nearly impossible after installation.</li>
+            <li><strong>Back-cut the wall edge slightly.</strong> A 1–2° back-cut on the flat that rests against the wall helps the molding sit tight even on slightly uneven walls — only the front edge makes contact, eliminating any rocking.</li>
+            <li><strong>Caulk the wall and ceiling lines last.</strong> Apply a thin, consistent bead of paintable caulk along both edges after installation and before the final coat of paint. This makes even imperfect joints look professional once painted.</li>
+        </ul>
+
+        <!-- RELATED GUIDES -->
+        <h2>Detailed Guides for Every Situation</h2>
+
+        <div class="guides-grid">
+            <a href="outside-corners.html" class="guide-card">
+                <div class="guide-icon">🔄</div>
+                <div class="guide-title">Outside Corners</div>
+                <div class="guide-desc">Exact angles and saw orientation for outside corners</div>
+            </a>
+            <a href="coping-vs-mitering.html" class="guide-card">
+                <div class="guide-icon">✂️</div>
+                <div class="guide-title">Coping vs Mitering</div>
+                <div class="guide-desc">Which technique pros use for inside corners</div>
+            </a>
+            <a href="spring-angle-comparison.html" class="guide-card">
+                <div class="guide-icon">📏</div>
+                <div class="guide-title">Spring Angle Guide</div>
+                <div class="guide-desc">Identify 38°, 45°, and 52° in 30 seconds</div>
+            </a>
+            <a href="not-90-degrees.html" class="guide-card">
+                <div class="guide-icon">📐</div>
+                <div class="guide-title">Non-90° Corners</div>
+                <div class="guide-desc">Angles for walls that aren't perfectly square</div>
+            </a>
+            <a href="vaulted-ceilings.html" class="guide-card">
+                <div class="guide-icon">🏔️</div>
+                <div class="guide-title">Vaulted Ceilings</div>
+                <div class="guide-desc">Special angles for sloped ceiling installations</div>
+            </a>
+            <a href="crown-molding-returns.html" class="guide-card">
+                <div class="guide-icon">↩️</div>
+                <div class="guide-title">Crown Molding Returns</div>
+                <div class="guide-desc">How to finish the ends of crown molding runs</div>
+            </a>
+            <a href="angle-chart.html" class="guide-card">
+                <div class="guide-icon">📊</div>
+                <div class="guide-title">Printable Angle Chart</div>
+                <div class="guide-desc">Every corner 85°–135°, all spring angles</div>
+            </a>
+        </div>
+
+        <!-- FAQ -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How do you cut crown molding?</h3>
+            <p>Measure each corner angle, identify your molding's spring angle, calculate the miter and bevel using the <a href="https://crownmoldingangles.github.io/">free calculator</a>, set your compound miter saw to those angles, cut a test piece in scrap wood first, then cut and install. The most common setup — 38° spring angle at a 90° corner laying flat — uses miter 31.62° and bevel 33.85°.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What angle do you cut crown molding at?</h3>
+            <p>It depends on your corner angle and spring angle. For the most common setup (38° spring, 90° corner, flat method): miter 31.62°, bevel 33.85°. For 45° spring angle at 90°: miter 35.26°, bevel 30.00°. For any other combination, use the <a href="https://crownmoldingangles.github.io/">free calculator</a> or the <a href="angle-chart.html">printable angle chart</a>.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do you cut crown molding with a miter saw?</h3>
+            <p>Two methods: <strong>flat</strong> — lay the molding face-up on the saw table, set both miter and bevel angles, ceiling edge flat on table and wall edge against the fence; or <strong>nested</strong> — hold the molding upright against the fence at its spring angle, set only the miter to 45° (for a 90° corner), no bevel needed. The flat method is more stable and most common for DIYers.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do you cut crown molding inside corners?</h3>
+            <p>Either miter both pieces at matching compound angles (use the calculator for exact values) or cope one piece to fit over the other. Coping is the professional method — it hides out-of-square walls and stays tight as wood moves. Mitering is faster and works well if your corners are close to square. See the <a href="coping-vs-mitering.html">coping vs mitering guide</a> for step-by-step instructions on both.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do you cut crown molding outside corners?</h3>
+            <p>Outside corners use the same miter and bevel angles as inside corners, but the molding orientation on the saw is reversed — the <strong>ceiling (top) edge goes against the fence</strong>, not the wall edge. This is the most common outside corner mistake. See the <a href="outside-corners.html">outside corner guide</a> for full saw setup and orientation diagrams.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do you cut crown molding for corners that aren't 90 degrees?</h3>
+            <p>Measure the actual corner angle with a digital angle finder. Enter that exact measurement (not 90°) and your spring angle into the <a href="https://crownmoldingangles.github.io/">calculator</a>. Even 1° deviation from 90° changes both the miter and bevel settings enough to create a visible gap. See the <a href="not-90-degrees.html">non-90° corners guide</a> for a full angle table.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do I need a compound miter saw to cut crown molding?</h3>
+            <p>For the flat method, yes — you need a saw that can set both miter and bevel angles simultaneously (a compound miter saw). For the nested method, a single-bevel miter saw is sufficient since you only need to set the miter angle. A basic chop saw won't work for either method — you need at least a single-bevel sliding miter saw.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do you cut crown molding for vaulted ceilings?</h3>
+            <p>Measure the actual pitch angle where the sloped ceiling meets the wall and enter that as your corner angle. The ceiling pitch changes the compound angle calculation, so standard 90° settings won't work. See the <a href="vaulted-ceilings.html">vaulted ceiling guide</a> for detailed instructions including how to handle cathedral peaks and transition blocks.</p>
+        </div>
+
+        <div class="cta-box">
+            <h2>🔨 Get Your Exact Miter &amp; Bevel Angles</h2>
+            <p>Enter your corner angle and spring angle — get instant, precise miter and bevel settings for any cut. Free, no signup needed.</p>
+            <a href="https://crownmoldingangles.github.io/" class="cta-btn">Open the Free Calculator</a>
+            <a href="https://crownmoldingangles.github.io/angle-chart.html" class="cta-btn">📊 Printable Angle Chart</a>
+            <div class="nav-links">
+                <a href="outside-corners.html" class="nav-link">🔄 Outside Corners</a>
+                <a href="coping-vs-mitering.html" class="nav-link">✂️ Coping vs Mitering</a>
+                <a href="spring-angle-comparison.html" class="nav-link">📏 Spring Angles</a>
+                <a href="not-90-degrees.html" class="nav-link">📐 Non-90° Corners</a>
+                <a href="vaulted-ceilings.html" class="nav-link">🏔️ Vaulted Ceilings</a>
+            </div>
+        </div>
+
     </div>
+</div>
 </body>
 </html>
