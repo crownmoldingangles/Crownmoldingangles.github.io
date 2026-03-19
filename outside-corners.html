@@ -288,7 +288,61 @@
             </tbody>
         </table>
 
-        <h2>Outside vs Inside Corner: Key Difference</h2>
+        
+        <!-- SAW SETUP DIAGRAM — outside corner orientation -->
+        <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:14px;padding:20px;margin:0 0 24px;">
+          <p style="font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#667eea;margin-bottom:14px;text-align:center;">🪚 Saw Setup: Outside Corner — Flat Cutting Method</p>
+          <svg viewBox="0 0 560 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px;display:block;margin:0 auto;" role="img" aria-label="Diagram showing crown molding positioned on miter saw for outside corner cut with ceiling edge against the fence">
+            <defs>
+              <linearGradient id="sawGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#667eea"/>
+                <stop offset="100%" stop-color="#764ba2"/>
+              </linearGradient>
+            </defs>
+            <!-- Table surface -->
+            <rect x="20" y="155" width="520" height="16" rx="3" fill="#2d1f0e" opacity="0.15"/>
+            <rect x="20" y="155" width="520" height="16" rx="3" fill="none" stroke="#667eea" stroke-width="1.5" opacity="0.4"/>
+            <text x="280" y="168" font-family="'Segoe UI',sans-serif" font-size="9" fill="#667eea" text-anchor="middle" opacity="0.8">SAW TABLE</text>
+
+            <!-- Fence -->
+            <rect x="20" y="60" width="14" height="95" rx="2" fill="url(#sawGrad)" opacity="0.25"/>
+            <rect x="20" y="60" width="14" height="95" rx="2" fill="none" stroke="#667eea" stroke-width="1.5" opacity="0.5"/>
+            <text x="13" y="110" font-family="'Segoe UI',sans-serif" font-size="8" fill="#667eea" text-anchor="middle" transform="rotate(-90,13,110)">FENCE</text>
+
+            <!-- LEFT MOLDING PIECE — OUTSIDE CORNER -->
+            <!-- ceiling edge ON TABLE, wall edge against fence — key difference -->
+            <polygon points="34,153 150,153 150,128 52,128" fill="#c8894a" opacity="0.85"/>
+            <polygon points="34,128 52,128 150,128 34,153" fill="#e8a86a" opacity="0.4"/>
+            <text x="90" y="145" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle">LEFT PIECE</text>
+
+            <!-- RIGHT MOLDING PIECE -->
+            <polygon points="200,153 316,153 298,128 200,128" fill="#c8894a" opacity="0.85"/>
+            <polygon points="200,128 298,128 316,153 200,128" fill="#e8a86a" opacity="0.4"/>
+            <text x="256" y="145" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle">RIGHT PIECE</text>
+
+            <!-- Ceiling edge label — bottom (on table) -->
+            <text x="180" y="188" font-family="'Segoe UI',sans-serif" font-size="9" fill="#28a745" font-weight="700" text-anchor="middle">CEILING EDGE — flat on table ✓</text>
+
+            <!-- Wall edge label — top (against fence) -->
+            <text x="80" y="120" font-family="'Segoe UI',sans-serif" font-size="9" fill="#667eea" text-anchor="middle">wall edge</text>
+            <line x1="34" y1="123" x2="34" y2="115" stroke="#667eea" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- Miter cut indicator -->
+            <line x1="150" y1="128" x2="150" y2="155" stroke="#fd7e14" stroke-width="2" stroke-dasharray="4,3"/>
+            <line x1="200" y1="128" x2="200" y2="155" stroke="#fd7e14" stroke-width="2" stroke-dasharray="4,3"/>
+            <text x="175" y="122" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="700" fill="#fd7e14" text-anchor="middle">MITER CUT</text>
+
+            <!-- KEY DIFFERENCE callout -->
+            <rect x="370" y="60" width="170" height="100" rx="10" fill="#fff3cd" stroke="#ffc107" stroke-width="1.5"/>
+            <text x="455" y="80" font-family="'Segoe UI',sans-serif" font-size="10" font-weight="700" fill="#856404" text-anchor="middle">⚠️ KEY DIFFERENCE</text>
+            <text x="455" y="97" font-family="'Segoe UI',sans-serif" font-size="9" fill="#856404" text-anchor="middle">Outside corner:</text>
+            <text x="455" y="111" font-family="'Segoe UI',sans-serif" font-size="9" fill="#28a745" font-weight="700" text-anchor="middle">Ceiling edge → table ✓</text>
+            <line x1="390" y1="120" x2="520" y2="120" stroke="#ffc107" stroke-width="1" opacity="0.5"/>
+            <text x="455" y="134" font-family="'Segoe UI',sans-serif" font-size="9" fill="#888" text-anchor="middle">Inside corner:</text>
+            <text x="455" y="148" font-family="'Segoe UI',sans-serif" font-size="9" fill="#555" text-anchor="middle">Wall edge → table</text>
+          </svg>
+        </div>
+<h2>Outside vs Inside Corner: Key Difference</h2>
         <p>The miter and bevel angle <em>values</em> are the same as inside corners — but the molding orientation on the saw is <strong>flipped</strong>:</p>
         <ul>
             <li><strong>Inside corner:</strong> Bottom (wall) edge against the fence, top (ceiling) edge on the table</li>
@@ -296,7 +350,59 @@
         </ul>
         <p>The saw direction also mirrors — where an inside corner left piece gets a left miter, the outside corner left piece gets a right miter. Take your time setting this up on scrap first.</p>
 
-        <h2>Step-by-Step: Cutting Outside Corner Crown Molding</h2>
+        
+        <!-- 3D EXPLODED CORNER VIEW -->
+        <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:14px;padding:20px;margin:0 0 24px;">
+          <p style="font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#667eea;margin-bottom:14px;text-align:center;">📐 Outside Corner — How the Two Pieces Meet</p>
+          <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:500px;display:block;margin:0 auto;" role="img" aria-label="3D diagram showing how two crown molding pieces meet at an outside corner with mitered joints">
+            <defs>
+              <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e8e8f0"/>
+                <stop offset="100%" stop-color="#c8c8d8"/>
+              </linearGradient>
+            </defs>
+            <!-- Back wall face -->
+            <polygon points="220,30 420,30 420,220 220,220" fill="url(#wallGrad)" stroke="#ccc" stroke-width="1"/>
+            <!-- Side wall face -->
+            <polygon points="60,70 220,30 220,220 60,220" fill="#dddde8" stroke="#ccc" stroke-width="1"/>
+            <!-- Ceiling face -->
+            <polygon points="60,70 220,30 420,30 260,70" fill="#f0f0f8" stroke="#ccc" stroke-width="1"/>
+
+            <!-- PIECE 1 — runs along back wall -->
+            <polygon points="220,30 420,30 400,58 200,58" fill="#c8894a" opacity="0.9"/>
+            <polygon points="200,58 220,30 220,90 200,118" fill="#a06030" opacity="0.7"/>
+            <polygon points="200,58 400,58 400,88 200,88" fill="#e8a86a" opacity="0.85"/>
+            <text x="300" y="78" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">PIECE 1</text>
+            <text x="300" y="92" font-family="'Segoe UI',sans-serif" font-size="9" fill="white" text-anchor="middle" opacity="0.9">(back wall)</text>
+
+            <!-- PIECE 2 — runs along side wall -->
+            <polygon points="60,70 220,30 200,58 40,98" fill="#c8894a" opacity="0.9"/>
+            <polygon points="40,98 200,58 200,88 40,128" fill="#a06030" opacity="0.7"/>
+            <polygon points="40,98 40,128 200,88 200,118" fill="#e8a86a" opacity="0.7"/>
+            <text x="120" y="100" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">PIECE 2</text>
+            <text x="120" y="114" font-family="'Segoe UI',sans-serif" font-size="9" fill="white" text-anchor="middle" opacity="0.9">(side wall)</text>
+
+            <!-- Joint line -->
+            <line x1="200" y1="58" x2="200" y2="118" stroke="#fd7e14" stroke-width="2.5"/>
+            <circle cx="200" cy="58" r="5" fill="#fd7e14"/>
+            <text x="210" y="55" font-family="'Segoe UI',sans-serif" font-size="9" fill="#fd7e14" font-weight="700">Miter joint</text>
+
+            <!-- Angle arc -->
+            <path d="M 220,80 A 20 20 0 0 0 200,96" stroke="#667eea" stroke-width="1.5" fill="none"/>
+            <text x="230" y="95" font-family="'Segoe UI',sans-serif" font-size="10" fill="#667eea" font-weight="700">90°</text>
+
+            <!-- Labels -->
+            <text x="340" y="200" font-family="'Segoe UI',sans-serif" font-size="10" fill="#888" text-anchor="middle">Back wall</text>
+            <text x="100" y="200" font-family="'Segoe UI',sans-serif" font-size="10" fill="#888" text-anchor="middle">Side wall</text>
+
+            <!-- Note -->
+            <rect x="310" y="155" width="160" height="50" rx="8" fill="#f0f4ff" stroke="#667eea" stroke-width="1"/>
+            <text x="390" y="174" font-family="'Segoe UI',sans-serif" font-size="9" fill="#667eea" font-weight="700" text-anchor="middle">Both pieces same angles</text>
+            <text x="390" y="188" font-family="'Segoe UI',sans-serif" font-size="9" fill="#555" text-anchor="middle">mirrored direction on saw</text>
+            <text x="390" y="200" font-family="'Segoe UI',sans-serif" font-size="9" fill="#555" text-anchor="middle">(one left, one right)</text>
+          </svg>
+        </div>
+<h2>Step-by-Step: Cutting Outside Corner Crown Molding</h2>
 
         <h3>Step 1 — Measure the Corner Angle</h3>
         <p>Use a <a href="https://amzn.to/3Pcy4v8" target="_blank" rel="noopener nofollow sponsored">digital angle finder</a> or bevel gauge pressed into the corner. Even corners that look like 90° are often 89° or 91°. Write down the exact measurement.</p>

@@ -209,7 +209,76 @@
         <p>For <strong>outside corners</strong>, you must always miter — coping is not possible on outside corners.</p>
 
         <h2>Side-by-Side Comparison</h2>
-        <div class="compare-grid">
+        
+        <!-- SIDE-BY-SIDE VISUAL COMPARISON -->
+        <div style="margin:0 0 28px;">
+          <svg viewBox="0 0 580 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:580px;display:block;margin:0 auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.10);" role="img" aria-label="Side by side comparison showing a mitered crown molding joint with a gap versus a tight coped joint">
+            <defs>
+              <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#667eea"/>
+                <stop offset="100%" stop-color="#764ba2"/>
+              </linearGradient>
+            </defs>
+            <!-- Background panels -->
+            <rect width="280" height="280" fill="#fff8f0" rx="12"/>
+            <rect x="300" width="280" height="280" fill="#f0fff4" rx="12"/>
+            <!-- Divider -->
+            <rect x="276" width="28" height="280" fill="url(#purpleGrad)"/>
+            <text x="290" y="148" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle" transform="rotate(-90,290,148)">VS</text>
+
+            <!-- LEFT: MITERED — gap diagram -->
+            <text x="140" y="28" font-family="'Segoe UI',sans-serif" font-size="14" font-weight="700" fill="#fd7e14" text-anchor="middle">❌ Mitered Inside Corner</text>
+            <text x="140" y="46" font-family="'Segoe UI',sans-serif" font-size="10" fill="#888" text-anchor="middle">Opens as wood moves with humidity</text>
+
+            <!-- Wall corner -->
+            <line x1="60" y1="200" x2="60" y2="90" stroke="#ccc" stroke-width="3"/>
+            <line x1="60" y1="200" x2="230" y2="200" stroke="#ccc" stroke-width="3"/>
+            <!-- Left molding piece -->
+            <polygon points="60,90 60,110 180,170 180,150" fill="#c8894a" opacity="0.85"/>
+            <polygon points="60,90 60,110 62,112 62,92" fill="#e8a86a" opacity="0.6"/>
+            <!-- Right molding piece — with gap -->
+            <polygon points="82,90 82,110 230,170 230,150" fill="#c8894a" opacity="0.85"/>
+            <polygon points="82,90 82,110 84,112 84,92" fill="#e8a86a" opacity="0.6"/>
+            <!-- Gap highlight -->
+            <polygon points="60,90 82,90 82,110 60,110" fill="#ff4500" opacity="0.25"/>
+            <line x1="60" y1="80" x2="82" y2="80" stroke="#ff4500" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <line x1="60" y1="80" x2="60" y2="90" stroke="#ff4500" stroke-width="1.5"/>
+            <line x1="82" y1="80" x2="82" y2="90" stroke="#ff4500" stroke-width="1.5"/>
+            <text x="71" y="76" font-family="'Segoe UI',sans-serif" font-size="9" fill="#ff4500" font-weight="700" text-anchor="middle">GAP</text>
+            <!-- Paint crack lines -->
+            <line x1="71" y1="90" x2="68" y2="105" stroke="#cc3300" stroke-width="1" stroke-dasharray="2,2" opacity="0.7"/>
+            <line x1="71" y1="90" x2="74" y2="108" stroke="#cc3300" stroke-width="1" stroke-dasharray="2,2" opacity="0.7"/>
+
+            <text x="140" y="230" font-family="'Segoe UI',sans-serif" font-size="10" fill="#888" text-anchor="middle">Gap opens as wood expands/contracts</text>
+            <text x="140" y="246" font-family="'Segoe UI',sans-serif" font-size="10" fill="#888" text-anchor="middle">Wall imperfections show immediately</text>
+            <rect x="50" y="254" width="180" height="18" rx="9" fill="rgba(255,69,0,0.1)" stroke="rgba(255,69,0,0.3)" stroke-width="1"/>
+            <text x="140" y="267" font-family="'Segoe UI',sans-serif" font-size="10" fill="#fd7e14" font-weight="700" text-anchor="middle">Use only on near-perfect square walls</text>
+
+            <!-- RIGHT: COPED — tight joint -->
+            <text x="440" y="28" font-family="'Segoe UI',sans-serif" font-size="14" font-weight="700" fill="#28a745" text-anchor="middle">✅ Coped Inside Corner</text>
+            <text x="440" y="46" font-family="'Segoe UI',sans-serif" font-size="10" fill="#888" text-anchor="middle">Stays tight as wood moves — no gaps</text>
+
+            <!-- Wall corner -->
+            <line x1="360" y1="200" x2="360" y2="90" stroke="#ccc" stroke-width="3"/>
+            <line x1="360" y1="200" x2="530" y2="200" stroke="#ccc" stroke-width="3"/>
+            <!-- First piece — butts into corner square cut -->
+            <polygon points="360,90 360,110 480,170 480,150" fill="#c8894a" opacity="0.85"/>
+            <!-- Second piece — coped to wrap over first -->
+            <polygon points="360,90 360,110 480,170 480,150" fill="#667eea" opacity="0.30"/>
+            <polygon points="362,90 380,93 500,153 480,150" fill="#667eea" opacity="0.5"/>
+            <!-- Tight joint indicator -->
+            <circle cx="362" cy="100" r="8" fill="none" stroke="#28a745" stroke-width="2"/>
+            <text x="362" y="104" font-family="'Segoe UI',sans-serif" font-size="10" fill="#28a745" font-weight="700" text-anchor="middle">✓</text>
+            <line x1="372" y1="100" x2="395" y2="88" stroke="#28a745" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <text x="420" y="85" font-family="'Segoe UI',sans-serif" font-size="9" fill="#28a745" font-weight="700" text-anchor="middle">Tight fit</text>
+
+            <text x="440" y="230" font-family="'Segoe UI',sans-serif" font-size="10" fill="#888" text-anchor="middle">Joint stays tight regardless of wall angle</text>
+            <text x="440" y="246" font-family="'Segoe UI',sans-serif" font-size="10" fill="#888" text-anchor="middle">Works on out-of-square walls</text>
+            <rect x="350" y="254" width="180" height="18" rx="9" fill="rgba(40,167,69,0.1)" stroke="rgba(40,167,69,0.3)" stroke-width="1"/>
+            <text x="440" y="267" font-family="'Segoe UI',sans-serif" font-size="10" fill="#28a745" font-weight="700" text-anchor="middle">Professional method — use this</text>
+          </svg>
+        </div>
+<div class="compare-grid">
             <div class="compare-card miter">
                 <h3>🔀 Mitering</h3>
                 <ul>
