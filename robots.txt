@@ -1,4 +1,14 @@
+# Global directives for all search engine crawlers
 User-agent: *
 Allow: /
 
-Sitemap: https://crownmoldingangles.github.io
+# Block access to system files, source files, and temporary assets
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /README.md
+Disallow: /.github/
+Disallow: /.git/
+
+# Point crawlers directly to your XML sitemap
+Sitemap: https://crownmoldingangles.github.io/sitemap.xml
